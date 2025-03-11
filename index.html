@@ -4,184 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lifetoja Holdings - Investimento em Alavancagem de Bitcoin</title>
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
   <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Corpo da página */
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
       background-color: #f4f4f4;
       color: #333;
     }
 
-    /* Container centralizado */
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
     }
 
-    /* Cabeçalho */
-    header {
+    header, footer {
       background-color: #222;
       color: #fff;
+      text-align: center;
       padding: 20px 0;
-      text-align: center;
     }
 
-    header h1 {
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-bottom: 15px;
-    }
-
-    /* Menu de navegação */
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* Seções */
     .section {
-      padding: 40px 0;
       background-color: #fff;
+      padding: 40px 0;
       margin-bottom: 20px;
     }
 
-    .section h2 {
+    h2, h3 {
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 2em;
       color: #222;
     }
 
-    /* Produtos */
     .produto {
       margin-bottom: 30px;
     }
 
-    .produto h3 {
-      color: #555;
-      margin-bottom: 10px;
-    }
-
     .produto ul {
-      margin-left: 20px;
       list-style-type: disc;
+      margin-left: 20px;
       margin-bottom: 10px;
     }
 
-    /* Rodapé */
-    footer {
-      background-color: #222;
+    .aviso {
+      background-color: #ffdddd;
+      border-left: 4px solid #d9534f;
+      color: #a94442;
+      padding: 10px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .mint-btn {
+      display: inline-block;
+      background-color: #28a745;
       color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
       text-align: center;
-      padding: 15px 0;
+      margin-top: 10px;
+    }
+
+    .mint-btn:hover {
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
-  <!-- Cabeçalho com menu -->
   <header>
     <div class="container">
       <h1>Lifetoja Holdings</h1>
       <p>Investimento Seguro e Alavancado em Bitcoin</p>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#operacoes">Operações</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
   <main>
-    <!-- Seção Sobre -->
-    <section id="sobre" class="section">
-      <div class="container">
-        <h2>Sobre a Lifetoja Holdings</h2>
-        <p>
-          A Lifetoja Holdings atua na alavancagem de Bitcoin, realizando operações diretamente na Binance.
-          Nosso foco é investir de forma segura e transparente, sempre com o compromisso de honrar os pagamentos aos investidores.
-        </p>
-      </div>
-    </section>
-
-    <!-- Seção Produtos -->
-    <section id="produtos" class="section">
+    <section class="section">
       <div class="container">
         <h2>Produtos NFT</h2>
-        <!-- NFTs de Renda Fixa -->
+
         <div class="produto">
           <h3>NFTs de Renda Fixa</h3>
-          <p>
-            Esses NFTs funcionam como debêntures DeFi, garantindo pagamentos pré-fixados:
-          </p>
+          <p>Esses NFTs funcionam como debêntures DeFi, garantindo pagamentos pré-fixados:</p>
           <ul>
-            <li>NFT 1: Recebe 2 USDC em <strong>28/02/2025</strong></li>
+            <li>NFT 1: Recebe 2 USDC em <strong>31/12/2025</strong></li>
+            <a href="#" class="mint-btn" onclick="mintNFT(2)">Mintar NFT 1</a>
+
             <li>NFT 2: Recebe 3 USDC em 31/12/2026</li>
+            <a href="#" class="mint-btn" onclick="mintNFT(3)">Mintar NFT 2</a>
+
             <li>NFT 3: Recebe 4 USDC em 31/12/2027</li>
+            <a href="#" class="mint-btn" onclick="mintNFT(4)">Mintar NFT 3</a>
+
             <li>NFT 4: Recebe 5 USDC em 31/12/2029</li>
+            <a href="#" class="mint-btn" onclick="mintNFT(5)">Mintar NFT 4</a>
           </ul>
-          <p>
-            Com esse modelo, você tem previsibilidade e segurança nos pagamentos.
-          </p>
         </div>
-        <!-- NFTs de Renda Variável -->
+
         <div class="produto">
           <h3>NFTs de Renda Variável</h3>
           <p>
-            Cada USDC investido confere 1 "share", dando ao detentor participação dinâmica nos lucros das operações, semelhante a dividendos.
+            Cada USDC investido confere 1 "share", oferecendo ao detentor participação dinâmica nos lucros das operações.
           </p>
+          <div class="aviso">
+            ⚠️ Os NFTs de Renda Variável não possuem garantia de pagamento nem data fixa para recebimento.  
+            Os pagamentos dependem exclusivamente dos resultados financeiros da empresa.
+          </div>
+          <a href="#" class="mint-btn" onclick="mintNFT(0)">Mintar NFT de Renda Variável</a>
         </div>
-      </div>
-    </section>
-
-    <!-- Seção Operações -->
-    <section id="operacoes" class="section">
-      <div class="container">
-        <h2>Operações na Binance</h2>
-        <p>
-          Todas as operações financeiras e investimentos são realizados na Binance, garantindo alta liquidez e confiabilidade para os nossos investidores.
-        </p>
-      </div>
-    </section>
-
-    <!-- Seção Contato -->
-    <section id="contato" class="section">
-      <div class="container">
-        <h2>Contato</h2>
-        <p>
-          Para mais informações, entre em contato conosco através do e-mail: <a href="mailto:contato@lifetojaholdings.com">contato@lifetojaholdings.com</a>
-        </p>
       </div>
     </section>
   </main>
 
-  <!-- Rodapé -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Lifetoja Holdings. Todos os direitos reservados.</p>
@@ -189,17 +124,29 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Bem-vindo ao site da Lifetoja Holdings!');
-
-      // Exibe uma mensagem ao clicar no botão de contato
-      const contatoLink = document.querySelector('a[href^="mailto:"]');
-      if (contatoLink) {
-        contatoLink.addEventListener('click', function() {
-          alert('Obrigado pelo seu interesse! Em breve entraremos em contato.');
-        });
+    async function mintNFT(amount) {
+      if (!window.ethereum) {
+        alert('MetaMask não está instalado. Instale para prosseguir.');
+        return;
       }
-    });
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+
+      try {
+        await provider.send("eth_requestAccounts", []); // Solicita conexão com MetaMask
+
+        const transaction = await signer.sendTransaction({
+          to: "0x5935181a636ab0472c1a1ce5e1ecb6261cd29a84", // Endereço que receberá os fundos
+          value: ethers.utils.parseUnits(amount.toString(), "ether") // Converte USDC simuladamente
+        });
+
+        alert(`NFT mintado com sucesso! Hash da transação: ${transaction.hash}`);
+      } catch (error) {
+        console.error("Erro ao mintar NFT:", error);
+        alert("Erro ao mintar NFT. Verifique sua carteira e tente novamente.");
+      }
+    }
   </script>
 </body>
 </html>
