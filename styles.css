@@ -165,61 +165,6 @@ header {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* About Section */
-.about {
-    padding: 100px 0;
-    background-color: var(--white);
-}
-
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-}
-
-.about-image {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    object-fit: cover;
-    aspect-ratio: 4/3;
-}
-
-.about-image img:hover {
-    transform: scale(1.02);
-}
-
-.about-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-text h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.about-text p, .about-text ul {
-    margin-bottom: 15px;
-}
-
-.about-text ul {
-    padding-left: 20px;
-}
-
-.about-text li {
-    margin-bottom: 8px;
-}
-
 /* Services Section */
 .services {
     padding: 100px 0;
@@ -330,17 +275,83 @@ header {
     margin-bottom: 6px;
 }
 
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.about-text p, .about-text ul {
+    margin-bottom: 15px;
+}
+
+.about-text ul {
+    padding-left: 20px;
+}
+
+.about-text li {
+    margin-bottom: 8px;
+}
+
 /* Contact Section */
 .contact {
-    padding: 100px 0 60px;
-    background-color: #f9f9f9;
+    padding: 100px 0;
+    background-color: var(--white);
+  }
+  
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
 }
 
 .contact-content {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
+ 
 
 .contact-info {
     flex: 1;
