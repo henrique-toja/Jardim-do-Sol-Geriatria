@@ -55,71 +55,84 @@
         </div>
     </section>
 <section class="services">
-        <div class="service-content">
-<!-- Cuidado Section -->
-<section class="section" id="centro-dia">
-  <div class="container">
-    <div class="section-header">
-      <h2>Lar de Idosos</h2>
-    </div>
-    <div class="section-content">
-      <div class="section-media">
-        <img src="geriatria.jpg" alt="Cuidado Residencial">
-      </div>
-      <div class="section-text">
-        <h3>Acolhimento, Segurança, Saúde e Bem-estar</h3>
-        <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina cuidadosamente planejada para respeitar a individualidade e os gostos de cada residente.</p>
-        <ul>
-          <li>Jogos e dinâmicas de grupo para integração social</li>
-          <li>Estímulo à funcionalidade e às atividades de vida diária</li>
-          <li>Oficinas de memória e estímulos cognitivos</li>
-          <li>Alimentação balanceada com supervisão nutricional</li>
-          <li>Cuidados de enfermagem e suporte à saúde física e emocional</li>
-          <li>Também disponibilizamos Centro-Dia, Atendimento durante o dia com retorno à noite</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-      <h2>Acomodações</h2>
-    <div class="section-content">
-      <div class="section-media">
-        <div class="service-carousel">
-          <div class="carousel-slide active">
-            <img src="local.jpg" alt="Acomodações">
+  <div class="service-content">
+    
+    <!-- Seção Lar de Idosos -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Lar de Idosos</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <img src="geriatria.jpg" alt="Cuidado Residencial">
           </div>
-          <div class="carousel-slide">
-            <img src="quarto1.jpg" alt="Quarto Individual">
+          <div class="section-text">
+            <h3>Acolhimento, Segurança, Saúde e Bem-estar</h3>
+            <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina cuidadosamente planejada para respeitar a individualidade e os gostos de cada residente.</p>
+            <ul>
+              <li>Jogos e dinâmicas de grupo para integração social</li>
+              <li>Estímulo à funcionalidade e às atividades de vida diária</li>
+              <li>Oficinas de memória e estímulos cognitivos</li>
+              <li>Alimentação balanceada com supervisão nutricional</li>
+              <li>Cuidados de enfermagem e suporte à saúde física e emocional</li>
+              <li>Também disponibilizamos Centro-Dia, Atendimento durante o dia com retorno à noite</li>
+            </ul>
           </div>
-          <div class="carousel-slide">
-            <img src="quarto2.jpg" alt="Quarto Duplo">
-          </div>
-          <button class="carousel-prev" aria-label="Anterior">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="carousel-next" aria-label="Próximo">
-            <i class="fas fa-chevron-right"></i>
-          </button>
         </div>
       </div>
-      <div class="section-text">
-        <h3>Conforto e Bem-estar</h3>
-        <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
-        <ul>
-          <li>Quartos individuais, duplos e triplos</li>
-          <li>Serviço de lavanderia e rouparia</li>
-          <li>Ambientes climatizados e seguros</li>
-          <li>Hospedagem de longa e curta permanência</li>
-        </ul>
+    </div>
+
+    <!-- Seção Acomodações -->
+    <div class="section" id="acomodacoes">
+      <div class="container">
+        <div class="section-header">
+          <h2>Acomodações</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <div class="service-carousel">
+              <div class="carousel-slide active">
+                <img src="local.jpg" alt="Acomodações">
+              </div>
+              <div class="carousel-slide">
+                <img src="quarto1.jpg" alt="Quarto Individual">
+              </div>
+              <div class="carousel-slide">
+                <img src="quarto2.jpg" alt="Quarto Duplo">
+              </div>
+              <button class="carousel-prev" aria-label="Anterior">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-next" aria-label="Próximo">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="section-text">
+            <h3>Conforto e Bem-estar</h3>
+            <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
+            <ul>
+              <li>Quartos individuais, duplos e triplos</li>
+              <li>Serviço de lavanderia e rouparia</li>
+              <li>Ambientes climatizados e seguros</li>
+              <li>Hospedagem de longa e curta permanência</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
-</div>
 </section>
-<!-- Carousel Auto-Rotate Script -->
+
+<!-- Script para Carrossel -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('#acomodacoes .service-carousel');
+    const carousel = document.querySelector('.service-carousel');
     const slides = carousel.querySelectorAll('.carousel-slide');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const prevBtn = carousel.querySelector('.carousel-prev');
     let currentIndex = 0;
 
     function showSlide(index) {
@@ -133,6 +146,13 @@
       showSlide(currentIndex);
     }
 
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
     setInterval(nextSlide, 6000);
   });
 </script>
