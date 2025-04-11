@@ -58,8 +58,9 @@
             height: 60px;
             border-radius: 8px;
         }
-
-        .logo-text {
+.logo-text {
+    text-align: center;
+} {
             margin-left: 10px;
         }
 
