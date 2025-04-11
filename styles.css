@@ -356,6 +356,7 @@ header {
 .contact-info {
     flex: 1;
     min-width: 300px;
+    text-align: center; /* Centraliza o texto */
 }
 
 .contact-info h3 {
@@ -369,6 +370,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    align-items: center; /* Centraliza os itens na lista */
+    justify-content: center;
 }
 
 .contact-btn {
@@ -383,6 +386,7 @@ header {
     font-weight: 600;
     transition: background-color 0.3s ease;
     width: fit-content;
+    margin: 0 auto; /* Centraliza o botão */
 }
 
 .contact-btn:hover {
@@ -392,9 +396,11 @@ header {
 
 .address-block {
     display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
     gap: 15px;
-    align-items: flex-start;
+    align-items: center; /* Centraliza o bloco de endereço */
     margin-top: 15px;
+    text-align: center; /* Centraliza o texto */
 }
 
 .address-block i {
@@ -417,6 +423,7 @@ header {
     gap: 5px;
     margin-top: 8px;
     font-weight: 600;
+    justify-content: center; /* Centraliza o link */
 }
 
 .map-link:hover {
@@ -426,6 +433,7 @@ header {
 .contact-map {
     flex: 1;
     min-width: 300px;
+    text-align: center; /* Centraliza o conteúdo do mapa */
 }
 
 .map-container {
@@ -433,6 +441,105 @@ header {
     overflow: hidden;
     box-shadow: var(--shadow);
     height: 400px;
+    margin: 0 auto; /* Centraliza o contêiner do mapa */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: center; /* Centraliza o texto */
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Centraliza os itens na lista */
+    justify-content: center;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    margin: 0 auto; /* Centraliza o botão */
+}
+
+.contact-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.address-block {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    gap: 15px;
+    align-items: center; /* Centraliza o bloco de endereço */
+    margin-top: 15px;
+    text-align: center; /* Centraliza o texto */
+}
+
+.address-block i {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.address-block p {
+    margin: 5px 0;
+    line-height: 1.5;
+    color: #444;
+}
+
+.map-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-weight: 600;
+    justify-content: center; /* Centraliza o link */
+}
+
+.map-link:hover {
+    text-decoration: underline;
+}
+
+.contact-map {
+    flex: 1;
+    min-width: 300px;
+    text-align: center; /* Centraliza o conteúdo do mapa */
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 400px;
+    margin: 0 auto; /* Centraliza o contêiner do mapa */
 }
 
 .map-container iframe {
