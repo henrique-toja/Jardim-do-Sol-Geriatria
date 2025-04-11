@@ -531,6 +531,27 @@ footer {
     }
 }
 
+/* Video Section */
+.video {
+    padding: 100px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.video-container {
+    max-width: 1200px; /* Padrão de largura máxima do .container */
+    margin: 0 auto; /* Centraliza o vídeo */
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%; /* Garante que o vídeo ocupe toda a largura do contêiner */
+    height: auto; /* Mantém a proporção do vídeo */
+    border-radius: 10px;
+}
+
 .video .about-text {
     margin-top: 20px;
     font-size: 16px;
