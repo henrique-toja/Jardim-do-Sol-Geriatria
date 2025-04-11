@@ -80,8 +80,77 @@
     </div>
   </div>
 </section>
+<section class="section" id="centro-dia">
+  <div class="container">
+    <div class="section-header">
+      <h2>Lar de Idosos</h2>
+    </div>
+    <div class="section-content">
+      <div class="section-media">
+        <img src="geriatria.jpg" alt="Cuidado Residencial">
+      </div>
+      <div class="section-text">
+   <!-- Acomodações Section -->
+<section class="section" id="acomodacoes">
+  <div class="container">
+    <div class="section-header">
+      <h2>Acomodações</h2>
+    </div>
+    <div class="section-content">
+      <div class="section-media">
+        <div class="service-carousel">
+          <div class="carousel-slide active">
+            <img src="local.jpg" alt="Acomodações">
+          </div>
+          <div class="carousel-slide">
+            <img src="quarto1.jpg" alt="Quarto Individual">
+          </div>
+          <div class="carousel-slide">
+            <img src="quarto2.jpg" alt="Quarto Duplo">
+          </div>
+          <button class="carousel-prev" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-next" aria-label="Próximo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="section-text">
+        <h3>Conforto e Bem-estar</h3>
+        <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
+        <ul>
+          <li>Quartos individuais, duplos e triplos</li>
+          <li>Serviço de lavanderia e rouparia</li>
+          <li>Ambientes climatizados e seguros</li>
+          <li>Hospedagem de longa e curta permanência</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Carousel Auto-Rotate Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('#acomodacoes .service-carousel');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    let currentIndex = 0;
 
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 6000);
+  });
+</script>
 
  <!-- Services Section -->
 <section class="services" id="services">
@@ -113,38 +182,8 @@
   </div>
 </div>
 
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-carousel">
-          <div class="carousel-slide active">
-            <img src="local.jpg" alt="Acomodações">
-          </div>
-          <div class="carousel-slide">
-            <img src="quarto1.jpg" alt="Quarto Individual">
-          </div>
-          <div class="carousel-slide">
-            <img src="quarto2.jpg" alt="Quarto Duplo">
-          </div>
-          <button class="carousel-prev" aria-label="Anterior">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="carousel-next" aria-label="Próximo">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-        <div class="service-content">
-          <h3>Acomodações</h3>
-          <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
-          <ul>
-            <li>Quartos individuais, duplos e triplos</li>
-            <li>Serviço de lavanderia e rouparia</li>
-            <li>Ambientes climatizados e seguros</li>
-            <li>Hospedagem de longa e curta permanência</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- Service 3 -->
+      <!-- Service 2 -->
       <div class="service-card">
         <div class="service-carousel">
           <div class="carousel-slide active">
@@ -165,7 +204,7 @@
         </div>
       </div>
 
-      <!-- Service 4 - Pós-Cirúrgico -->
+      <!-- Service 3 - Pós-Cirúrgico -->
       <div class="service-card">
         <div class="service-carousel">
           <div class="carousel-slide active">
