@@ -17,15 +17,21 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
-    color: var(--text-color);
-    line-height: 1.6;
+    flex: 1;
 }
+
+main {
+    flex: 1;
+}
+
+
 
 .container {
     max-width: 1200px;
@@ -559,39 +565,3 @@ footer {
     line-height: 1.6;
     text-align: center;
 }
-
-/* JavaScript para o funcionamento do carrossel */
-document.addEventListener('DOMContentLoaded', function() {
-    const carousels = document.querySelectorAll('.service-carousel');
-    
-    carousels.forEach(carousel => {
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const nextButton = carousel.querySelector('.carousel-next');
-        const prevButton = carousel.querySelector('.carousel-prev');
-        
-        if (slides.length <= 1) return;
-        
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        if (nextButton) nextButton.addEventListener('click', nextSlide);
-        if (prevButton) prevButton.addEventListener('click', prevSlide);
-        
-        // Carousel automático
-        setInterval(nextSlide, 5000);
-    });
-});
