@@ -275,59 +275,63 @@ header {
     margin-bottom: 6px;
 }
 
-/* About Section */
-.about {
+/* Seções genéricas com layout espelhado */
+.section {
     padding: 100px 0;
     background-color: var(--white);
 }
 
-.about-content {
+.section-content {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.about-image {
+/* Mídia: imagem ou vídeo */
+.section-media {
     flex: 1;
     min-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
-.about-image img {
+.section-media img,
+.section-media video {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
     object-fit: cover;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
+    transition: var(--transition);
 }
 
-.about-image img:hover {
+.section-media img:hover {
     transform: scale(1.02);
 }
 
-.about-text {
+/* Texto padrão */
+.section-text {
     flex: 1;
     min-width: 300px;
 }
 
-.about-text h3 {
+.section-text h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-.about-text p, .about-text ul {
+.section-text p,
+.section-text ul {
     margin-bottom: 15px;
 }
 
-.about-text ul {
+.section-text ul {
     padding-left: 20px;
-}
-
-.about-text li {
-    margin-bottom: 8px;
 }
 
 /* Contact Section */
@@ -655,31 +659,3 @@ footer {
     }
 }
 
-/* Video Section */
-.video {
-    padding: 100px 20px;
-    background-color: var(--light-bg);
-    text-align: center;
-}
-
-.video-container {
-    max-width: 1200px; /* Padrão de largura máxima do .container */
-    margin: 0 auto; /* Centraliza o vídeo */
-    box-shadow: var(--shadow);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.video-container video {
-    width: 100%; /* Garante que o vídeo ocupe toda a largura do contêiner */
-    height: auto; /* Mantém a proporção do vídeo */
-    border-radius: 10px;
-}
-
-.video .about-text {
-    margin-top: 20px;
-    font-size: 16px;
-    color: var(--text-color);
-    line-height: 1.6;
-    text-align: center;
-}
