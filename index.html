@@ -1,554 +1,533 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardim do Sol - Residencial Geriátrico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Estilos CSS */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            line-height: 1.6;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardim do Sol - Residencial Geriátrico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset e estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        header {
-            background-color: #2e7d32;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
+    /* Header fixo e responsivo */
+    header {
+      background-color: #003f5c;
+      color: #fff;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    header.scrolled {
+      background-color: #002d42;
+    }
+    header h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #f9a825;
+    }
 
-        header.scrolled {
-            background-color: #1b5e20;
-        }
+    /* Seção Hero */
+    #hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1593115057326-90ce2d77f282?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    #hero .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    #hero h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+    #hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background-color: #f9a825;
+      color: #003f5c;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #e69100;
+    }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    /* Seções de conteúdo */
+    section {
+      background-color: #fff;
+      margin: 100px auto 40px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    section:nth-of-type(even) {
+      background-color: #f7f7f7;
+    }
+    section h2 {
+      color: #003f5c;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
+    /* Serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service-item {
+      text-align: center;
+      padding: 20px;
+      background-color: #e8eef1;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .service-item i {
+      font-size: 3rem;
+      color: #003f5c;
+      margin-bottom: 15px;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
+    /* Galeria */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 5px;
+    }
 
-        nav ul li a:hover {
-            color: #ffd700;
-        }
+    /* Depoimentos */
+    #testimonials {
+      background-color: #e8eef1;
+      padding: 60px 20px;
+    }
+    .testimonial-carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .testimonial-item {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+    .testimonial-item.active {
+      display: block;
+    }
+    .testimonial-item p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .testimonial-item cite {
+      font-weight: bold;
+      color: #003f5c;
+    }
 
-        #hero {
-            background: url('https://images.unsplash.com/photo-1593115057326-90ce2d77f282?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
+    /* Formulário de Contato */
+    #contact p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    form label {
+      width: 100%;
+      max-width: 500px;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    form input, form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    form button {
+      background-color: #003f5c;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background-color: #002d42;
+    }
 
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #003f5c;
+      color: #fff;
+    }
 
-        #hero h2, #hero p {
-            position: relative;
-            z-index: 1;
-        }
+    /* Botões Flutuantes */
+    .whatsapp-btn, .back-to-top {
+      position: fixed;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-btn {
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+    .back-to-top {
+      bottom: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      background-color: #003f5c;
+      cursor: pointer;
+    }
+    .back-to-top:hover {
+      background-color: #002d42;
+    }
 
-        #hero h2 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        #hero p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .cta-button {
-            background-color: #ffd700;
-            color: #2e7d32;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #e6c200;
-        }
-
-        section {
-            padding: 60px 20px;
-            margin: 20px auto;
-            max-width: 1200px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section h2 {
-            color: #2e7d32;
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .service-item {
-            text-align: center;
-            padding: 20px;
-            background-color: #f1f8e9;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-item i {
-            font-size: 3em;
-            color: #2e7d32;
-            margin-bottom: 15px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-grid img:hover {
-            transform: scale(1.05);
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 5px;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        #testimonials {
-            background-color: #f1f8e9;
-            padding: 60px 20px;
-        }
-
-        .testimonial-carousel {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .testimonial-item {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .testimonial-item.active {
-            display: block;
-        }
-
-        .testimonial-item p {
-            font-size: 1.2em;
-            font-style: italic;
-        }
-
-        .testimonial-item cite {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #2e7d32;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        form label {
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            max-width: 500px;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        form button {
-            background-color: #2e7d32;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #1b5e20;
-        }
-
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 24px;
-            text-decoration: none;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #2e7d32;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            display: none;
-            z-index: 1000;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-to-top:hover {
-            background-color: #1b5e20;
-        }
-
-        #loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 3000;
-        }
-
-        .spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #2e7d32;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin: 10px 0;
-            }
-
-            #hero h2 {
-                font-size: 2em;
-            }
-
-            #hero p {
-                font-size: 1.2em;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .whatsapp-btn, .back-to-top {
-                bottom: 10px;
-                padding: 10px;
-                font-size: 20px;
-            }
-        }
-    </style>
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      #hero h2 {
+        font-size: 2.2rem;
+      }
+      #hero p {
+        font-size: 1.2rem;
+      }
+      .whatsapp-btn, .back-to-top {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Animação de Carregamento -->
-    <div id="loading">
-        <div class="spinner"></div>
+  <!-- Carregamento Inicial -->
+  <div id="loading" style="position: fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; z-index:3000;">
+    <div class="spinner" style="border:8px solid #f3f3f3; border-top:8px solid #003f5c; border-radius:50%; width:50px; height:50px; animation: spin 1s linear infinite;"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Jardim do Sol</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#about">Sobre Nós</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#testimonials">Depoimentos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Bem-vindo ao Jardim do Sol</h2>
+      <p>Cuidando com carinho e dedicação da terceira idade.</p>
+      <a href="#contact" class="cta-button">Entre em Contato</a>
     </div>
+  </section>
 
-    <header>
-        <h1>Jardim do Sol</h1>
-        <nav>
-            <ul>
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#about">Sobre Nós</a></li>
-                <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#testimonials">Depoimentos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero">
-        <h2>Bem-vindo ao Jardim do Sol</h2>
-        <p>Cuidando com carinho e dedicação da terceira idade.</p>
-        <a href="#contact" class="cta-button">Entre em Contato</a>
-    </section>
-
-    <!-- Serviços -->
-    <section id="services">
-        <h2>Nossos Serviços</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-user-md"></i>
-                <h3>Médico Geriatra</h3>
-                <p>Atendimento especializado para a saúde do idoso.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-heartbeat"></i>
-                <h3>Fisioterapia</h3>
-                <p>Reabilitação e bem-estar físico.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-stethoscope"></i>
-                <h3>Enfermagem 24 Horas</h3>
-                <p>Cuidados contínuos para garantir segurança e conforto.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-hands-helping"></i>
-                <h3>Acompanhante Terapêutico</h3>
-                <p>Suporte emocional e social personalizado.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-home"></i>
-                <h3>Atendimento Domiciliar</h3>
-                <p>Cuidados levados até a residência do cliente.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre Nós -->
-    <section id="about">
-        <h2>Sobre Nós</h2>
-        <p>O Jardim do Sol é um residencial geriátrico dedicado ao bem-estar e à qualidade de vida dos idosos. Localizada em Porto Alegre, nossa equipe qualificada trabalha com carinho e profissionalismo para oferecer o melhor cuidado possível.</p>
-        <img src="https://images.unsplash.com/photo-1584515979956-cb69488c6a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe de cuidadores">
-    </section>
-
-    <!-- Galeria -->
-    <section id="gallery">
-        <h2>Galeria</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ambiente interno" onclick="openLightbox(this.src)">
-            <img src="https://images.unsplash.com/photo-15845161509-849b908dba25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Atividade em grupo" onclick="openLightbox(this.src)">
-            <img src="https://images.unsplash.com/photo-1593113630400-82b0b2d325bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardim externo" onclick="openLightbox(this.src)">
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" onclick="closeLightbox()">
-        <img src="" alt="Imagem ampliada">
+  <!-- Serviços -->
+  <section id="services">
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <i class="fas fa-user-md"></i>
+        <h3>Médico Geriatra</h3>
+        <p>Atendimento especializado para a saúde do idoso.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Fisioterapia</h3>
+        <p>Reabilitação e bem-estar físico.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-stethoscope"></i>
+        <h3>Enfermagem 24h</h3>
+        <p>Cuidados contínuos para garantir segurança e conforto.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-hands-helping"></i>
+        <h3>Acompanhamento Terapêutico</h3>
+        <p>Suporte emocional e social personalizado.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-home"></i>
+        <h3>Atendimento Domiciliar</h3>
+        <p>Cuidados levados até a residência do cliente.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Depoimentos -->
-    <section id="testimonials">
-        <h2>Depoimentos</h2>
-        <div class="testimonial-carousel">
-            <div class="testimonial-item active">
-                <p>"Minha mãe está muito feliz no Jardim do Sol. O atendimento é excepcional!"</p>
-                <cite>- Maria S.</cite>
-            </div>
-            <div class="testimonial-item">
-                <p>"Excelente cuidado e atenção com os idosos. Recomendo!"</p>
-                <cite>- João P.</cite>
-            </div>
-            <div class="testimonial-item">
-                <p>"Um lugar acolhedor e seguro para nossos entes queridos."</p>
-                <cite>- Ana R.</cite>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contact">
-        <h2>Contato</h2>
-        <p>Entre em contato conosco para mais informações.</p>
-        <p><strong>Endereço:</strong> Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS</p>
-        <p><strong>Telefones:</strong> (51) 3307.6000 e (51) 99889.9151</p>
-        <p><strong>Email:</strong> jardimdosolgeriatria@gmail.com</p>
-        <p><strong>Facebook:</strong> <a href="https://facebook.com/JardimdoSol">facebook.com/JardimdoSol</a></p>
-        <form id="contact-form">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Mensagem:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2023 Jardim do Sol. Todos os direitos reservados.</p>
-    </footer>
-
-    <!-- Botão WhatsApp -->
-    <a href="https://wa.me/555197879151" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Botão Voltar ao Topo -->
-    <div class="back-to-top" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
+  <!-- Sobre Nós -->
+  <section id="about">
+    <h2>Sobre Nós</h2>
+    <p style="max-width:800px; margin:0 auto 20px; text-align: center;">
+      O Jardim do Sol é um residencial geriátrico dedicado ao bem-estar e qualidade de vida dos idosos. Localizado em Porto Alegre, nossa equipe altamente qualificada alia profissionalismo e carinho na prestação de cuidados.
+    </p>
+    <div style="display: flex; justify-content: center;">
+      <img src="https://images.unsplash.com/photo-1584515979956-cb69488c6a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe de cuidadores" style="max-width:100%; border-radius:8px;">
     </div>
+  </section>
 
-    <script>
-        // Navegação Fixa
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 0);
-        });
+  <!-- Galeria -->
+  <section id="gallery">
+    <h2>Galeria</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ambiente interno" onclick="openLightbox(this.src)">
+      <img src="https://images.unsplash.com/photo-15845161509-849b908dba25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Atividade em grupo" onclick="openLightbox(this.src)">
+      <img src="https://images.unsplash.com/photo-1593113630400-82b0b2d325bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardim externo" onclick="openLightbox(this.src)">
+    </div>
+  </section>
 
-        // Botão Voltar ao Topo
-        const backToTopButton = document.querySelector('.back-to-top');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
+  <!-- Lightbox -->
+  <div class="lightbox" onclick="closeLightbox()">
+    <img src="" alt="Imagem ampliada">
+  </div>
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+  <!-- Depoimentos -->
+  <section id="testimonials">
+    <h2>Depoimentos</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-item active">
+        <p>"Minha mãe está muito feliz no Jardim do Sol. O atendimento é excepcional!"</p>
+        <cite>- Maria S.</cite>
+      </div>
+      <div class="testimonial-item">
+        <p>"Excelente cuidado e atenção com os idosos. Recomendo!"</p>
+        <cite>- João P.</cite>
+      </div>
+      <div class="testimonial-item">
+        <p>"Um lugar acolhedor e seguro para nossos entes queridos."</p>
+        <cite>- Ana R.</cite>
+      </div>
+    </div>
+  </section>
 
-        // Lightbox
-        function openLightbox(src) {
-            const lightbox = document.querySelector('.lightbox');
-            const lightboxImg = lightbox.querySelector('img');
-            lightboxImg.src = src;
-            lightbox.classList.add('active');
-        }
+  <!-- Contato -->
+  <section id="contact">
+    <h2>Contato</h2>
+    <p>Entre em contato conosco para mais informações.</p>
+    <p style="text-align: center;">
+      <strong>Endereço:</strong> Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS
+    </p>
+    <p style="text-align: center;">
+      <strong>Telefones:</strong> (51) 3307.6000 &bull; (51) 99889.9151
+    </p>
+    <p style="text-align: center;">
+      <strong>Email:</strong> jardimdosolgeriatria@gmail.com
+    </p>
+    <p style="text-align: center;">
+      <strong>Facebook:</strong> <a href="https://facebook.com/JardimdoSol" target="_blank">facebook.com/JardimdoSol</a>
+    </p>
+    <form id="contact-form">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-        function closeLightbox() {
-            const lightbox = document.querySelector('.lightbox');
-            lightbox.classList.remove('active');
-        }
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 Jardim do Sol. Todos os direitos reservados.</p>
+  </footer>
 
-        // Carrossel de Depoimentos
-        const testimonialItems = document.querySelectorAll('.testimonial-item');
-        let currentTestimonial = 0;
+  <!-- Botões Flutuantes -->
+  <a href="https://wa.me/555197879151" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <div class="back-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></div>
 
-        function showNextTestimonial() {
-            testimonialItems[currentTestimonial].classList.remove('active');
-            currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
-            testimonialItems[currentTestimonial].classList.add('active');
-        }
+  <!-- Scripts -->
+  <script>
+    // Alteração do header no scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 0);
 
-        setInterval(showNextTestimonial, 5000);
+      // Botão voltar ao topo
+      const backToTopButton = document.querySelector('.back-to-top');
+      backToTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
 
-        // Formulário de Contato com Validação
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso!');
-            form.reset();
-        });
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-        // Animação de Carregamento
-        window.addEventListener('load', function() {
-            const loading = document.getElementById('loading');
-            loading.style.display = 'none';
-        });
-    </script>
+    // Lightbox
+    function openLightbox(src) {
+      const lightbox = document.querySelector('.lightbox');
+      lightbox.querySelector('img').src = src;
+      lightbox.classList.add('active');
+    }
+    function closeLightbox() {
+      document.querySelector('.lightbox').classList.remove('active');
+    }
+
+    // Carrossel de Depoimentos
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    let currentTestimonial = 0;
+    setInterval(() => {
+      testimonials[currentTestimonial].classList.remove('active');
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      testimonials[currentTestimonial].classList.add('active');
+    }, 5000);
+
+    // Validação simples do formulário (exemplo)
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensagem enviada com sucesso!');
+      this.reset();
+    });
+
+    // Remover tela de loading após carregamento
+    window.addEventListener('load', function() {
+      document.getElementById('loading').style.display = 'none';
+    });
+
+    // Animação do spinner (CSS inline via keyframes já declarado)
+  </script>
 </body>
-               </html>
+</html>
