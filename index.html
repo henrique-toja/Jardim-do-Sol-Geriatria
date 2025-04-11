@@ -1,163 +1,1036 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jardim do Sol - Residencial Geriátrico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }header {
-  background-color: #003f5c;
-  color: #fff;
-  padding: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-header h1 {
-  font-size: 1.6rem;
-}
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-nav {
-  display: flex;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-nav ul li a {
-  color: #fff;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-nav ul li a:hover {
-  color: #f9a825;
-}
-
-#hero {
-  position: relative;
-  height: 100vh;
-  background: url('https://source.unsplash.com/1600x900/?elderly,care') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-  background-color: rgba(0, 63, 92, 0.85);
-  padding: 40px;
-  border-radius: 10px;
-  max-width: 600px;
-}
-.hero-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-}
-.cta-button {
-  background-color: #f9a825;
-  color: #003f5c;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-.cta-button:hover {
-  background-color: #e69100;
-}
-
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #003f5c;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  nav.active {
-    display: flex;
-  }
-  .menu-toggle {
-    display: block;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Residencial Geriátrico Jardim do Sol - Cuidado especializado para idosos com foco na qualidade de vida há 10 anos em Porto Alegre">
+    <title>Residencial Geriátrico Jardim do Sol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a8f29;
+            --primary-dark: #3a7020;
+            --secondary-color: #f8d56b;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            border-radius: 8px;
+        }
+        
+        .logo-text {
+            margin-left: 10px;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            color: var(--text-color);
+            font-size: 14px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        .call-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .call-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .call-options {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 15px;
+            width: 220px;
+            display: none;
+            transition: var(--transition);
+        }
+        
+        .call-button:hover .call-options {
+            display: block;
+        }
+        
+        .call-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .call-option:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .call-option i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/image1.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 90px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-carousel {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: none;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            display: block;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            color: var(--primary-color);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 18px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-prev:hover, .carousel-next:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .service-content p {
+            margin-bottom: 15px;
+        }
+        
+        .service-content ul {
+            padding-left: 20px;
+        }
+        
+        .service-content li {
+            margin-bottom: 8px;
+        }
+        
+        /* Centro Dia Section */
+        .centro-dia {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .centro-dia-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .centro-dia-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .centro-dia-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .centro-dia-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .centro-dia-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .centro-dia-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .centro-dia-text p {
+            margin-bottom: 15px;
+        }
+        
+        .centro-dia-text ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .centro-dia-text li {
+            margin-bottom: 8px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-list i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        
+        .contact-map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 143, 41, 0.2);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-col h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: var(--white);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 100;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .services-container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                display: none;
+                background-color: var(--white);
+                padding: 20px 0;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            nav ul li a::after {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-header h2 {
+                font-size: 30px;
+            }
+            
+            .contact-content, 
+            .about-content, 
+            .centro-dia-content {
+                flex-direction: column;
+            }
+            
+            .about-image, 
+            .about-text, 
+            .centro-dia-image, 
+            .centro-dia-text {
+                width: 100%;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div id="loading" style="position: fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; z-index:3000;">
-    <div class="spinner" style="border:8px solid #f3f3f3; border-top:8px solid #003f5c; border-radius:50%; width:50px; height:50px; animation: spin 1s linear infinite;"></div>
-  </div>  <header>
-    <h1>Jardim do Sol</h1>
-    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-ellipsis-v"></i></div>
-    <nav id="main-nav">
-      <ul>
-        <li><a href="#hero">Início</a></li>
-        <li><a href="#institucional">Institucional</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#centro-dia">Centro-Dia</a></li>
-        <li><a href="#gallery">Galeria</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>  <section id="hero">
-    <div class="hero-content">
-      <h2>Bem-vindo ao Jardim do Sol</h2>
-      <p>Há 10 anos cuidando de quem cuidou de nós</p>
-      <a href="#contact" class="cta-button">Fale Conosco</a>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/assets/images/image2.jpg" alt="Jardim do Sol Logo">
+                <div class="logo-text">
+                    <h1>Jardim do Sol</h1>
+                    <p>Residencial Geriátrico</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#centro-dia">Centro-Dia</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Bem-vindo ao Residencial Geriátrico Jardim do Sol</h2>
+            <p>Há 10 anos oferecendo acolhimento e cuidado especializado para idosos com foco na qualidade de vida</p>
+            <a href="#contact" class="btn">Entre em Contato</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sobre Nós</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/assets/images/image3.jpg" alt="Residencial Jardim do Sol">
+                </div>
+                <div class="about-text">
+                    <h3>Nossa História e Filosofia</h3>
+                    <p>Atuando há 10 anos no mercado, o Residencial Jardim do Sol oferece um serviço especializado na área da geriatria. Com filosofia de acolhimento ao idoso e foco na qualidade de vida de seus hóspedes e familiares.</p>
+                    <p>Nosso atendimento tem como base a esfera holística do ser, que valoriza o bem-estar físico, emocional e psíquico, sendo referência no atendimento humanizado.</p>
+                    <p><strong>Nosso diferencial é que não temos restrições quanto a patologias.</strong></p>
+                    <a href="#services" class="btn">Conheça Nossos Serviços</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+            </div>
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-carousel">
+                        <div class="carousel-slide active">
+                            <img src="/assets/images/image4.jpg" alt="Equipe Médica">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image5.jpg" alt="Geriatra">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image6.jpg" alt="Enfermagem">
+                        </div>
+                        <button class="carousel-prev" aria-label="Anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next" aria-label="Próximo">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="service-content">
+                        <h3>Equipe Multidisciplinar</h3>
+                        <p>Contamos com profissionais especializados para oferecer o melhor cuidado:</p>
+                        <ul>
+                            <li>Médico Geriatra e Pneumologista</li>
+                            <li>Enfermagem 24 horas</li>
+                            <li>Nutricionista</li>
+                            <li>Terapeuta Ocupacional</li>
+                            <li>Terapeuta Floral</li>
+                            <li>Musicoterapia</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-carousel">
+                        <div class="carousel-slide active">
+                            <img src="/assets/images/image7.jpg" alt="Alimentação Saudável">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image8.jpg" alt="Refeições Balanceadas">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image9.jpg" alt="Cardápio Especial">
+                        </div>
+                        <button class="carousel-prev" aria-label="Anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next" aria-label="Próximo">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="service-content">
+                        <h3>Alimentação & Nutrição</h3>
+                        <p>Oferecemos 6 refeições diárias elaboradas por nutricionista, considerando as necessidades individuais de cada hóspede. Nossas refeições são balanceadas e preparadas com ingredientes frescos e de qualidade.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-carousel">
+                        <div class="carousel-slide active">
+                            <img src="/assets/images/image10.jpg" alt="Acomodações">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image11.jpg" alt="Quarto Individual">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/assets/images/image12.jpg" alt="Quarto Duplo">
+                        </div>
+                        <button class="carousel-prev" aria-label="Anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next" aria-label="Próximo">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="service-content">
+                        <h3>Acomodações</h3>
+                        <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
+                        <ul>
+                            <li>Quartos individuais, duplos e triplos</li>
+                            <li>Serviço de lavanderia e rouparia</li>
+                            <li>Ambientes climatizados e seguros</li>
+                            <li>Hospedagem de longa e curta permanência</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Centro Dia Section -->
+    <section class="centro-dia" id="centro-dia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Centro-Dia para Idosos</h2>
+            </div>
+            <div class="centro-dia-content">
+                <div class="centro-dia-image">
+                    <img src="/assets/images/image13.jpg" alt="Centro-Dia para Idosos">
+                </div>
+                <div class="centro-dia-text">
+                    <h3>Uma solução para familiares que trabalham</h3>
+                    <p>"Para quem necessita de um local para deixar seus idosos durante o dia, conciliando trabalho e cuidados. E ao final deste período possam buscá-los ao aconchego da família."</p>
+                    <p>Oferecemos atividades voltadas às necessidades dos idosos:</p>
+                    <ul>
+                        <li>Jogos e dinâmicas de grupo</li>
+                        <li>Estimulação nas atividades de vida diária e prática</li>
+                        <li>Estimulação cognitiva</li>
+                        <li>Alimentação balanceada</li>
+                        <li>Cuidados de enfermagem</li>
+                    </ul>
+                    <a href="#contact" class="btn">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+   <section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2>Entre em Contato</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Endereço:</strong>
+                            <p>Rua Dom Jaime de B. Câmara, 165</p>
+                            <p>Sarandi, Porto Alegre - RS</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Telefones:</strong>
+                            <p>(51) 3307.6000</p>
+                            <p>(51) 99889.9151</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong>
+                            <p>jardimdosolgeriatria@gmail.com</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fab fa-facebook-f"></i>
+                        <div>
+                            <strong>Facebook:</strong>
+                            <p>facebook.com/JardimdoSol</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Horário de Visitas:</strong>
+                            <p>Livre - Entre em contato para agendar</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact-map">
+                <img src="https://images.unsplash.com/photo-1524666049084-166c25dafa98" alt="Mapa de localização">
+            </div>
+        </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-col">
+            <h3>Sobre Nós</h3>
+            <p>Residencial Geriátrico Jardim do Sol, há 10 anos oferecendo cuidado e acolhimento aos idosos.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Links Rápidos</h3>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contato</h3>
+            <p>Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS</p>
+            <p>Email: jardimdosolgeriatria@gmail.com</p>
+            <p>Telefone: (51) 3307.6000</p>
+        </div>
+        <div class="footer-col">
+            <h3>Siga-nos</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </div>
-  </section>  <script>
-    function toggleMenu() {
-      document.getElementById('main-nav').classList.toggle('active');
-    }
-    window.addEventListener('load', function () {
-      document.getElementById('loading').style.display = 'none';
-    });
-  </script></body>
-</html>
+    <div class="copyright">
+        <p>&copy; 2025 Residencial Geriátrico Jardim do Sol. Todos os direitos reservados.</p>
+    </div>
+</footer>
