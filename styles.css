@@ -515,6 +515,24 @@
     background-color: #0056b3;
 }
 
+.contact-btn {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.contact-btn i {
+  margin-right: 8px;
+}
+.contact-btn:hover {
+  background-color: #0056b3;
+}
+
 .contact-map {
     width: 100%;
     margin-top: 2rem;
