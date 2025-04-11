@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardim do Sol - Casa de Repouso</title>
+    <style>
+        /* Estilos CSS embutidos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #e0e0e0;
+        }
+
+        section {
+            padding: 40px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #4CAF50;
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilo do Carrossel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel img.active {
+            opacity: 1;
+        }
+
+        /* Estilo do Formulário */
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .carousel {
+                height: 300px;
+            }
+
+            .whatsapp-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jardim do Sol</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Página Inicial -->
+    <section id="home">
+        <h2>Bem-vindo ao Jardim do Sol</h2>
+        <p>Cuidando com carinho e dedicação da terceira idade.</p>
+        <img src="https://images.unsplash.com/photo-1593115057326-90ce2d77f282?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Idosos felizes">
+    </section>
+
+    <!-- Serviços -->
+    <section id="services">
+        <h2>Nossos Serviços</h2>
+        <h3>Serviços Principais</h3>
+        <ul>
+            <li><strong>Médico Geriatra</strong>: Atendimento especializado para a saúde do idoso.</li>
+            <li><strong>Fisioterapia</strong>: Reabilitação e bem-estar físico.</li>
+            <li><strong>Enfermagem 24 Horas</strong>: Cuidados contínuos para garantir segurança e conforto.</li>
+        </ul>
+        <h3>Serviços Opcionais</h3>
+        <ul>
+            <li><strong>Acompanhante Terapêutico</strong>: Suporte emocional e social personalizado.</li>
+            <li><strong>Atendimento Domiciliar</strong>: Cuidados levados até a residência do cliente.</li>
+        </ul>
+        <img src="https://images.unsplash.com/photo-1576765607924-3f7b8410a787?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cuidados médicos">
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="about">
+        <h2>Sobre Nós</h2>
+        <p>O Jardim do Sol é uma casa de repouso dedicada ao bem-estar e à qualidade de vida dos idosos. Localizada em Porto Alegre, nossa equipe qualificada trabalha com carinho e profissionalismo para oferecer o melhor cuidado possível.</p>
+        <img src="https://images.unsplash.com/photo-1584515979956-cb69488c6a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe de cuidadores">
+    </section>
+
+    <!-- Galeria (com Carrossel) -->
+    <section id="gallery">
+        <h2>Galeria</h2>
+        <div class="carousel">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ambiente interno">
+            <img src="https://images.unsplash.com/photo-15845161509-849b908dba25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Atividade em grupo">
+            <img src="https://images.unsplash.com/photo-1593113630400-82b0b2d325bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardim externo">
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações.</p>
+        <p><strong>Endereço:</strong> Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS</p>
+        <p><strong>Telefones:</strong> (51) 3307.6000 e (51) 99889.9151</p>
+        <p><strong>Email:</strong> jardimdosolgeriatria@gmail.com</p>
+        <p><strong>Facebook:</strong> <a href="https://facebook.com/JardimdoSol">facebook.com/JardimdoSol</a></p>
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2023 Jardim do Sol. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/555197879151" class="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px;">
+    </a>
+
+    <script>
+        // Script JavaScript embutido para o carrossel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel');
+            const images = carousel.querySelectorAll('img');
+            let currentIndex = 0;
+
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            // Torna a primeira imagem visível ao carregar
+            images[currentIndex].classList.add('active');
+
+            // Alterna imagens a cada 3 segundos
+            setInterval(showNextImage, 3000);
+        });
+    </script>
+</body>
+</html>
