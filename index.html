@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* Reset e estilos base */
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -66,7 +66,7 @@
     #hero {
       position: relative;
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1593115057326-90ce2d77f282?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      background: url('https://source.unsplash.com/1600x900/?geriatric,care') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -108,14 +108,14 @@
       background-color: #e69100;
     }
 
-    /* Seções de conteúdo */
+    /* Seções de Conteúdo */
     section {
       background-color: #fff;
       margin: 100px auto 40px;
       padding: 60px 20px;
       max-width: 1200px;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInUp 0.6s ease forwards;
@@ -134,6 +134,38 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Bloco Institucional (Imagem 1) */
+    .institucional {
+      margin-bottom: 40px;
+    }
+    .institucional p,
+    .institucional li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+    .institucional ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    /* Bloco Infraestrutura (Imagem 2) */
+    .infraestrutura {
+      margin-bottom: 40px;
+    }
+    .infraestrutura ul {
+      list-style: disc;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .infraestrutura blockquote {
+      font-style: italic;
+      padding: 15px;
+      border-left: 4px solid #003f5c;
+      margin: 20px 0;
+      background-color: #e8eef1;
     }
 
     /* Serviços */
@@ -183,7 +215,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
       z-index: 2000;
@@ -195,35 +227,6 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 5px;
-    }
-
-    /* Depoimentos */
-    #testimonials {
-      background-color: #e8eef1;
-      padding: 60px 20px;
-    }
-    .testimonial-carousel {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-    .testimonial-item {
-      display: none;
-      text-align: center;
-      padding: 20px;
-    }
-    .testimonial-item.active {
-      display: block;
-    }
-    .testimonial-item p {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .testimonial-item cite {
-      font-weight: bold;
-      color: #003f5c;
     }
 
     /* Formulário de Contato */
@@ -338,7 +341,7 @@
   </style>
 </head>
 <body>
-  <!-- Carregamento Inicial -->
+  <!-- Tela de Carregamento -->
   <div id="loading" style="position: fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; z-index:3000;">
     <div class="spinner" style="border:8px solid #f3f3f3; border-top:8px solid #003f5c; border-radius:50%; width:50px; height:50px; animation: spin 1s linear infinite;"></div>
   </div>
@@ -346,64 +349,78 @@
   <!-- Header -->
   <header>
     <h1>Residencial Geriátrico Jardim do Sol</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#institucional">Institucional</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#centro-dia">Centro-Dia</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
   </header>
-  <section>
-    <div>
+
+  <!-- Seção Hero -->
+  <section id="hero">
+    <div class="hero-content">
       <h2>Bem-vindo ao Jardim do Sol</h2>
-      <p>Nossa missão é cuidar de quem sempre cuidou de nós ✅</p>
+      <p>Atuando há 10 anos no mercado – cuidamos de quem sempre cuidou de nós.</p>
       <a href="#contact" class="cta-button">Entre em Contato - WhatsApp</a>
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section id="services">
-    <h2>Nossos Serviços</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <i class="fas fa-user-md"></i>
-        <h3>Médico Geriatra</h3>
-        <p>Atendimento especializado para a saúde do idoso.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-heartbeat"></i>
-        <h3>Fisioterapia</h3>
-        <p>Reabilitação e bem-estar físico.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-stethoscope"></i>
-        <h3>Enfermagem 24h</h3>
-        <p>Cuidados contínuos para garantir segurança e conforto.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-hands-helping"></i>
-        <h3>Acompanhamento Terapêutico</h3>
-        <p>Suporte emocional e social personalizado.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-home"></i>
-        <h3>Atendimento Domiciliar</h3>
-        <p>Cuidados levados até a residência do cliente.</p>
-      </div>
+  <!-- Seção Institucional (Imagem 1) -->
+  <section id="institucional">
+    <h2>Apresentação Institucional</h2>
+    <div class="institucional">
+      <p><strong>Residencial Jardim do Sol</strong></p>
+      <p>Atuando há 10 anos no mercado, o Residencial Jardim do Sol oferece um serviço especializado na área da geriatria. Com filosofia de acolhimento ao idoso e foco na qualidade de vida de seus hóspedes e familiares.</p>
+      <p>Nosso atendimento tem como base a esfera holística do ser, que valoriza o bem-estar físico, emocional e psíquico, sendo referência no atendimento humanizado.</p>
+      <p>Nosso diferencial é que não temos restrições quanto a patologias.</p>
+      <p><strong>Contamos com equipe multidisciplinar:</strong></p>
+      <ul>
+        <li>Médico Geriatra e Pneumologista</li>
+        <li>Enfermagem 24 horas</li>
+        <li>Nutricionista</li>
+        <li>Terapeuta Ocupacional</li>
+        <li>Terapeuta Floral</li>
+        <li>Musicoterapia</li>
+      </ul>
     </div>
   </section>
 
-  <!-- Sobre Nós -->
-  <section id="about">
-    <h2>Sobre Nós</h2>
-    <p style="max-width:800px; margin:0 auto 20px; text-align: center;">
-      O Jardim do Sol é um residencial geriátrico dedicado ao bem-estar e qualidade de vida dos idosos. Localizado em Porto Alegre, nossa equipe altamente qualificada alia profissionalismo e carinho na prestação de cuidados.
-    </p>
-    <div style="display: flex; justify-content: center;">
-      <img src="https://images.unsplash.com/photo-1584515979956-cb69488c6a2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Equipe de cuidadores" style="max-width:100%; border-radius:8px;">
+  <!-- Seção Serviços e Infraestrutura (Imagem 2) -->
+  <section id="servicos">
+    <h2>Serviços e Infraestrutura</h2>
+    <div class="infraestrutura">
+      <p><strong>VENHA NOS VISITAR</strong></p>
+      <p><strong>ALÉM DISSO CONTAMOS COM...</strong></p>
+      <ul>
+        <li>6 Refeições Diárias</li>
+        <li>Serviço de Lavanderia e Rouparia</li>
+        <li>Acomodações em quartos individuais, duplos e triplos</li>
+        <li>Hospedagem de longa e curta permanência (por períodos determinados, como férias, finais de semana, entre outros)</li>
+      </ul>
+      <p><strong>HORÁRIO LIVRE PARA VISITAS</strong></p>
     </div>
   </section>
 
+  <!-- Seção Centro-Dia ou Creche para Idosos -->
+  <section id="centro-dia">
+    <h2>Centro-Dia ou Creche para Idosos</h2>
+    <blockquote>
+      "Para quem necessita de um local para deixar seus idosos durante o dia, conciliando trabalho e cuidados. E ao final deste período possam buscá-los ao aconchego da família. Oferecemos atividades voltadas às necessidades dos idosos, jogos e dinâmicas de grupo, estimulação nas atividades de vida diária e prática e estimulação cognitiva."
+    </blockquote>
+  </section>
+
+  <!-- Galeria -->
   <section id="gallery">
     <h2>Galeria</h2>
     <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Ambiente interno" onclick="openLightbox(this.src)">
-      <img src="https://images.unsplash.com/photo-15845161509-849b908dba25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Atividade em grupo" onclick="openLightbox(this.src)">
-      <img src="https://images.unsplash.com/photo-1593113630400-82b0b2d325bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardim externo" onclick="openLightbox(this.src)">
+      <img src="https://source.unsplash.com/600x400/?residential,care" alt="Ambiente interno" onclick="openLightbox(this.src)">
+      <img src="https://source.unsplash.com/600x400/?elderly,activities" alt="Atividade em grupo" onclick="openLightbox(this.src)">
+      <img src="https://source.unsplash.com/600x400/?nursing,home" alt="Ambiente externo" onclick="openLightbox(this.src)">
     </div>
   </section>
 
@@ -416,18 +433,10 @@
   <section id="contact">
     <h2>Contato</h2>
     <p>Entre em contato conosco para mais informações.</p>
-    <p style="text-align: center;">
-      <strong>Endereço:</strong> Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS
-    </p>
-    <p style="text-align: center;">
-      <strong>Telefones:</strong> (51) 3307.6000 &bull; (51) 99889.9151
-    </p>
-    <p style="text-align: center;">
-      <strong>Email:</strong> jardimdosolgeriatria@gmail.com
-    </p>
-    <p style="text-align: center;">
-      <strong>Facebook:</strong> <a href="https://facebook.com/JardimdoSol" target="_blank">facebook.com/JardimdoSol</a>
-    </p>
+    <p style="text-align: center;"><strong>Endereço:</strong> Rua Dom Jaime de B. Câmara, 165, Sarandi, Porto Alegre - RS</p>
+    <p style="text-align: center;"><strong>Telefones:</strong> (51) 3307.6000 &bull; (51) 99889.9151</p>
+    <p style="text-align: center;"><strong>Email:</strong> jardimdosolgeriatria@gmail.com</p>
+    <p style="text-align: center;"><strong>Facebook:</strong> <a href="https://facebook.com/JardimdoSol" target="_blank">facebook.com/JardimdoSol</a></p>
     <form id="contact-form">
       <label for="name">Nome:</label>
       <input type="text" id="name" name="name" required>
@@ -450,21 +459,18 @@
 
   <!-- Scripts -->
   <script>
-    // Alteração do header no scroll
+    // Header e botão de voltar ao topo no scroll
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
       header.classList.toggle('scrolled', window.scrollY > 0);
-
-      // Botão voltar ao topo
       const backToTopButton = document.querySelector('.back-to-top');
       backToTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Lightbox
+    // Funções da lightbox
     function openLightbox(src) {
       const lightbox = document.querySelector('.lightbox');
       lightbox.querySelector('img').src = src;
@@ -474,16 +480,7 @@
       document.querySelector('.lightbox').classList.remove('active');
     }
 
-    // Carrossel de Depoimentos
-    const testimonials = document.querySelectorAll('.testimonial-item');
-    let currentTestimonial = 0;
-    setInterval(() => {
-      testimonials[currentTestimonial].classList.remove('active');
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-      testimonials[currentTestimonial].classList.add('active');
-    }, 5000);
-
-    // Validação simples do formulário (exemplo)
+    // Validação simples do formulário
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
       alert('Mensagem enviada com sucesso!');
@@ -494,8 +491,6 @@
     window.addEventListener('load', function() {
       document.getElementById('loading').style.display = 'none';
     });
-
-    // Animação do spinner (CSS inline via keyframes já declarado)
   </script>
 </body>
 </html>
