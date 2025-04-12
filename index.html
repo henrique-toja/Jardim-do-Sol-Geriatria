@@ -163,73 +163,171 @@
     <div class="section-header">
       <h2>Nossa Maneira de Proporcionar Cuidados e Conforto</h2>
     </div>
-    <div class="services-container">
-      <!-- Service 1 -->
-<div class="service-card">
-  <div class="service-carousel">
-    <div class="carousel-slide active">
-      <img src="medico.jpg" alt="Equipe Médica">
-    </div>
-  </div>
-  <div class="service-content">
-    <h3>Equipe de Saúde</h3>
-    <p>Contamos com profissionais especializados para oferecer um cuidado completo, humano e personalizado:</p>
-    <ul>
-      <li><strong>Médico Geriatra e Pneumologista:</strong> acompanhamento clínico especializado para a terceira idade e suporte respiratório.</li>
-      <li><strong>Enfermagem 24 horas:</strong> monitoramento constante, administração de medicamentos e suporte imediato.</li>
-      <li><strong>Nutricionista:</strong> elaboração de dietas personalizadas com foco em saúde, bem-estar e restrições alimentares.</li>
-      <li><strong>Terapeuta Ocupacional:</strong> estímulo à autonomia e funcionalidade nas atividades do dia a dia.</li>
-      <li><strong>Terapeuta Floral:</strong> equilíbrio emocional e bem-estar através da terapia com essências florais.</li>
-   
-      <li><strong>Fisioterapeuta (grupo):</strong> sessões para fortalecer a mobilidade, prevenir quedas e estimular a respiração, com foco na prevenção de doenças respiratórias, especialmente durante o inverno.</li>
-      <li><strong>Psicomotricista (grupo):</strong> atividades que integram movimento e cognição, promovendo estímulo global.</li>
-      <li><strong>Gerontólogo:</strong> apoio especializado no processo de envelhecimento com foco em qualidade de vida.</li>
-    </ul>
-  </div>
-</div>
-
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-carousel">
-          <div class="carousel-slide active">
-            <img src="food1.jpg" alt="Alimentação Saudável">
-          </div>
+    <div class="services-carousel">
+      <!-- Navigation Buttons -->
+      <button class="carousel-button prev">&#10094;</button>
+      <button class="carousel-button next">&#10095;</button>
+      
+      <div class="services-container">
+        <!-- Your existing service cards remain the same -->
+        <!-- Service 1 -->
+        <div class="service-card">
+          <!-- Your existing content -->
         </div>
-        <div class="service-content">
-        <h3>Alimentação & Nutrição</h3>
-<p>Oferecemos 6 refeições diárias cuidadosamente elaboradas por um nutricionista especializado em geriatria, levando em conta restrições alimentares, preferências individuais e condições clínicas específicas como diabetes, hipertensão e dislipidemias.</p>
-<ul>
-  <li>Balanceadas, com os macronutrientes e micronutrientes ajustados para promover bem-estar e imunidade;</li>
-  <li>Preparadas com ingredientes frescos, sazonais e de alta qualidade;</li>
-  <li>Servidas em ambientes adequados e climatizados, estimulando o apetite e o convívio social;</li>
-  <li>Acompanhadas de orientações nutricionais personalizadas, quando necessário;</li>
-  <li>Adaptadas para texturas específicas (pastosas ou líquidas), conforme necessidade clínica.</li>
-</ul>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <!-- Your existing content -->
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card">
+          <!-- Your existing content -->
         </div>
       </div>
-
-      <!-- Service 3 - Pós-Cirúrgico -->
-      <div class="service-card">
-        <div class="service-carousel">
-          <div class="carousel-slide active">
-            <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos">
-          </div>
-        </div>
-        <div class="service-content">
-          <h3>Cuidados Pós-Cirúrgicos</h3>
-          <p>Oferecemos suporte especializado para a recuperação segura e confortável após procedimentos cirúrgicos:</p>
-          <ul>
-            <li>Monitoramento de sinais vitais e curativos</li>
-            <li>Assistência nas atividades diárias durante o pós-operatório</li>
-            <li>Acompanhamento com fisioterapia e enfermagem</li>
-            <li>Controle de medicações conforme prescrição médica</li>
-            <li>Ambiente tranquilo e acolhedor para recuperação</li>
-          </ul>
-        </div>
+      
+      <!-- Dots/bullets/indicators -->
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+.services-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.services-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.service-card {
+  min-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Navigation Buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Dots/bullets/indicators */
+.carousel-dots {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.services-container');
+  const cards = document.querySelectorAll('.service-card');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  
+  let currentIndex = 0;
+  const totalCards = cards.length;
+  
+  // Function to update carousel position
+  function updateCarousel() {
+    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // Update dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+  
+  // Auto slide function
+  function autoSlide() {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  }
+  
+  // Set auto slide interval
+  let slideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
+  
+  // Reset interval when manually changing slides
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(autoSlide, 5000);
+  }
+  
+  // Previous button click
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+    resetInterval();
+  });
+  
+  // Next button click
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+    resetInterval();
+  });
+  
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentIndex = index;
+      updateCarousel();
+      resetInterval();
+    });
+  });
+  
+  // Pause auto-slide when hovering over carousel
+  container.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+  });
+  
+  // Resume auto-slide when mouse leaves carousel
+  container.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(autoSlide, 5000);
+  });
+});
+</script>
 <section class="services" id="services">
         <div class="service-content">
 <!-- Video Section -->
