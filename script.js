@@ -1,59 +1,76 @@
-<!-- Script para Carrossel Seção Acomodações-->
-  document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('.service-carousel');
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const nextBtn = carousel.querySelector('.carousel-next');
-    const prevBtn = carousel.querySelector('.carousel-prev');
-    let currentIndex = 0;
+// Carrossel lateral de serviços (horizontal scroll)
+document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.querySelector('.services-carousel');
+  if (!carousel) return;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
+  // Adiciona botões de navegação se não existirem
+  if (!document.querySelector('.carousel-left') && !document.querySelector('.carousel-right')) {
+    const leftBtn = document.createElement('button');
+    leftBtn.className = 'carousel-left';
+    leftBtn.setAttribute('aria-label', 'Rolar serviços para a esquerda');
+    leftBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    carousel.parentElement.appendChild(leftBtn);
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
+    const rightBtn = document.createElement('button');
+    rightBtn.className = 'carousel-right';
+    rightBtn.setAttribute('aria-label', 'Rolar serviços para a direita');
+    rightBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    carousel.parentElement.appendChild(rightBtn);
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
+    leftBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -carousel.offsetWidth * 0.8, behavior: 'smooth' });
+    });
+    rightBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: carousel.offsetWidth * 0.8, behavior: 'smooth' });
+    });
+  }
 
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    setInterval(nextSlide, 6000);
+  // Drag para mouse e touch
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  // Mouse events
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    carousel.classList.add('dragging');
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
   });
 
-<!-- Script para Carrossel -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('.service-carousel');
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const nextBtn = carousel.querySelector('.carousel-next');
-    const prevBtn = carousel.querySelector('.carousel-prev');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    setInterval(nextSlide, 6000);
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.classList.remove('dragging');
   });
-</script>
+
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('dragging');
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = x - startX;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch events
+  carousel.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  carousel.addEventListener('touchend', () => {
+    isDown = false;
+  });
+
+  carousel.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = x - startX;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+});
