@@ -694,31 +694,31 @@ footer {
 }
 
         /* Floating Contact */
-        .float-contact {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .float-btn {
-            background: var(--accent-color);
-            color: var(--white);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            transition: background .2s, transform .3s;
-            border: none;
-        }
-        .float-btn:hover {
-            transform: scale(1.1);
-            background: var(--accent-dark);
-        }
+.float-contact {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.float-btn {
+    background: #48BB78;    /* Verde principal */
+    color: #FFFFFF;         /* Ícone branco */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background .2s, transform .3s;
+    border: none;
+}
+.float-btn:hover {
+    transform: scale(1.1);
+    background: #2e7d32;   /* Verde escuro no hover */
+}
