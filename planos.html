@@ -1,4 +1,4 @@
-<!-- planos.html: Pronto para incluir via fetch no index.html (botões sem brilho, sem rolagem swipe) -->
+<!-- planos.html: Pronto para incluir via fetch no index.html (preço persuasivo, visual corporativo) -->
 <style>
   :root {
     --primary-color: #48BB78;
@@ -100,7 +100,6 @@
     transition: transform 0.5s cubic-bezier(.4,0,.2,1);
     min-height: 370px;
     will-change: transform;
-    /* Removido touch-action e swipe */
   }
   .plano-card {
     min-width: 320px;
@@ -141,14 +140,42 @@
     margin-bottom: 0.8rem;
     font-weight: 700;
   }
-  .preco {
-    font-size: 2rem;
-    margin: 1.1rem 0 1.6rem 0;
-    font-weight: bold;
-    color: var(--text-color);
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
+  .preco-profissional {
+    margin: 1.7rem 0 0.5rem 0;
+    text-align: center;
+  }
+  .preco-mensal {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    display:inline-block;
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+  .preco-mensal strong {
+    font-weight: 900;
+    letter-spacing: -1.5px;
+  }
+  .preco-total {
+    font-size: 1.10rem;
+    color: #444;
+    margin-top: .33em;
+    font-weight: 500;
+    display: block;
+  }
+  .meios-pagamento {
+    display:inline-block;
+    margin-bottom: 0.3em;
+    margin-right: 0.3em;
+    vertical-align: middle;
+  }
+  .preco-obs {
+    display: block;
+    margin-top: 0.34em;
+    font-size: 0.92rem;
+    color: #888;
+    font-weight: 400;
+    letter-spacing: 0.1px;
   }
   .btn-primary {
     background: var(--primary-color);
@@ -163,6 +190,7 @@
     display: inline-block;
     transition: background var(--transition), color var(--transition);
     box-shadow: none;
+    margin-top: 1.9rem;
   }
   .btn-primary:hover {
     background: var(--primary-dark);
@@ -302,6 +330,12 @@
         multiplicadores.nivel[nivel - 1] *
         multiplicadores.frequencia[frequencia]
       );
+      const mesesPlano = { mensal: 1, semestral: 6, anual: 12 }[frequencia];
+      const precoTotal = preco * mesesPlano;
+
+      // Ícones de Pix e Cartão SVG
+      const iconePix = `<svg width="20" height="20" class="meios-pagamento" aria-label="Pix" viewBox="0 0 40 40"><rect x="8" y="18" width="24" height="4" rx="2" fill="#1abf5b"/><rect x="18" y="8" width="4" height="24" rx="2" fill="#1abf5b"/></svg>`;
+      const iconeCredito = `<svg width="20" height="20" class="meios-pagamento" aria-label="Cartão de crédito" viewBox="0 0 40 40"><rect x="4" y="10" width="32" height="20" rx="4" fill="#4f8edc"/><rect x="4" y="16" width="32" height="4" fill="#fff" opacity="0.3"/></svg>`;
 
       // Mensagem personalizada conforme escolha
       let mensagem = `Olá, gostaria de contratar o plano:
@@ -315,12 +349,23 @@
       }
       const linkWhats = `https://wa.me/555197879151?text=${encodeURIComponent(mensagem)}`;
 
-      const card = document.createElement('div');
+      card = document.createElement('div');
       card.className = 'plano-card';
       card.innerHTML = `
         <img src="${quarto.img}" alt="${quarto.label}">
         <h3>${quarto.label}</h3>
-        <p class="preco">${formatarPreco(preco)}/mês</p>
+        <div class="preco-profissional">
+          <span class="meios-pagamento">${iconePix}${iconeCredito}</span>
+          <span class="preco-mensal">
+            ${mesesPlano > 1 ? `<strong>${mesesPlano}x</strong> de` : ''} ${formatarPreco(preco)}
+          </span>
+          <span class="preco-total">
+            Valor total do plano: <strong>${formatarPreco(precoTotal)}</strong>
+          </span>
+          <span class="preco-obs">
+            * sujeito a alterações
+          </span>
+        </div>
         <a href="${linkWhats}" class="btn-primary" target="_blank">Contratar</a>
       `;
       carouselTrack.appendChild(card);
@@ -354,6 +399,5 @@
     document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
 
     window.addEventListener('resize', () => moveCarousel(currentIndex));
-    // REMOVIDO: Swipe/touch para mobile
   });
 </script>
