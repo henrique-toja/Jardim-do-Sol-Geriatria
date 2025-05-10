@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residencial Geriátrico Jardim do Sol | Porto Alegre - Cuidado especializado para idosos</title>
+<meta name="description" content="O Residencial Geriátrico Jardim do Sol oferece há 25 anos cuidado especializado, acolhimento, conforto e bem-estar para idosos em Porto Alegre. Centro-dia, enfermagem 24h, fisioterapia, atividades e equipe multidisciplinar.">
+<meta name="keywords" content="Residencial Geriátrico, Lar de Idosos, Cuidados para Idosos, Porto Alegre, Centro-dia, Enfermagem para idosos, Geriatria, Casa de Repouso, Idosos Porto Alegre, Clínica Geriátrica, Jardim do Sol">
+<meta name="author" content="Residencial Geriátrico Jardim do Sol">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Residencial Geriátrico Jardim do Sol | Porto Alegre">
+<meta property="og:description" content="Cuidado especializado, conforto e acolhimento para idosos em Porto Alegre. Centro-dia, enfermagem 24h e equipe multidisciplinar.">
+<meta property="og:image" content="https://www.jardimdosolgeriatria.com/banner.png">
+<meta property="og:url" content="https://www.jardimdosolgeriatria.com">
+<meta property="og:site_name" content="Jardim do Sol Geriatria">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Residencial Geriátrico Jardim do Sol | Porto Alegre">
+<meta name="twitter:description" content="Cuidado especializado, conforto e acolhimento para idosos em Porto Alegre. Centro-dia, enfermagem 24h e equipe multidisciplinar.">
+<meta name="twitter:image" content="https://www.jardimdosolgeriatria.com/banner.png">
+<meta name="twitter:url" content="https://www.jardimdosolgeriatria.com">
+<meta name="pinterest-rich-pin" content="true">
+<meta name="pinterest:title" content="Residencial Geriátrico Jardim do Sol | Porto Alegre">
+<meta name="pinterest:description" content="Cuidado especializado, conforto e acolhimento para idosos em Porto Alegre. Centro-dia, enfermagem 24h e equipe multidisciplinar.">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --primary-color: #48BB78;
+  --primary-dark: #2e7d32;
+  --secondary-color: #8BC34A;
+  --accent-color: #48BB78;
+  --accent-dark: #2e7d32;
+  --text-color: #2D3748;
+  --light-bg: #F7FAFC;
+  --white: #FFFFFF;
+  --footer-bg: #222831;
+  --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+  --transition: .2s;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--light-bg);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+header {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.header-container {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.logo img {
+  width: 80px;
+  border-radius: 50%;
+}
+.logo-text h1 {
+  font-size: 1.8rem;
+  color: #2e7d32;
+  margin-bottom: 0.3rem;
+}
+.tagline {
+  color: #111;
+  font-size: 1rem;
+  margin: 0;
+}
+body, header, .hero, .hero-content, .contact, footer h2 {
+  text-align: center;
+}
+.services-carousel, .service-content, .section-content, .section-text {
+  text-align: left;
+}
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg') center/cover no-repeat;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding-top: 90px;
+}
+.hero-content {
+  max-width: 800px;
+}
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: var(--accent-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.section {
+  padding: 80px 0 30px 0;
+  background: var(--light-bg);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.section-media {
+  flex: 1;
+  min-width: 260px;
+  text-align: center;
+}
+.section-media img, .section-media video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44,82,130,0.06);
+}
+.section-text {
+  flex: 2;
+  min-width: 280px;
+}
+/* Centralizar texto apenas nas seções Vídeo e Sobre Nós */
+#video .section-text,
+#about .section-text {
+  text-align: center;
+}
+.section-text h3 {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.section-text ul {
+  margin: 1rem 0 0 1rem;
+  padding-left: 1rem;
+}
+.section-text ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+/* Carrossel de Acomodações */
+.acomodacoes-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.acomodacoes-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+.acomodacoes-slide {
+  display: none;
+  width: 100%;
+  height: 340px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.acomodacoes-slide.active {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+.acomodacoes-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.8;
+}
+.acomodacoes-carousel-btn:hover {
+  background: var(--accent-dark);
+  opacity: 1;
+}
+.acomodacoes-carousel-btn.prev { left: -18px; }
+.acomodacoes-carousel-btn.next { right: -18px; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Carrossel Serviços */
+.services-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.services-carousel {
+  display: flex;
+  justify-content: center;
+  transition: transform 0.4s ease;
+  gap: 1rem;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: none;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 320px;
+  flex: 1 1 280px;
+  transition: transform 0.3s;
+}
+.service-card.active {
+  display: flex;
+  animation: fadeIn 0.4s;
+}
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.service-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.service-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--accent-color);
+}
+.service-content ul {
+  margin-top: 8px;
+  padding-left: 16px;
+  font-size: 0.9rem;
+}
+.services-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.85;
+  z-index: 2;
+  transition: background 0.2s;
+}
+.services-carousel-btn:hover {
+  background: var(--accent-dark);
+  opacity: 1;
+}
+.services-carousel-btn.prev { left: 5px; }
+.services-carousel-btn.next { right: 5px; }
+@media (min-width: 1024px) {
+  .services-carousel {
+    gap: 2rem;
+    flex-wrap: nowrap;
+  }
+  .service-card {
+    display: flex !important;
+    max-width: 320px;
+    flex: 1 1 280px;
+  }
+  .services-carousel-btn {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .services-carousel {
+    gap: 0;
+  }
+  .service-card {
+    max-width: 96vw;
+    width: 100%;
+  }
+  .services-carousel-btn {
+    display: block;
+  }
+}
+/* Restante dos estilos: contatos, rodapé, etc... */
+.contact {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+.contact-info h3 {
+  font-size: 24px;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--primary-dark);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+  width: fit-content;
+  margin: 0 auto;
+}
+.contact-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+.address-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-top: 15px;
+  text-align: center;
+}
+.address-block i {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-top: 5px;
+}
+.address-block p {
+  margin: 5px 0;
+  line-height: 1.5;
+  color: #444;
+}
+.map-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-weight: 600;
+  justify-content: center;
+}
+.map-link:hover {
+  text-decoration: underline;
+}
+.contact-map {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+.map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 400px;
+  margin: 0 auto;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+footer {
+  background: var(--footer-bg);
+  color: #fff;
+  padding: 50px 0 20px;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+.footer-col h3 {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.social-links a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+.copyright {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+}
+@media (max-width: 900px) {
+  .container { padding: 0 10px; }
+  .contact-grid { flex-direction: column; }
+  .map-container { min-height: 250px; }
+}
+@media (max-width: 768px) {
+  .hero-content h2 { font-size: 1.8rem; }
+  .hero-content p { font-size: 1rem; }
+  .section-header h2 { font-size: 1.3rem; }
+  .section-content { flex-direction: column; }
+  .services-container { grid-template-columns: 1fr; }
+  .acomodacoes-carousel-wrapper { max-width: 96vw; }
+}
+@media (max-width: 600px) {
+  .service-card { min-width: 85vw; max-width: 95vw; }
+  .hero-content h2 { font-size: 1.1rem; }
+  .acomodacoes-carousel-wrapper { max-width: 98vw; }
+}
+/* Botão flutuante WhatsApp */
+.float-contact {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+.float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.float-btn:hover {
+  background: #128C7E;
+  transform: scale(1.08);
+}
+</style>
+</head>
+<script>(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","n1KtVCoHGEyvTCCNhhJf9P6p3")</script>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="logo.jpg" alt="Jardim do Sol Logo">
+        <div class="logo-text">
+          <h1>Jardim do Sol Geriatria</h1>
+          <p class="tagline">Cuidado, Conforto e Longevidade</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h2>Bem-vindo ao Residencial Geriátrico Jardim do Sol</h2>
+        <p>Há 25 anos oferecendo acolhimento e cuidado especializado para idosos com foco na qualidade de vida</p>
+        <a href="#contact" class="btn">Entre em Contato</a>
+        <a href="#price" class="btn">Ver Preços</a>
+      </div>
+    </section>
+
+    <!-- Seção Acomodações -->
+    <section class="section" id="acomodacoes">
+      <div class="container">
+        <div class="section-header">
+          <h2>Acomodações</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <div class="acomodacoes-carousel-wrapper">
+              <button class="acomodacoes-carousel-btn prev" onclick="acomodacoesPrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+              <div class="acomodacoes-carousel">
+                <img class="acomodacoes-slide active" src="cozinha.jpg" alt="Acomodações">
+                <img class="acomodacoes-slide" src="sala.jpg" alt="Quarto Individual">
+                <img class="acomodacoes-slide" src="banheiro.jpg" alt="Quarto Duplo">
+              </div>
+              <button class="acomodacoes-carousel-btn next" onclick="acomodacoesNext()" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          <div class="section-text" style="text-align:left;">
+            <h3 style="text-align:center;">O que a Jardim do Sol Geriatria oferece para nossos pacientes:</h3>
+            <ul>
+              <li>Quartos individuais, duplos e triplos, amplos e climatizados</li>
+              <li>Camas confortáveis e estrutura adaptada para idosos</li>
+              <li>Ambientes seguros e monitorados 24h</li>
+              <li>Decoração acolhedora, com sensação de lar</li>
+              <li>Áreas comuns para socialização, lazer e atividades</li>
+              <li>Serviço de lavanderia e limpeza diária</li>
+              <li>Opções para hospedagem temporária ou longa permanência</li>
+              <li>Equipe atenciosa sempre disponível</li>
+            </ul>
+            <p style="margin-top:1em;">
+              Nosso objetivo é oferecer conforto, tranquilidade e bem-estar para que cada hóspede se sinta verdadeiramente em casa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Serviços (Carrossel) -->
+    <!-- ...restante do HTML permanece igual, conforme seu index5... -->
+
+    <!-- Seção Serviços (Carrossel) -->
+    <section class="section" id="maneira-de-cuidar">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossa Maneira de Proporcionar Cuidados e Conforto</h2>
+        </div>
+        <div class="services-carousel-wrapper">
+          <button class="services-carousel-btn prev" onclick="servicePrev()" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="services-carousel">
+            <!-- Card 1: Lar de Idosos -->
+            <div class="service-card active">
+              <img src="geriatria.jpg" alt="Lar de Idosos">
+              <div class="service-content">
+                <h3>Lar de Idosos</h3>
+                <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina cuidadosamente planejada para respeitar a individualidade e os gostos de cada hóspede.</p>
+                <ul>
+                  <li>Jogos e dinâmicas de grupo para integração social</li>
+                  <li>Estímulo à funcionalidade e às atividades de vida diária</li>
+                  <li>Oficinas de memória e estímulos cognitivos</li>
+                  <li>Alimentação balanceada com supervisão nutricional</li>
+                  <li>Cuidados de enfermagem e suporte à saúde física e emocional</li>
+                  <li>Também disponibilizamos Centro-Dia, Atendimento durante o dia com retorno à noite</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 2: Equipe de Saúde -->
+            <div class="service-card">
+              <img src="medico.jpg" alt="Equipe Médica">
+              <div class="service-content">
+                <h3>Equipe de Saúde</h3>
+                <p>Contamos com profissionais especializados para oferecer um cuidado completo, humano e personalizado:</p>
+                <ul>
+                  <li><strong>Médico Geriatra e Pneumologista:</strong> acompanhamento clínico especializado e suporte respiratório.</li>
+                  <li><strong>Enfermagem 24 horas:</strong> monitoramento constante, administração de medicamentos e suporte imediato.</li>
+                  <li><strong>Nutricionista:</strong> elaboração de dietas personalizadas, priorizando saúde e restrições alimentares.</li>
+                  <li><strong>Terapeuta Ocupacional:</strong> estímulo à autonomia e funcionalidade nas atividades diárias.</li>
+                  <li><strong>Terapeuta Floral:</strong> equilíbrio emocional através da terapia com essências florais.</li>
+                  <li><strong>Fisioterapeuta (grupo):</strong> sessões para fortalecer a mobilidade, prevenir quedas e estimular a respiração.</li>
+                  <li><strong>Psicomotricista (grupo):</strong> atividades que integram movimento e cognição para estímulo global.</li>
+                  <li><strong>Gerontólogo:</strong> apoio especializado no processo de envelhecimento com foco na qualidade de vida.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 3: Alimentação & Nutrição -->
+            <div class="service-card">
+              <img src="food1.jpg" alt="Alimentação Saudável">
+              <div class="service-content">
+                <h3>Alimentação & Nutrição</h3>
+                <p>Oferecemos 6 refeições diárias elaboradas por um nutricionista especializado, considerando restrições e preferências individuais.</p>
+                <ul>
+                  <li>Refeições balanceadas para promover bem-estar e imunidade;</li>
+                  <li>Ingredientes frescos, sazonais e de alta qualidade;</li>
+                  <li>Ambientes climatizados que estimulam o apetite e o convívio social;</li>
+                  <li>Orientações nutricionais personalizadas, quando necessário;</li>
+                  <li>Adaptação para texturas específicas, conforme necessidade clínica.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 4: Cuidados Pós-Cirúrgicos -->
+            <div class="service-card">
+              <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos">
+              <div class="service-content">
+                <h3>Cuidados Pós-Cirúrgicos</h3>
+                <p>Suporte especializado para a recuperação segura e confortável após procedimentos cirúrgicos:</p>
+                <ul>
+                  <li>Monitoramento de sinais vitais e curativos;</li>
+                  <li>Assistência nas ati
