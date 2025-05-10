@@ -28,7 +28,6 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 :root {
   --primary-color: #48BB78;
@@ -93,7 +92,6 @@ body, header, .hero, .hero-content, .contact, footer h2 {
 .services-carousel, .service-content, .section-content, .section-text {
   text-align: left;
 }
-
 .hero {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg') center/cover no-repeat;
   height: 100vh;
@@ -183,6 +181,11 @@ body, header, .hero, .hero-content, .contact, footer h2 {
   flex: 2;
   min-width: 280px;
 }
+/* Centralizar texto apenas nas seções Vídeo e Sobre Nós */
+#video .section-text,
+#about .section-text {
+  text-align: center;
+}
 .section-text h3 {
   color: var(--accent-color);
   font-size: 1.3rem;
@@ -196,7 +199,6 @@ body, header, .hero, .hero-content, .contact, footer h2 {
   margin-bottom: 0.5rem;
   line-height: 1.5;
 }
-
 /* Carrossel de Acomodações */
 .acomodacoes-carousel-wrapper {
   position: relative;
@@ -244,7 +246,6 @@ body, header, .hero, .hero-content, .contact, footer h2 {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 /* Carrossel Serviços */
 .services-carousel-wrapper {
   position: relative;
@@ -344,7 +345,6 @@ body, header, .hero, .hero-content, .contact, footer h2 {
     display: block;
   }
 }
-
 /* Restante dos estilos: contatos, rodapé, etc... */
 .contact {
   padding: 100px 0;
@@ -510,6 +510,31 @@ footer {
   .hero-content h2 { font-size: 1.1rem; }
   .acomodacoes-carousel-wrapper { max-width: 98vw; }
 }
+/* Botão flutuante WhatsApp */
+.float-contact {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+.float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.float-btn:hover {
+  background: #128C7E;
+  transform: scale(1.08);
+}
 </style>
 </head>
 <body>
@@ -533,7 +558,7 @@ footer {
       </div>
     </section>
 
-    <!-- Seção Acomodações com carrossel funcional -->
+    <!-- Seção Acomodações -->
     <section class="section" id="acomodacoes">
       <div class="container">
         <div class="section-header">
@@ -551,19 +576,28 @@ footer {
               <button class="acomodacoes-carousel-btn next" onclick="acomodacoesNext()" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
             </div>
           </div>
-          <div class="section-text">
-            <h3>Conforto e Bem-estar</h3>
-            <p>Oferecemos acomodações confortáveis e adequadas às necessidades dos nossos hóspedes:</p>
+          <div class="section-text" style="text-align:left;">
+            <h3 style="text-align:center;">O que a Jardim do Sol Geriatria oferece para nossos pacientes:</h3>
             <ul>
-              <li>Quartos individuais, duplos e triplos</li>
-              <li>Serviço de lavanderia e rouparia</li>
-              <li>Ambientes climatizados e seguros</li>
-              <li>Hospedagem de longa e curta permanência</li>
+              <li>Quartos individuais, duplos e triplos, amplos e climatizados</li>
+              <li>Camas confortáveis e estrutura adaptada para idosos</li>
+              <li>Ambientes seguros e monitorados 24h</li>
+              <li>Decoração acolhedora, com sensação de lar</li>
+              <li>Áreas comuns para socialização, lazer e atividades</li>
+              <li>Serviço de lavanderia e limpeza diária</li>
+              <li>Opções para hospedagem temporária ou longa permanência</li>
+              <li>Equipe atenciosa sempre disponível</li>
             </ul>
+            <p style="margin-top:1em;">
+              Nosso objetivo é oferecer conforto, tranquilidade e bem-estar para que cada hóspede se sinta verdadeiramente em casa.
+            </p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Seção Serviços (Carrossel) -->
+    <!-- ...restante do HTML permanece igual, conforme seu index5... -->
 
     <!-- Seção Serviços (Carrossel) -->
     <section class="section" id="maneira-de-cuidar">
@@ -752,12 +786,10 @@ footer {
       </div>
     </section>
   </main>
+  <!-- Botão flutuante WhatsApp apenas -->
   <div class="float-contact">
-    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener">
+    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
       <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="tel:+555133076000" class="float-btn">
-      <i class="fas fa-phone"></i>
     </a>
   </div>
   <footer>
