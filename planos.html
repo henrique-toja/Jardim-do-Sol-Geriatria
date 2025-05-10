@@ -1,4 +1,4 @@
-<!-- planos.html: Pronto para incluir via fetch no index.html (ordem crescente, ícones melhor posicionados) -->
+<!-- planos.html: Pronto para incluir via fetch no index.html (textos humanizados e layout profissional) -->
 <style>
   :root {
     --primary-color: #48BB78;
@@ -56,10 +56,8 @@
     outline: none;
   }
   .nivel-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.6rem;
-    font-size: 1rem;
+    margin-top: 1.1rem;
+    font-size: 1.08rem;
     color: var(--primary-dark);
     font-weight: 500;
   }
@@ -169,15 +167,8 @@
     gap: 12px;
     margin: 1em 0 0.3em 0;
   }
-  .meios-pagamento svg {
+  .meios-pagamento-bloco svg {
     display: inline-block;
-    vertical-align: middle;
-  }
-  .meios-pagamento .label {
-    font-size: 0.97rem;
-    color: #222;
-    margin-left: 4px;
-    font-weight: 500;
     vertical-align: middle;
   }
   .preco-obs {
@@ -247,18 +238,83 @@
   }
   @media (max-width: 768px) {
     .carousel-container { max-width: 95vw;}
-    .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem nível de cuidados e o período. Veja os valores por quarto e modalidade de pagamento.</p>
+    .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;}
+    .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;}
+    .planos-titulo {font-size:1.3rem;}
+  }
+  @keyframes fadeIn {
+    from { opacity: 0.3; transform: translateY(22px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+</style>
+
+<section class="planos-section" id="planos">
+  <h2 class="planos-titulo">Planos Personalizados para Cada Perfil</h2>
+  <p class="planos-descricao">Escolha o perfil de cuidado e o período. Veja os valores por quarto e modalidade de pagamento.</p>
 
   <div class="nivel-container">
     <label for="nivelCuidados" style="display:block; font-weight:bold; margin-bottom:0.5rem;">
-      Nível de Cuidados:
+      Perfil de cuidado para o seu familiar:
     </label>
-    <input type="range" id="nivelCuidados"ual</button>
+    <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="nivel-slider">
+    <div class="nivel-labels" id="descricaoNivel"></div>
+  </div>
+  <div style="margin: 2rem 0; text-align:center;">
+    <button class="plano-btn active" onclick="setFrequencia('mensal')">Mensal</button>
+    <button class="plano-btn" onclick="setFrequencia('semestral')">Semestral</button>
+    <button class="plano-btn" onclick="setFrequencia('anual')">Anual</button>
   </div>
 
   <div class="carousel-container" id="carouselContainer">
     <button class="carousel-arrow left" id="carouselPrevBtn">&#8592;</button>
-    <div class="carousel-track" id="carouselTrack frequencia = tipo;
+    <div class="carousel-track" id="carouselTrack"></div>
+    <button class="carousel-arrow right" id="carouselNextBtn">&#8594;</button>
+  </div>
+</section>
+
+<script>
+  let frequencia = 'mensal';
+  // Ordem: do mais barato para o mais caro
+  const quartos = [
+    { cod: "q3", label: "Quarto Triplo ou mais", img: "quarto3.jpg" },
+    { cod: "q2", label: "Quarto Duplo", img: "quarto2.jpg" },
+    { cod: "q1", label: "Quarto Individual", img: "quarto1.jpg" }
+  ];
+  // Nomes internos antigos ainda usados para cálculo
+  const niveis = [
+    "Lúcido",
+    "Cuidados Moderados",
+    "Alta Complexidade"
+  ];
+  // Novos textos persuasivos
+  const niveisResumo = [
+    {
+      titulo: "Paciente independente",
+      descricao: "Seu familiar realiza as atividades do dia a dia com autonomia, precisando apenas de supervisão leve e companhia."
+    },
+    {
+      titulo: "Paciente com algum apoio",
+      descricao: "Seu familiar apresenta pequenas limitações ou precisa de auxílio parcial em algumas tarefas diárias, como higiene, mobilidade ou alimentação."
+    },
+    {
+      titulo: "Paciente com necessidade de atenção constante",
+      descricao: "Seu familiar necessita de acompanhamento próximo e auxílio frequente nas atividades, garantindo conforto e segurança durante todo o tempo."
+    }
+  ];
+
+  function atualizarDescricaoNivel() {
+    const nivel = parseInt(document.getElementById("nivelCuidados").value);
+    const info = niveisResumo[nivel - 1];
+    document.getElementById("descricaoNivel").innerHTML = `
+      <div style="text-align:left;">
+        <strong>${info.titulo}</strong>
+        <div style="font-size:0.98rem; color:#444; margin-top:4px;">${info.descricao}</div>
+      </div>
+    `;
+  }
+
+  function setFrequencia(tipo) {
+    frequencia = tipo;
     document.querySelectorAll('.plano-btn').forEach(btn => {
       btn.classList.remove('active');
       if (btn.textContent.toLowerCase().includes(tipo)) {
@@ -305,16 +361,18 @@
       const iconePix = `<svg width="26" height="26" aria-label="Pix" viewBox="0 0 48 48"><rect x="10" y="22" width="28" height="4" rx="2" fill="#1abf5b"/><rect x="22" y="10" width="4" height="28" rx="2" fill="#1abf5b"/></svg>`;
       const iconeCredito = `<svg width="26" height="26" aria-label="Cartão de crédito" viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="20" rx="3.5" fill="#4f8edc"/><rect x="6" y="20" width="36" height="4" fill="#fff" opacity="0.35"/></svg>`;
 
-      // Mensagem personalizada conforme escolha
-      let mensagem = `Olá, gostaria de contratar o plano:
-- Quarto: ${quarto.label}
-- Nível de cuidados: ${niveis[nivel - 1]}
-- Período: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}
-`;
+      // Mensagem coesa e empática para WhatsApp
+      const perfil = niveisResumo[nivel - 1];
+      const mensagem = 
+`Olá! Tenho interesse em contratar um plano para meu familiar.
 
-      if (nivel === 1) {
-        mensagem += `\nO paciente não tem complexidades.`;
-      }
+Quarto desejado: ${quarto.label}
+Perfil: ${perfil.titulo}
+${perfil.descricao}
+Período: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}
+
+Poderiam me passar orientações para dar sequência?`;
+
       const linkWhats = `https://wa.me/555197879151?text=${encodeURIComponent(mensagem)}`;
 
       card = document.createElement('div');
@@ -363,11 +421,16 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    atualizarDescricaoNivel();
     atualizarCarousel();
-    document.getElementById("nivelCuidados").addEventListener('input', atualizarCarousel);
+    document.getElementById("nivelCuidados").addEventListener('input', function() {
+      atualizarDescricaoNivel();
+      atualizarCarousel();
+    });
 
     document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
     document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
 
-    window.addEventListener('resize', () => move });
+    window.addEventListener('resize', () => moveCarousel(currentIndex));
+  });
 </script>
