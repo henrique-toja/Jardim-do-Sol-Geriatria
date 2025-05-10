@@ -560,6 +560,13 @@ h2 {
       </div>
     </section>
 
+<div id="secao-planos"></div>
+<script>
+fetch('planos.html')
+  .then(response => response.text())
+  .then(data => document.getElementById('secao-planos').innerHTML = data);
+</script>
+
     <!-- Seção Acomodações com carrossel funcional -->
     <section class="section" id="acomodacoes">
       <div class="container">
@@ -571,9 +578,9 @@ h2 {
             <div class="acomodacoes-carousel-wrapper">
               <button class="acomodacoes-carousel-btn prev" onclick="acomodacoesPrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
               <div class="acomodacoes-carousel">
-                <img class="acomodacoes-slide active" src="local.jpg" alt="Acomodações">
-                <img class="acomodacoes-slide" src="quarto1.jpg" alt="Quarto Individual">
-                <img class="acomodacoes-slide" src="quarto2.jpg" alt="Quarto Duplo">
+                <img class="acomodacoes-slide active" src="cozinha.jpg" alt="Acomodações">
+                <img class="acomodacoes-slide" src="sala.jpg" alt="Quarto Individual">
+                <img class="acomodacoes-slide" src="banheiro.jpg" alt="Quarto Duplo">
               </div>
               <button class="acomodacoes-carousel-btn next" onclick="acomodacoesNext()" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
             </div>
