@@ -1,4 +1,4 @@
-<!-- planos.html: Pronto para incluir via fetch no index.html -->
+<!-- planos.html: Pronto para incluir via fetch no index.html (botões sem brilho, sem rolagem swipe) -->
 <style>
   :root {
     --primary-color: #48BB78;
@@ -73,15 +73,15 @@
     font-weight: bold;
     color: var(--white);
     font-size: 1rem;
-    box-shadow: var(--shadow);
-    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    transition: background var(--transition), color var(--transition);
     outline: none;
+    box-shadow: none;
   }
   .plano-btn.active,
   .plano-btn:hover {
     background: var(--primary-dark);
     color: var(--white);
-    box-shadow: 0 4px 18px var(--secondary-color);
+    box-shadow: none;
   }
   .carousel-container {
     position: relative;
@@ -98,9 +98,9 @@
   .carousel-track {
     display: flex;
     transition: transform 0.5s cubic-bezier(.4,0,.2,1);
-    will-change: transform;
-    touch-action: pan-x;
     min-height: 370px;
+    will-change: transform;
+    /* Removido touch-action e swipe */
   }
   .plano-card {
     min-width: 320px;
@@ -161,13 +161,13 @@
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    box-shadow: 0 4px 20px var(--secondary-color);
-    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    transition: background var(--transition), color var(--transition);
+    box-shadow: none;
   }
   .btn-primary:hover {
     background: var(--primary-dark);
     color: var(--white);
-    box-shadow: 0 4px 22px var(--primary-dark);
+    box-shadow: none;
   }
   .carousel-arrow {
     position: absolute;
@@ -184,17 +184,17 @@
     outline: none;
     z-index: 2;
     opacity: 0.92;
-    box-shadow: 0 2px 10px #c4e3d755;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    transition: background var(--transition), color var(--transition);
+    box-shadow: none;
   }
   .carousel-arrow:active,
   .carousel-arrow:hover {
     background: var(--primary-dark);
     color: var(--white);
-    box-shadow: 0 6px 18px var(--primary-dark);
+    box-shadow: none;
   }
   .carousel-arrow.left {
     left: 1rem;
@@ -354,35 +354,6 @@
     document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
 
     window.addEventListener('resize', () => moveCarousel(currentIndex));
-
-    // Touch/Swipe para mobile - NÃO trava o scroll vertical
-    const carouselTrack = document.getElementById('carouselTrack');
-    let startX = null, startY = null, isDragging = false;
-
-    carouselTrack.addEventListener('touchstart', function(e){
-      if(e.touches.length === 1){
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        isDragging = false;
-      }
-    });
-    carouselTrack.addEventListener('touchmove', function(e){
-      if(startX !== null && startY !== null){
-        const dx = e.touches[0].clientX - startX;
-        const dy = e.touches[0].clientY - startY;
-        if(!isDragging && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.5){
-          isDragging = true;
-          e.preventDefault();
-        }
-        if(isDragging && Math.abs(dx) > 50){
-          if(dx < 0) moveCarousel(currentIndex + 1);
-          else moveCarousel(currentIndex - 1);
-          startX = null; startY = null; isDragging = false;
-        }
-      }
-    }, { passive: false });
-    carouselTrack.addEventListener('touchend', function(){
-      startX = null; startY = null; isDragging = false;
-    });
+    // REMOVIDO: Swipe/touch para mobile
   });
 </script>
