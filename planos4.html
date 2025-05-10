@@ -27,10 +27,13 @@
   .nivel-slider:focus::-webkit-slider-thumb { border: 3px solid #FFD600;}
   .nivel-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--thumb-border, #48BB78); box-shadow: 0 2px 6px #d9f8ec80; transition: border .2s; cursor: pointer; position: relative; z-index: 5;}
   .nivel-slider:focus::-moz-range-thumb { border: 3px solid #FFD600;}
-  .nivel-slider::-ms-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--thumb-border, #48BB78); box-shadow: 0 2px 6px #d9f8ec80; transition: border .2s; cursor: pointer; position: relative; z-index: 5::-ms-fill-lower, .nivel-slider::-ms-fill-upper { background: transparent;}
-  .slider-markers { position: absolute; left: ; z-index: 10; pointer-events: none;}
+  .nivel-slider::-ms-thumb { width: 28px; height: 28px; border-radius: 50%; background: #fff; border: 3px solid var(--thumb-border, #48BB78); box-shadow: 0 2px 6px #d9f8ec80; transition: border .2s; cursor: pointer; position: relative; z-index: 5;}
+  .nivel-slider::-webkit-slider-runnable-track { height: 10px; background: transparent;}
+  .nivel-slider::-ms-fill-lower, .nivel-slider::-ms-fill-upper { background: transparent;}
+  .slider-markers { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); width: 100%; height: 0; z-index: 10; pointer-events: none;}
   .slider-dot { position: absolute; width: 14px; height: 14px; background: #222; border-radius: 50%; top: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 3px #fff; border: 2px solid #222; pointer-events: none; z-index: 11;}
-  .nivel-labels { margin-top: 1.1rem; font-size: 1.08rem; color5rem; background: var(--primary-color); border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: var(--white); font-size: 1rem; transition: background var(--transition), color var(--transition); outline: none; box-shadow: none;}
+  .nivel-labels { margin-top: 1.1rem; font-size: 1.08rem; color: var(--primary-dark); font-weight: 500; text-align: center;}
+  .plano-btn { padding: 0.65rem 1.7rem; margin: 0 0.5rem; background: var(--primary-color); border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: var(--white); font-size: 1rem; transition: background var(--transition), color var(--transition); outline: none; box-shadow: none;}
   .plano-btn.active, .plano-btn:hover { background: var(--primary-dark); color: var(--white); box-shadow: none;}
   .carousel-container { position: relative; width: 100%; overflow: hidden; margin: 0 auto; max-width: 1000px; background: var(--white); border-radius: 22px; box-shadow: 0 2px 16px #c4e3d733; padding: 2.2rem 0 1.7rem 0; color: var(--text-color);}
   .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(.4,0,.2,1); min-height: 370px; will-change: transform;}
@@ -51,7 +54,7 @@
   .carousel-arrow.right { right: 1rem;}
   @media (max-width: 1000px) { .carousel-container { max-width: 700px;} .plano-card { min-width: 260px; max-width: 320px;} .nivel-titulo-item { font-size: 0.98rem; }}
   @media (max-width: 768px) { .carousel-container { max-width: 95vw;} .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;} .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;} .planos-titulo {font-size:1.3rem;} .nivel-titulo-item { font-size: 0.92rem; }}
-  @keyframes fadeIn { from { opacity: 0.3; transform: translateY(22px);} to   { opacity: 1; transform: translateY(0);}}
+  @keyframes fadeIn { from { opacity: 0.3; transform: translateY(22px);} to { opacity: 1; transform: translateY(0);}}
 </style>
 
 <section class="planos-section" id="planos">
@@ -113,28 +116,19 @@
       descricao: "Seu familiar precisa de suporte próximo e contínuo, com atenção total em todas as suas necessidades e bem-estar."
     }
   ];
-
-  // Room base prices (per month) for low complexity and semestral plan (baseline)
+  
+  // New pricing multipliers and base prices:
   const roomBase = {
     q3: 3000,  // Triplo ou mais
     q2: 3500,  // Duplo
     q1: 4000   // Individual
   };
-
-  // Complexity multipliers: level 1 = 1, level 2 = 1.15, level 3 = 1.30
-  const complexityMultipliers = [1, 1.15, 1.30];
-
-  // Frequency multipliers based on a 5% per month rate difference:
-  // Semestral (6 months): 0% increase   → 1.00
-  // Trimestral (3 months): 15% increase → 1.15
-  // Mensal (1 month): 30% increase      → 1.30
+  const complexityMultipliers = [1.00, 1.15, 1.30]; // low, medium, high
   const frequencyMultipliers = {
     semestral: 1.00,
     trimestral: 1.15,
     mensal: 1.30
   };
-
-  // Number of months per plan
   const mesesPorPlano = {
     semestral: 6,
     trimestral: 3,
@@ -190,19 +184,16 @@
 
   function atualizarCarousel() {
     const nivel = parseInt(document.getElementById("nivelCuidados").value);
-    // Use the room base price for each room type, then multiply
-    // by the complexity multiplier and then by the frequency multiplier.
     const carouselTrack = document.getElementById('carouselTrack');
     carouselTrack.innerHTML = '';
     quartos.forEach((quarto, i) => {
+      // Calculate monthly price using the room base price, complexity, and frequency multipliers
       let precoMensal = roomBase[quarto.cod] *
                         complexityMultipliers[nivel - 1] *
                         frequencyMultipliers[frequencia];
-      // Guarantee that the monthly price is not below the baseline (only for q3 it will be equal)
-      if (precoMensal < roomBase["q3"]) precoMensal = roomBase["q3"];
       const mesesPlano = mesesPorPlano[frequencia];
       const precoTotal = Math.round(precoMensal * mesesPlano);
-
+      
       const perfil = niveisResumo[nivel - 1];
       const mensagem = 
 `Olá! Gostaria de avançar na contratação para meu familiar.
@@ -243,13 +234,13 @@ Por favor, envie orientações sobre os próximos passos.`;
     const carouselTrack = document.getElementById('carouselTrack');
     const total = quartos.length;
     let visible = 3;
-    if (window.innerWidth < 1000 && window.innerWidth >= 768) visible = 2;
-    if (window.innerWidth < 768) visible = 1;
-    if (index < 0) index = 0;
-    if (index > total - visible) index = total - visible;
+    if(window.innerWidth < 1000 && window.innerWidth >= 768) visible = 2;
+    if(window.innerWidth < 768) visible = 1;
+    if(index < 0) index = 0;
+    if(index > total - visible) index = total - visible;
     currentIndex = index;
     const card = carouselTrack.querySelector('.plano-card');
-    if (card) {
+    if(card) {
       const cardWidth = card.offsetWidth + 32;
       carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
     }
