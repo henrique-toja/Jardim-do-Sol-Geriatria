@@ -1,3 +1,4 @@
+<!-- planos.html: Pronto para incluir via fetch no index.html -->
 <style>
   :root {
     --primary-color: #48BB78;
@@ -255,6 +256,12 @@
     { cod: "q3", label: "Quarto Triplo ou mais", img: "quarto3.jpg" }
   ];
 
+  const niveis = [
+    "Lúcido",
+    "Cuidados Moderados",
+    "Alta Complexidade"
+  ];
+
   function setFrequencia(tipo) {
     frequencia = tipo;
     document.querySelectorAll('.plano-btn').forEach(btn => {
@@ -295,13 +302,26 @@
         multiplicadores.nivel[nivel - 1] *
         multiplicadores.frequencia[frequencia]
       );
+
+      // Mensagem personalizada conforme escolha
+      let mensagem = `Olá, gostaria de contratar o plano:
+- Quarto: ${quarto.label}
+- Nível de cuidados: ${niveis[nivel - 1]}
+- Período: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}
+`;
+
+      if (nivel === 1) {
+        mensagem += `\nO paciente não tem complexidades.`;
+      }
+      const linkWhats = `https://wa.me/555197879151?text=${encodeURIComponent(mensagem)}`;
+
       const card = document.createElement('div');
       card.className = 'plano-card';
       card.innerHTML = `
         <img src="${quarto.img}" alt="${quarto.label}">
         <h3>${quarto.label}</h3>
         <p class="preco">${formatarPreco(preco)}/mês</p>
-        <a href="https://wa.me/550000000000" class="btn-primary" target="_blank">Contratar</a>
+        <a href="${linkWhats}" class="btn-primary" target="_blank">Contratar</a>
       `;
       carouselTrack.appendChild(card);
     });
