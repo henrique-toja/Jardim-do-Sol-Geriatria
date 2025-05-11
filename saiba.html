@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residencial Geriátrico Jardim do Sol | Porto Alegre</title>
+  <link rel="stylesheet" href="saiba-mais.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="logo.jpg" alt="Jardim do Sol Logo">
+        <div class="logo-text">
+          <h1>Jardim do Sol Geriatria</h1>
+          <p class="tagline">Cuidado, Conforto e Longevidade</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <h2>Bem-vindo ao Residencial Geriátrico Jardim do Sol</h2>
+        <p>Há 25 anos oferecendo acolhimento e cuidado especializado para idosos com foco na qualidade de vida</p>
+        <a href="/contato" class="btn">Contato e Endereço</a>
+        <a href="/prices" class="btn">Conheça nossos Preços</a>
+      </div>
+    </section>
+
+    <!-- Seção Acomodações com carrossel -->
+    <section class="section" id="acomodacoes">
+      <div class="container">
+        <div class="section-header">
+          <h2>Acomodações</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <div class="acomodacoes-carousel-wrapper">
+              <button class="acomodacoes-carousel-btn prev" onclick="acomodacoesPrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+              <div class="acomodacoes-carousel">
+                <img class="acomodacoes-slide active" src="cozinha.jpg" alt="Acomodações">
+                <img class="acomodacoes-slide" src="sala.jpg" alt="Quarto Individual">
+                <img class="acomodacoes-slide" src="banheiro.jpg" alt="Quarto Duplo">
+              </div>
+              <button class="acomodacoes-carousel-btn next" onclick="acomodacoesNext()" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          <div class="section-text" style="text-align:left;">
+            <h3 style="text-align:center;">O que a Jardim do Sol Geriatria oferece para nossos pacientes:</h3>
+            <ul>
+              <li>Quartos individuais, duplos e triplos, amplos e climatizados</li>
+              <li>Camas confortáveis e estrutura adaptada para idosos</li>
+              <li>Ambientes seguros e monitorados 24h</li>
+              <li>Decoração acolhedora, com sensação de lar</li>
+              <li>Áreas comuns para socialização, lazer e atividades</li>
+              <li>Serviço de lavanderia e limpeza diária</li>
+              <li>Opções para hospedagem temporária ou longa permanência</li>
+              <li>Equipe atenciosa sempre disponível</li>
+            </ul>
+            <p style="margin-top:1em;">
+              Nosso objetivo é oferecer conforto, tranquilidade e bem-estar para que cada hóspede se sinta verdadeiramente em casa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Serviços (Carrossel) -->
+    <section class="section" id="maneira-de-cuidar">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossa Maneira de Proporcionar Cuidados e Conforto</h2>
+        </div>
+        <div class="services-carousel-wrapper">
+          <button class="services-carousel-btn prev" onclick="servicePrev()" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="services-carousel">
+            <!-- Card 1 -->
+            <div class="service-card active">
+              <img src="geriatria.jpg" alt="Lar de Idosos">
+              <div class="service-content">
+                <h3>Lar de Idosos</h3>
+                <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina cuidadosamente planejada para respeitar a individualidade e os gostos de cada hóspede.</p>
+                <ul>
+                  <li>Jogos e dinâmicas de grupo para integração social</li>
+                  <li>Estímulo à funcionalidade e às atividades de vida diária</li>
+                  <li>Oficinas de memória e estímulos cognitivos</li>
+                  <li>Alimentação balanceada com supervisão nutricional</li>
+                  <li>Cuidados de enfermagem e suporte à saúde física e emocional</li>
+                  <li>Também disponibilizamos Centro-Dia, Atendimento durante o dia com retorno à noite</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="service-card">
+              <img src="medico.jpg" alt="Equipe Médica">
+              <div class="service-content">
+                <h3>Equipe de Saúde</h3>
+                <p>Contamos com profissionais especializados para oferecer um cuidado completo, humano e personalizado:</p>
+                <ul>
+                  <li><strong>Médico Geriatra e Pneumologista:</strong> acompanhamento clínico especializado e suporte respiratório.</li>
+                  <li><strong>Enfermagem 24 horas:</strong> monitoramento constante, administração de medicamentos e suporte imediato.</li>
+                  <li><strong>Nutricionista:</strong> elaboração de dietas personalizadas, priorizando saúde e restrições alimentares.</li>
+                  <li><strong>Terapeuta Ocupacional:</strong> estímulo à autonomia e funcionalidade nas atividades diárias.</li>
+                  <li><strong>Terapeuta Floral:</strong> equilíbrio emocional através da terapia com essências florais.</li>
+                  <li><strong>Fisioterapeuta (grupo):</strong> sessões para fortalecer a mobilidade, prevenir quedas e estimular o trato respiratório.</li>
+                  <li><strong>Psicomotricista (grupo):</strong> atividades que integram movimento e cognição para estímulo global.</li>
+                  <li><strong>Gerontólogo:</strong> apoio especializado no processo de envelhecimento com foco na qualidade de vida.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="service-card">
+              <img src="food1.jpg" alt="Alimentação Saudável">
+              <div class="service-content">
+                <h3>Alimentação & Nutrição</h3>
+                <p>Oferecemos 6 refeições diárias elaboradas por um nutricionista especializado, considerando restrições e preferências individuais.</p>
+                <ul>
+                  <li>Refeições balanceadas para promover bem-estar e imunidade;</li>
+                  <li>Ingredientes frescos, sazonais e de alta qualidade;</li>
+                  <li>Ambientes climatizados que estimulam o apetite e o convívio social;</li>
+                  <li>Orientações nutricionais personalizadas, quando necessário;</li>
+                  <li>Adaptação para texturas específicas, conforme necessidade clínica.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="service-card">
+              <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos">
+              <div class="service-content">
+                <h3>Cuidados Pós-Cirúrgicos</h3>
+                <p>Suporte especializado para a recuperação segura e confortável após procedimentos cirúrgicos:</p>
+                <ul>
+                  <li>Monitoramento de sinais vitais e curativos;</li>
+                  <li>Assistência nas atividades diárias do pós-operatório;</li>
+                  <li>Acompanhamento com fisioterapia e enfermagem;</li>
+                  <li>Controle de medicações conforme prescrição médica;</li>
+                  <li>Ambiente tranquilo e acolhedor para recuperação.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="services-carousel-btn next" onclick="serviceNext()" aria-label="Próximo">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Vídeo -->
+    <section class="section" id="video">
+      <div class="container">
+        <div class="section-header">
+          <h2>LAR DE IDOSOS NÃO É ABANDONO</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <video controls>
+              <source src="jardimdosol.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="section-text">
+            <h3>Geriatria não é um asilo</h3>
+            <p>
+              Por muito tempo, o termo "asilo" foi associado a abandono, solidão e desamparo. Essa visão ultrapassada ainda gera resistência e culpa em quem busca apoio especializado para o cuidado de um familiar idoso.
+            </p>
+            <p>
+              Mas é preciso entender: geriatria não é um asilo. Uma geriatria moderna é um espaço de acolhimento, atenção integral e carinho diário. É um lugar onde o idoso é respeitado em sua individualidade e cuidado com responsabilidade e presença.
+            </p>
+            <p>
+              No Residencial Geriátrico Jardim do Sol, oferecemos um ambiente que promove bem-estar, dignidade e qualidade de vida. Aqui, cuidar é amar, é estar junto, é garantir que cada fase da vida seja vivida com plenitude e respeito.
+            </p>
+            <p>
+              Portanto, você não está abandonando seu familiar ao escolher uma geriatria. Pelo contrário: está tomando uma decisão consciente e afetuosa, que assegura a ele cuidados profissionais, companhia, segurança e qualidade de vida que muitas vezes não seriam possíveis em casa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sobre Nós</h2>
+        </div>
+        <div class="section-content">
+          <div class="section-media">
+            <img src="sobre.jpg" alt="Residencial Jardim do Sol">
+          </div>
+          <div class="section-text">
+            <h3>Nossa História e Filosofia</h3>
+            <p>
+              Com mais de 25 anos de experiência, o Residencial Jardim do Sol se consolidou como referência em cuidado geriátrico especializado, oferecendo um ambiente acolhedor, seguro e centrado no bem-estar.
+            </p>
+            <p>
+              Nosso modelo de atendimento é baseado em uma abordagem holística, que considera o ser humano em sua totalidade — corpo, mente e emoções. Cada residente é tratado com respeito, carinho e atenção personalizada.
+            </p>
+            <p>
+              <strong>Um de nossos principais diferenciais é a ausência de restrições quanto a patologias, acolhendo com responsabilidade e empatia cada caso, por mais complexo que seja.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Botão flutuante WhatsApp -->
+  <div class="float-contact">
+    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Missão</h3>
+        <p>Nossa missão é cuidar de quem sempre cuidou de nós.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/geriatriajardimdosol" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/jardimdosolgeriatria" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/555197879151" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; Jardim do Sol Geriatria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="saiba-mais.js"></script>
+</body>
+</html>
