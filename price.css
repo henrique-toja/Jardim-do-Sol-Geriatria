@@ -367,3 +367,14 @@
     from { opacity: 0.3; transform: translateY(22px);} 
     to { opacity: 1; transform: translateY(0);}
   }
+
+/* CSS exclusivo para desktop */
+@media (min-width: 1024px) {
+  .planos-section {
+    padding-top: 60px; /* exemplo de ajuste para compensar header fixo */
+  }
+  .carousel-arrow {
+    display: flex !important;
+  }
+  /* Outros estilos desktop */
+}
