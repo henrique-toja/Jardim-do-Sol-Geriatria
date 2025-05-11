@@ -127,7 +127,7 @@ Por favor, envie orientações sobre os próximos passos.`;
             * sujeito a alterações
           </span>
         </div>
-        <a href="${linkWhats}" class="btn-primary" target="_blank">Contratar</a>
+        <a href="${linkWhats}" class="btn-primary" target="_blank">Conversar no WhatsApp</a>
       `;
       carouselTrack.appendChild(card);
     });
