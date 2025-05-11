@@ -8,8 +8,9 @@
   --light-bg: #F7FAFC;
   --white: #FFFFFF;
   --footer-bg: #222831;
-  --shadow: 0 2px 8px rgba(44, 82, 130, }
-
+  --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+  --transition: .2s;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -54,10 +55,9 @@ header {
   font-size: 1rem;
   margin: 0;
 }
-body, header, .hero, .hero-content, footer h2 { /* .contact removido */
+body, header, .hero, .hero-content, .contact, footer h2 {
   text-align: center;
 }
-/* .services-carousel, .service-content, .section-content, .section-text removidos */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg') center/cover no-repeat;
   height: 60vh;
@@ -90,7 +90,10 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: background .2s, transform .2s, box(--shadow);
+  transition: background .2s, transform .2s, box-shadow .2s;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
   font-size: 1rem;
 }
 .btn:hover {
@@ -98,11 +101,70 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-/* ---- PLANOS E CAROUSEL ---- */
+.section {
+  padding: 80px 0 30px 0;
+  background: var(--light-bg);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.section-media {
+  flex: 1;
+  min-width: 260px;
+  text-align: center;
+}
+.section-media img, .section-media video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44,82,130,0.06);
+}
+.section-text {
+  flex: 2;
+  min-width: 280px;
+}
+.section-text h3 {
+  color: var(--accent-color);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.section-text ul {
+  margin: 1rem 0 0 1rem;
+  padding-left: 1rem;
+}
+.section-text ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+/* Planos e preços */
 .planos-section { 
   background: var(--light-bg); 
-  border-radius: : 0 8px 32px 0 rgba(44, 62, 80, 0.10); 
+  border-radius: 30px; 
+  box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10); 
   padding: 3rem 1rem 5rem 1rem; 
   max-width: 1200px; 
   margin: 3rem auto; 
@@ -114,6 +176,12 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
   font-weight: 700; 
   letter-spacing: .5px; 
   margin-bottom: .7rem; 
+  text-align: center;
+}
+.planos-descricao { 
+  color: var(--text-color); 
+  font-size: 1.14rem; 
+  margin-bottom: 2.2rem; 
   text-align: center;
 }
 .nivel-container { 
@@ -213,7 +281,8 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
   width: 28px; 
   height: 28px; 
   border-radius: 50%; 
-  background: #fff; solid var(--thumb-border, #48BB78); 
+  background: #fff; 
+  border: 3px solid var(--thumb-border, #48BB78); 
   box-shadow: 0 2px 6px #d9f8ec80; 
   transition: border .2s; 
   cursor: pointer; 
@@ -276,7 +345,7 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
 .plano-btn { 
   padding: 0.65rem 1.7rem; 
   margin: 0 0.5rem; 
-  background: var(--primary-color); 
+); 
   border: none; 
   border-radius: 25px; 
   cursor: pointer; 
@@ -332,10 +401,7 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
 }
 .plano-card:hover { 
   box-shadow: 0 12px 42px 0 rgba(44, 62, 80, 0.18); 
-  border: 2.5px solid var(--primary-color);
-}
-.plano-card img { 
-  width: 100%; 
+  border: 100%; 
   height: 150px; 
   object-fit: cover; 
   border-radius: 12px; 
@@ -441,37 +507,111 @@ body, header, .hero, .hero-content, footer h2 { /* .contact removido */
   .carousel-container { max-width: 95vw;} 
   .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;} 
   .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;} 
-  .planos-titulo { font-sizenivel-titulo-item { font-size: 0.92rem; }
+  .planos-titulo { font-size: 1.3rem;} 
+  .nivel-titulo-item { font-size: 0.92rem; }
 }
-/* .section, .section-header, .section-content, .section-media, .section-text, .services-container,
-   .acomodacoes-carousel-wrapper, .acomodacoes-carousel, .acomodacoes-slide, .acomodacoes-carousel-btn,
-   .services-carousel-wrapper, .services-carousel, .service-card, .service-content, .services-carousel-btn,
-   .contact, .contact-grid, .contact-info, .contact-list, .contact-btn, .address-block, .map-link,
-   .contact-map, .map-container, .footer-col h3, .copyright 
-   removidos (NÃO USADOS EM custos.html) */
 @keyframes fadeIn { 
-  from { opacity: 0.3;-index: 999;
+  from { opacity: 0.3; transform: translateY(22px);} 
+  to { opacity: 1; transform: translateY(0);}
 }
-.float-btn {
+/* Contato e rodapé */
+.contact {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+.contact-grid {
   display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+.contact-info h3 {
+  font-size: 24px;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: #25d366;
+}
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--primary-dark);
   color: #fff;
-  border-radius: 50%;
-  font-size: 2rem;
-  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
+  padding: 12px 20px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background .2s, transform .2s;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+  width: fit-content;
+  margin: 0 auto;
 }
-.float-btn:hover {
-  background: #128C7E;
-  transform: scale(1.08);
+.contact-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
 }
-
-/* Footer */
+.address-block {
+  display-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin-top: 15px;
+  text-align: center;
+}
+.address-block i {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-top: 5px;
+}
+.address-block p {
+  margin: 5px 0;
+  line-height: 1.5;
+  color: #444;
+}
+.map-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-weight: 600;
+  justify-content: center;
+}
+.map-link:hover {
+  text-decoration: underline;
+}
+.contact-map {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+.map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 400px;
+  margin: 0 auto;
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 footer {
   background: var(--footer-bg);
   color: #fff;
@@ -519,4 +659,46 @@ footer {
   padding-top: 20px;
   margin-top: 30px;
   border-top: 1px solid #444;
+}
+@media (max-width: 900px) {
+  .container { padding: 0 10px; }
+  .contact-grid { flex-direction: column; }
+  .map-container { min-height: 250px; }
+}
+@media (max-width: 768px) {
+  .hero-content h2 { font-size: 1.8rem; }
+  .hero-content p { font-size: 1rem; }
+  .section-header h2 { font-size: 1.3rem; }
+  .section-content { flex-direction: column; }
+  .services-container { grid-template-columns: 1fr; }
+  .acomodacoes-carousel-wrapper { max-width: 96vw; }
+}
+@media (max-width: 600px) {
+  .hero-content h2 { font-size: 1.1rem; }
+  .acomodacoes-carousel-wrapper { max-width: 98vw; }
+}
+/* Botão flutuante WhatsApp */
+.float-contact {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+.float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.float-btn:hover {
+  background: #128C7E;
+  transform: scale(1.08);
 }
