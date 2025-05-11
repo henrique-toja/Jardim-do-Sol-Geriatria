@@ -1,0 +1,56 @@
+<!-- prices.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Planos Jardim do Sol</title>
+  <link rel="stylesheet" href="prices.css">
+</head>
+<body>
+  <section class="planos-section" id="planos">
+    <h2 class="planos-titulo">
+      Planos de contratos flexíveis e personalizados
+    </h2>
+    <div class="nivel-container">
+      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;">
+        Qual situação de saúde de seu familiar?
+      </label>
+      <div class="nivel-titulos">
+        <span class="nivel-titulo-item">Baixa complexidade</span>
+        <span class="nivel-titulo-item">Média complexidade</span>
+        <span class="nivel-titulo-item">Alta  complexidade</span>
+      </div>
+      <div class="nivel-slider-area">
+        <div class="nivel-slider-bg"></div>
+        <div class="nivel-slider-fill" id="nivelSliderFill"></div>
+        <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="nivel-slider">
+        <div class="slider-markers">
+          <span class="slider-dot" style="left:0%;"></span>
+          <span class="slider-dot" style="left:50%;"></span>
+          <span class="slider-dot" style="left:100%;"></span>
+        </div>
+      </div>
+      <div class="nivel-labels" id="descricaoNivel"></div>
+    </div>
+    <div style="margin: 2rem 0; text-align:center;">
+      <button class="plano-btn active" onclick="setFrequencia('semestral')">
+        <span style="font-size:0.8rem; display:block;">Contrato</span>
+        Semestral
+      </button>
+      <button class="plano-btn" onclick="setFrequencia('trimestral')">
+        <span style="font-size:0.8rem; display:block;">Contrato</span>
+        Trimestral
+      </button>
+      <button class="plano-btn" onclickspan>
+        Mensal
+      </button>
+    </div>
+    <div class="carousel-container" id="carouselContainer">
+      <button class="carousel-arrow left" id="carouselPrevBtn">&#8592;</button>
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="carousel-arrow right" id="carouselNextBtn">&#8594;</button>
+    </div>
+  </section>
+  <script src="prices.js"></script>
+</body>
+</html>
