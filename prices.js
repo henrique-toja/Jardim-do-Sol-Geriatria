@@ -165,3 +165,14 @@ Por favor, envie orientações sobre os próximos passos.`;
     document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
     window.addEventListener('resize', () => moveCarousel(currentIndex));
   });
+
+// desktop.js
+if (window.innerWidth > 1023) {
+  // Corrige header fixo cobrindo a hero
+  document.querySelector('.hero').style.paddingTop = '120px';
+
+  // Garante que setas do carrossel aparecem no PC
+  document.querySelectorAll('.carousel-arrow').forEach(btn => {
+    btn.style.display = "flex";
+  });
+}
