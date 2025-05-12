@@ -3,16 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <title>Plano de Assinatura</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      padding: 40px;
-      background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
-      font-family: 'Segoe UI', sans-serif;
-      color: #1e1e1e;
+    :root {
+      --primary-color: #48BB78;
+      --primary-dark: #2e7d32;
+      --secondary-color: #8BC34A;
+      --accent-color: #248eff;
+      --accent-dark: #176bc1;
+      --text-color: #2D3748;
+      --light-bg: #F7FAFC;
+      --white: #FFFFFF;
+      --footer-bg: #222831;
+      --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+      --transition: .2s;
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: linear-gradient(to bottom, #eaf4ff, #dfeffc); /* gradiente azulado */
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+    .header-container {
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo img {
+      width: 80px;
+      border-radius: 50%;
+    }
+    .logo-text h1 {
+      font-size: 1.8rem;
+      color: #2e7d32;
+      margin-bottom: 0.3rem;
+    }
+    .tagline {
+      color: #111;
+      font-size: 1rem;
+      margin: 0;
+    }
+    body, header, .hero, .hero-content, .contact, footer h2 {
+      text-align: center;
+    }
+
+    /* Cards arredondados */
+    .card {
+      background-color: var(--white);
+      border-radius: 24px;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .card h2 {
+      background: linear-gradient(to right, #2ca5ff, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    .highlight {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 12px 0;
+    }
+
+    /* Botões dos planos - pill arredondado */
     .toggle-container {
       display: flex;
       justify-content: center;
@@ -22,6 +107,7 @@
       width: max-content;
       margin: 40px auto 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      gap: 8px;
     }
     .toggle-option {
       padding: 10px 24px;
@@ -31,9 +117,12 @@
       transition: background 0.3s, color 0.3s;
       font-weight: 500;
       color: #1e1e1e;
+      background: transparent;
+      border: none;
+      font-size: 1.05rem;
     }
     .toggle-option.active {
-      background-color: #248eff;
+      background-color: var(--accent-color);
       color: white;
     }
     .badge {
@@ -47,33 +136,6 @@
       padding: 2px 8px;
       border-radius: 12px;
       font-weight: 600;
-    }
-    .card {
-      background-color: white;
-      border-radius: 24px;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    .card h2 {
-      background: linear-gradient(to right, #2ca5ff, #00b3ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .card p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 8px 0;
-    }
-    .highlight {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 12px 0;
     }
 
     /* Slider evolutivo */
@@ -108,7 +170,6 @@
       width: 0;
       transition: width 0.3s;
     }
-    /* Thumb customizado */
     .slider::-webkit-slider-thumb {
       appearance: none;
       width: 28px;
@@ -190,10 +251,10 @@
       border-radius: 12px;
       margin-bottom: 1.2rem;
       box-shadow: 0 2px 10px #c4e3d733;
-      border: 1.5px solid #248eff;
+      border: 1.5px solid var(--accent-color);
     }
     .plano-card h3 {
-      color: #248eff;
+      color: var(--accent-color);
       font-size: 1.2rem;
       margin-bottom: 0.8rem;
       font-weight: 700;
@@ -205,7 +266,7 @@
     .preco-mensal {
       font-size: 2.1rem;
       font-weight: 800;
-      color: #248eff;
+      color: var(--accent-color);
       display:inline-block;
       line-height: 1.05;
       letter-spacing: -0.5px;
@@ -226,7 +287,7 @@
       letter-spacing: 0.1px;
     }
     .btn-primary {
-      background: #248eff;
+      background: var(--accent-color);
       color: #fff;
       padding: 0.75rem 2.2rem;
       border: none;
@@ -240,14 +301,14 @@
       margin-top: 1.9rem;
     }
     .btn-primary:hover {
-      background: #176bc1;
+      background: var(--accent-dark);
       color: #fff;
     }
     .carousel-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: #248eff;
+      background: var(--accent-color);
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -277,67 +338,84 @@
       .card { padding: 16px;}
       .toggle-container { margin: 20px auto 0;}
     }
-    /* WhatsApp floating button (simples) */
+
+    /* Botão flutuante WhatsApp */
     .float-contact {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 100;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
     }
     .float-btn {
-      background: #25d366;
-      color: #fff;
-      font-size: 2rem;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 2rem;
+      box-shadow: 0 3px 8px rgba(44,82,130,0.16);
       text-decoration: none;
-      box-shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
-      transition: background .2s;
+      transition: background .2s, transform .2s;
     }
-    .float-btn:hover { background: #128c7e;}
-    /* Footer básico */
+    .float-btn:hover {
+      background: #128C7E;
+      transform: scale(1.08);
+    }
+    /* Footer */
     footer {
-      background: #f2f2f2;
-      margin-top: 40px;
-      padding: 30px 0 10px 0;
+      background: var(--footer-bg);
+      color: #fff;
+      padding: 50px 0 20px;
     }
-    .container.footer-container {
+    .footer-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 60px;
+      justify-content: space-between;
+      gap: 30px;
       max-width: 900px;
       margin: 0 auto;
     }
-    .footer-col h3 {
-      margin-bottom: 8px;
-      font-size: 18px;
-      color: #248eff;
+    .footer-col {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
     }
-    .footer-col p, .footer-col a {
-      color: #222;
-      font-size: 15px;
-      text-decoration: none;
+    .footer-col h3 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
     }
     .social-links a {
-      margin-right: 12px;
-      font-size: 1.3rem;
-      color: #248eff;
-      transition: color .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #444;
+      color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
     }
-    .social-links a:hover { color: #176bc1;}
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
     .copyright {
       text-align: center;
-      color: #888;
-      font-size: 14px;
-      margin-top: 18px;
+      padding-top: 20px;
+      margin-top: 30px;
+      border-top: 1px solid #444;
     }
   </style>
-  <!-- FontAwesome para ícones sociais (online CDN) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -345,17 +423,17 @@
   <header>
     <div class="container header-container">
       <div class="logo">
-        <img src="logo.jpg" alt="Jardim do Sol Logo" style="height:60px;vertical-align:middle;">
-        <div class="logo-text" style="display:inline-block;margin-left:12px;vertical-align:middle;">
-          <h1 style="font-size:1.4rem;margin:0;color:#248eff;">Jardim do Sol Geriatria</h1>
-          <p class="tagline" style="margin:0;font-size:1rem;color:#2e7d32;">Cuidado, Conforto e Longevidade</p>
+        <img src="logo.jpg" alt="Jardim do Sol Logo">
+        <div class="logo-text">
+          <h1>Jardim do Sol Geriatria</h1>
+          <p class="tagline">Cuidado, Conforto e Longevidade</p>
         </div>
       </div>
     </div>
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main>
+  <main style="padding-top: 110px;">
     <div class="card">
       <h2>Planos de contratos flexíveis e personalizados</h2>
       <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
@@ -371,15 +449,15 @@
 
     <!-- Botões de frequência -->
     <div class="toggle-container" style="margin-top:30px;">
-      <div class="toggle-option active" onclick="setFrequencia('semestral')">
+      <button class="toggle-option active" onclick="setFrequencia('semestral')">
         Semestral <div class="badge">30% off</div>
-      </div>
-      <div class="toggle-option" onclick="setFrequencia('trimestral')">
+      </button>
+      <button class="toggle-option" onclick="setFrequencia('trimestral')">
         Trimestral <div class="badge">15% off</div>
-      </div>
-      <div class="toggle-option" onclick="setFrequencia('mensal')">
+      </button>
+      <button class="toggle-option" onclick="setFrequencia('mensal')">
         Mensal
-      </div>
+      </button>
     </div>
 
     <!-- Carrossel de Planos -->
@@ -403,7 +481,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container footer-container">
+    <div class="footer-container">
       <div class="footer-col">
         <h3>Missão</h3>
         <p>Nossa missão é cuidar de quem sempre cuidou de nós.</p>
@@ -535,7 +613,7 @@ Por favor, envie orientações sobre os próximos passos.`;
     function moveCarousel(index) {
       const carouselTrack = document.getElementById('carouselTrack');
       const total = quartos.length;
-      let visible = 1; // Mostra 1 card por vez (ajuste para 2 ou 3 se desejar em telas maiores)
+      let visible = 1;
       if(window.innerWidth >= 1000) visible = 3;
       else if(window.innerWidth >= 768) visible = 2;
       if(index < 0) index = 0;
