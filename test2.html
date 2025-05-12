@@ -5,8 +5,9 @@
   <title>Jardim do Sol Geriatria - Planos e Acomodações</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Import modern Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
-    
+
     :root {
       --primary-color: #2C7A7B;
       --primary-light: #4FD1C5;
@@ -21,12 +22,16 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
       --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --gradient-hero: linear-gradient(rgba(44, 122, 123, 0.9), rgba(40, 94, 97, 0.9));
+      --gradient-hero: linear-gradient(rgba(44,122,123,0.9), rgba(40,94,97,0.9));
       --transition-base: all 0.3s ease;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Open Sans', sans-serif;
       background: var(--bg-color);
@@ -111,7 +116,8 @@
     }
 
     /* Button Styles */
-    .btn {
+    .btn,
+    .btn-primary {
       display: inline-block;
       padding: 1rem 2rem;
       background: var(--primary-light);
@@ -124,7 +130,8 @@
       cursor: pointer;
     }
 
-    .btn:hover {
+    .btn:hover,
+    .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
     }
@@ -150,19 +157,58 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Slider Styles */
+    /* Slider Styles and Track Elements */
     .slider-container {
+      position: relative;
       margin: 2rem auto;
       max-width: 500px;
       padding: 0 1rem;
+      height: 36px;
+    }
+
+    .slider-track-bg {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      border-radius: 4px;
+      transform: translateY(-50%);
+      background: linear-gradient(90deg, var(--primary-light) 0%, var(--secondary-color) 100%);
+      z-index: 1;
+    }
+
+    .slider-track-fill {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 8px;
+      border-radius: 4px;
+      transform: translateY(-50%);
+      width: 0;
+      transition: width 0.3s ease, background 0.3s ease;
+      z-index: 2;
+    }
+
+    .slider-point {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      background: var(--white);
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
     }
 
     .slider {
-      -webkit-appearance: none;
+      position: relative;
       width: 100%;
-      height: 8px;
-      background: linear-gradient(90deg, var(--primary-light) 0%, var(--secondary-color) 100%);
-      border-radius: 4px;
+      height: 36px;
+      background: transparent;
+      z-index: 4;
+      -webkit-appearance: none;
       outline: none;
     }
 
@@ -206,12 +252,28 @@
     }
 
     /* Accommodation Cards */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 500px;
+      margin: 1rem auto;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+
     .plano-card {
       background: var(--white);
       border-radius: 16px;
       padding: 1.5rem;
       box-shadow: var(--shadow-md);
       transition: var(--transition-base);
+      margin: 0 0.5rem;
+      min-width: 240px;
+      max-width: 320px;
     }
 
     .plano-card:hover {
@@ -233,6 +295,40 @@
       color: var(--primary-dark);
     }
 
+    .preco-total, .preco-obs {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    /* Floating Contact Button */
+    .float-contact {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 1000;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--primary-light);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-base);
+    }
+
+    .float-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.1);
+    }
+
     /* Footer Styles */
     footer {
       background: var(--footer-bg);
@@ -247,6 +343,11 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .social-links {
@@ -270,24 +371,36 @@
       transform: translateY(-3px);
     }
 
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 1rem;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .hero-content h2 {
         font-size: 2.5rem;
       }
-
       .card {
         margin: 1rem;
         padding: 1.5rem;
       }
-
       .toggle-container {
         flex-direction: column;
         align-items: center;
       }
-
       .toggle-option {
         width: 100%;
+        max-width: 300px;
+      }
+      .carousel-container {
+        max-width: 100%;
+      }
+      .plano-card {
+        min-width: 220px;
         max-width: 300px;
       }
     }
@@ -295,8 +408,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Rest of the HTML structure remains the same, with updated classes and styling -->
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo">
@@ -309,7 +421,7 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT -->
   <main>
     <section class="hero">
       <div class="hero-content">
@@ -319,6 +431,7 @@
         <a href="/contato" class="btn">Fale Conosco</a>
       </div>
     </section>
+    <!-- Card for Contracts -->
     <div class="card">
       <h2>Planos de contratos flexíveis e personalizados</h2>
       <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
@@ -335,6 +448,7 @@
         <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="slider">
       </div>
     </div>
+    <!-- Toggle Options -->
     <div class="toggle-container" style="margin-top:20px;">
       <button class="toggle-option active" onclick="setFrequencia('semestral')">
         Semestral <div class="badge">30% off</div>
@@ -346,6 +460,7 @@
         Mensal
       </button>
     </div>
+    <!-- Card for Accommodations -->
     <div class="card" style="margin-top:20px;">
       <h2>Acomodações</h2>
       <p>Temos 3 tipos de Acomodações: Quartos Individuais, Duplos e Triplos</p>
@@ -357,12 +472,14 @@
     </div>
   </main>
 
+  <!-- Float Contact Button -->
   <div class="float-contact">
     <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -392,7 +509,7 @@
       const val = parseInt(slider.value, 10);
       const percent = ((val - min) / (max - min));
       fill.style.width = `${percent * 100}%`;
-      // Degradê saturado de acordo com o nível
+      // Update gradient based on level
       if (val === 1) {
         fill.style.background = "linear-gradient(90deg, #36a165 0%, #36a165 100%)";
       } else if (val === 2) {
@@ -443,16 +560,14 @@
       const nivel = parseInt(document.getElementById("nivelCuidados").value);
       const carouselTrack = document.getElementById('carouselTrack');
       carouselTrack.innerHTML = '';
-      quartos.forEach((quarto, i) => {
+      quartos.forEach((quarto) => {
         let precoMensal = roomBase[quarto.cod] *
                           complexityMultipliers[nivel - 1] *
                           frequencyMultipliers[frequencia];
         const mesesPlano = mesesPorPlano[frequencia];
         const precoTotal = Math.round(precoMensal * mesesPlano);
-
         const perfil = niveisResumo[nivel - 1];
-        const mensagem =
-`Olá! Gostaria de avançar na contratação para meu familiar.
+        const mensagem = `Olá! Gostaria de avançar na contratação para meu familiar.
 Quarto: ${quarto.label}
 Perfil: ${perfil.titulo}
 ${perfil.descricao}
@@ -481,7 +596,7 @@ Por favor, envie orientações sobre os próximos passos.`;
         `;
         carouselTrack.appendChild(card);
       });
-      setTimeout(()=>moveCarousel(currentIndex), 0);
+      setTimeout(() => moveCarousel(currentIndex), 0);
     }
 
     function setFrequencia(tipo) {
@@ -506,10 +621,9 @@ Por favor, envie orientações sobre os próximos passos.`;
       let visible = Math.floor(containerWidth / cardWidth);
       visible = Math.max(1, Math.min(visible, cards.length));
 
-      if(index < 0) index = 0;
-      if(index > cards.length - visible) index = cards.length - visible;
+      if (index < 0) index = 0;
+      if (index > cards.length - visible) index = cards.length - visible;
       currentIndex = index;
-
       carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
 
       document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
