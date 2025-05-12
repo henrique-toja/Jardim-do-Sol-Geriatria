@@ -504,3 +504,24 @@ footer {
   background: #128C7E;
   transform: scale(1.08);
 }
+/* Centraliza e separa botões */
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0 3.5rem 0;
+  flex-wrap: wrap;
+}
+.center-buttons .btn {
+  min-width: 220px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  border-radius: 28px;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .center-buttons {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+}
