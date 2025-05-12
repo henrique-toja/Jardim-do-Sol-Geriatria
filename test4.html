@@ -42,11 +42,11 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* Header (if present) */
+    /* HEADER - NEW MODERN STYLE */
     header {
       background: var(--white);
       box-shadow: var(--shadow-sm);
-      padding: 1rem 0;
+      padding: 1.2rem 0;
       position: fixed;
       width: 100%;
       z-index: 1000;
@@ -65,25 +65,28 @@
       gap: 1rem;
     }
     .logo img {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       object-fit: cover;
     }
     .logo-text h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--primary-dark);
       font-weight: 700;
+      margin: 0;
     }
     .tagline {
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 1rem;
+      margin: 0;
     }
 
     /* Contact Section */
     .contact {
-      padding: 4rem 0;
+      padding: 6rem 0 4rem;
       background: var(--bg-color);
+      margin-top: 80px; /* space for fixed header */
     }
     .container {
       max-width: 1200px;
@@ -260,8 +263,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Optional Header for contact page if needed -->
-  <!-- <header>
+  <!-- HEADER -->
+  <header>
     <div class="header-container">
       <div class="logo">
         <img src="logo.jpg" alt="Jardim do Sol Logo">
@@ -271,8 +274,9 @@
         </div>
       </div>
     </div>
-  </header> -->
+  </header>
 
+  <!-- MAIN CONTENT -->
   <main>
     <!-- Contact Section -->
     <section class="contact" id="contact">
