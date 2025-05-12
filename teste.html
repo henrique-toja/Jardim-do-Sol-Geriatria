@@ -3,86 +3,444 @@
 <head>
   <meta charset="UTF-8">
   <title>Plano de Assinatura</title>
-  <!-- Estilos do index.html -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* --- CSS do index.html mantido aqui --- */
+    :root {
+      --primary-color: #48BB78;
+      --primary-dark: #256029;
+      --secondary-color: #388e3c;
+      --accent-color: #48BB78;
+      --accent-dark: #2e7d32;
+      --text-color: #2D3748;
+      --white: #FFFFFF;
+      --footer-bg: #222831;
+      --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+      --slider-bg: #e0e8e1;
+      --slider-fill: linear-gradient(90deg, #48BB78 0%, #388e3c 100%);
+      --slider-thumb: #fff;
+      --slider-thumb-border: #256029;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; }
     body {
-      margin: 0;
-      padding: 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
-      font-family: 'Segoe UI', sans-serif;
-      color: #1e1e1e;
+      color: var(--text-color);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+    }
+    .header-container {
+      padding: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .logo img {
+      width: 52px;
+      border-radius: 50%;
+    }
+    .logo-text h1 {
+      font-size: 1.13rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.12rem;
+    }
+    .tagline {
+      color: #111;
+      font-size: .95rem;
+      margin: 0;
+    }
+    main {
+      padding-top: 90px;
+      min-height: 100vh;
+      width: 100%;
+    }
+    .card {
+      background-color: var(--white);
+      border-radius: 16px;
+      max-width: 410px;
+      margin: 20px auto;
+      padding: 20px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    .card h2 {
+      color: #256029;
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      -webkit-text-fill-color: unset !important;
+    }
+    .card p {
+      font-size: .98rem;
+      margin: 8px 0 12px 0;
+    }
+    .highlight {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin: 10px 0;
     }
     .toggle-container {
       display: flex;
       justify-content: center;
       background-color: white;
       border-radius: 999px;
-      padding: 6px;
+      padding: 2px;
       width: max-content;
-      margin: 40px auto 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px auto 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      gap: 4px;
     }
     .toggle-option {
-      padding: 10px 24px;
+      padding: 7px 14px;
       border-radius: 999px;
       cursor: pointer;
       position: relative;
       transition: background 0.3s, color 0.3s;
       font-weight: 500;
       color: #1e1e1e;
+      background: transparent;
+      border: none;
+      font-size: .98rem;
+      outline: none;
     }
     .toggle-option.active {
-      background-color: #248eff;
+      background-color: var(--accent-color);
       color: white;
+      box-shadow: 0 2px 8px #48BB7840;
     }
     .badge {
       position: absolute;
-      bottom: -18px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #00c78c;
+      background-color: #2e7d32;
       color: white;
-      font-size: 11px;
-      padding: 2px 8px;
+      font-size: 9px;
+      padding: 2px 6px;
       border-radius: 12px;
       font-weight: 600;
+      box-shadow: 0 2px 6px #48bb7820;
     }
-    .card {
-      background-color: white;
-      border-radius: 24px;
-      max-width: 600px;
+    /* Slider estilo prices.html */
+    .slider-container {
+      margin-top: 12px;
+      position: relative;
+      width: 100%;
+      max-width: 260px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .slider-bg {
+      width: 100%;
+      height: 10px;
+      border-radius: 5px;
+      background: var(--slider-bg);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .slider-fill {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 10px;
+      border-radius: 5px;
+      background: var(--slider-fill);
+      z-index: 2;
+      pointer-events: none;
+      transform: translateY(-50%);
+      width: 0;
+      transition: width 0.3s;
+    }
+    .slider {
+      width: 100%;
+      appearance: none;
+      height: 32px;
+      background: transparent;
+      outline: none;
+      position: relative;
+      z-index: 3;
+      margin: 0;
+    }
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--slider-thumb);
+      border: 4px solid var(--slider-thumb-border);
+      box-shadow: 0 2px 8px #48bb7844;
+      cursor: pointer;
+      transition: border 0.2s;
+      margin-top: -11px;
+    }
+    .slider:focus::-webkit-slider-thumb {
+      border: 4px solid var(--primary-dark);
+    }
+    .slider::-moz-range-thumb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--slider-thumb);
+      border: 4px solid var(--slider-thumb-border);
+      box-shadow: 0 2px 8px #48bb7844;
+      cursor: pointer;
+      transition: border 0.2s;
+    }
+    .slider:focus::-moz-range-thumb {
+      border: 4px solid var(--primary-dark);
+    }
+    .slider::-ms-thumb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--slider-thumb);
+      border: 4px solid var(--slider-thumb-border);
+      box-shadow: 0 2px 8px #48bb7844;
+      cursor: pointer;
+      transition: border 0.2s;
+    }
+    .slider:focus::-ms-thumb {
+      border: 4px solid var(--primary-dark);
+    }
+    /* Remove default track */
+    .slider::-webkit-slider-runnable-track {
+      height: 32px;
+      background: transparent;
+    }
+    .slider::-ms-fill-lower, .slider::-ms-fill-upper {
+      background: transparent;
+    }
+    /* Fim slider */
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      max-width: 360px;
       margin: 0 auto;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+      width: 100%;
+      min-height: 250px;
+    }
+    .plano-card {
+      min-width: 240px;
+      max-width: 320px;
+      margin: 0 0.5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 0.7rem 1.3rem 0.7rem;
+      box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      flex-shrink: 0;
+      border: 1.5px solid #48BB78;
+      position: relative;
+      color: #2D3748;
+      transition: box-shadow .2s, border .2s;
+    }
+    .plano-card img {
+      width: 100%;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 9px;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 2px 10px #c4e3d733;
+      border: 1px solid var(--accent-color);
+    }
+    .plano-card h3 {
+      color: var(--accent-dark);
+      font-size: .98rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .preco-profissional {
+      margin: .7rem 0 0.3rem 0;
       text-align: center;
     }
-    .card h2 {
-      background: linear-gradient(to right, #2ca5ff, #00b3ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 24px;
+    .preco-mensal {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      display:inline-block;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+    }
+    .preco-total {
+      font-size: .96rem;
+      color: #444;
+      margin-top: .2em;
+      font-weight: 500;
+      display: block;
+    }
+    .preco-obs {
+      display: block;
+      margin-top: 0.14em;
+      font-size: 0.91rem;
+      color: #888;
+      font-weight: 400;
+      letter-spacing: 0.1px;
+    }
+    .btn-primary {
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.45rem 1rem;
+      border: none;
+      border-radius: 14px;
+      font-size: .96rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, color 0.2s;
+      margin-top: 0.8rem;
+      box-shadow: 0 2px 8px #48bb7820;
     }
-    .card p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 8px 0;
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #fff;
     }
-    .highlight {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 12px 0;
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: .9rem;
+      cursor: pointer;
+      z-index: 2;
+      opacity: 0.92;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      box-shadow: 0 2px 7px #48bb7820;
     }
-    /* Aqui você pode adicionar estilos adicionais do adaptar.html, se necessário */
+    .carousel-arrow.left { left: 0; }
+    .carousel-arrow.right { right: 0; }
+    .float-contact {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 999;
+    }
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: #48BB78;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.13rem;
+      box-shadow: 0 3px 8px #48bb7830;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .float-btn:hover {
+      background: #2e7d32;
+      transform: scale(1.08);
+    }
+    footer {
+      background: var(--footer-bg);
+      color: #fff;
+      padding: 20px 0 7px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+    }
+    .footer-col h3 {
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      font-size: .98rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background-color: #444;
+      color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      font-size: .9rem;
+    }
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 7px;
+      margin-top: 7px;
+      border-top: 1px solid #444;
+      font-size: .83rem;
+    }
+    @media (min-width: 700px) {
+      .card { max-width: 430px; }
+      .carousel-container { max-width: 410px; }
+      .plano-card { min-width: 300px; max-width: 380px; }
+      .slider-container { max-width: 330px; }
+    }
+    @media (min-width: 1000px) {
+      .card { max-width: 500px; }
+      .carousel-container { max-width: 500px; }
+      .plano-card { min-width: 340px; max-width: 420px; }
+      .slider-container { max-width: 370px; }
+    }
   </style>
-  <!-- Inclua aqui qualquer outro CSS específico do adaptar.html que seja fundamental -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- HEADER do adaptar.html -->
+  <!-- HEADER -->
   <header>
-    <div class="container header-container">
+    <div class="header-container">
       <div class="logo">
         <img src="logo.jpg" alt="Jardim do Sol Logo">
         <div class="logo-text">
@@ -93,35 +451,32 @@
     </div>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL do adaptar.html, adaptado para o layout CARD do index.html -->
   <main>
     <div class="card">
       <h2>Planos de contratos flexíveis e personalizados</h2>
       <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
-      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;">
+      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.02rem;">
         Qual situação de saúde de seu familiar?
       </label>
       <div class="highlight" id="descricaoNivel"></div>
       <div class="slider-container">
+        <div class="slider-bg"></div>
+        <div class="slider-fill" id="sliderFill"></div>
         <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="slider">
       </div>
     </div>
-
-    <!-- Botões de frequência -->
-    <div class="toggle-container" style="margin-top:30px;">
-      <div class="toggle-option active" onclick="setFrequencia('semestral')">
+    <div class="toggle-container" style="margin-top:20px;">
+      <button class="toggle-option active" onclick="setFrequencia('semestral')">
         Semestral <div class="badge">30% off</div>
-      </div>
-      <div class="toggle-option" onclick="setFrequencia('trimestral')">
+      </button>
+      <button class="toggle-option" onclick="setFrequencia('trimestral')">
         Trimestral <div class="badge">15% off</div>
-      </div>
-      <div class="toggle-option" onclick="setFrequencia('mensal')">
+      </button>
+      <button class="toggle-option" onclick="setFrequencia('mensal')">
         Mensal
-      </div>
+      </button>
     </div>
-
-    <!-- Carrossel de Planos -->
-    <div class="card" style="margin-top:30px;">
+    <div class="card" style="margin-top:20px;">
       <h2>Acomodações</h2>
       <p>Temos 3 tipos de Acomodações: Quartos Individuais, Duplos e Triplos</p>
       <div class="carousel-container" id="carouselContainer">
@@ -130,18 +485,16 @@
         <button class="carousel-arrow right" id="carouselNextBtn">&#8594;</button>
       </div>
     </div>
-
-    <!-- Botão flutuante WhatsApp -->
-    <div class="float-contact">
-      <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
   </main>
 
-  <!-- FOOTER do adaptar.html -->
+  <div class="float-contact">
+    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
   <footer>
-    <div class="container footer-container">
+    <div class="footer-container">
       <div class="footer-col">
         <h3>Missão</h3>
         <p>Nossa missão é cuidar de quem sempre cuidou de nós.</p>
@@ -160,20 +513,29 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS do adaptar.html, ajustados para IDs/classes do novo layout -->
   <script>
-    // TODO: Cole aqui todo o script JS do adaptar.html,
-    // ajuste seletores conforme as novas classes/ids, se necessário!
-    // Exemplo: document.getElementById('nivelCuidados') etc...
+    function atualizarSliderPreenchimento() {
+      const slider = document.getElementById("nivelCuidados");
+      const fill = document.getElementById("sliderFill");
+      const bg = document.querySelector('.slider-bg');
+      const min = parseInt(slider.min, 10);
+      const max = parseInt(slider.max, 10);
+      const val = parseInt(slider.value, 10);
+      const percent = ((val - min) / (max - min));
+      fill.style.width = `${percent * 100}%`;
+      let thumbBorder;
+      if (val === 1) thumbBorder = "#48BB78";
+      else if (val === 2) thumbBorder = "#388e3c";
+      else thumbBorder = "#256029";
+      slider.style.setProperty('--slider-thumb-border', thumbBorder);
+    }
 
-    // Frequência padrão alterada para 'semestral'
     let frequencia = 'semestral';
     const quartos = [
       { cod: "q3", label: "Quarto Triplo", img: "quarto3.jpg" },
       { cod: "q2", label: "Quarto Duplo", img: "quarto2.jpg" },
       { cod: "q1", label: "Quarto Individual", img: "quarto1.jpg" }
     ];
-    // Textos de perfil
     const niveisResumo = [
       {
         titulo: "Paciente com baixa complexidade",
@@ -188,11 +550,11 @@
         descricao: "Seu familiar precisa de suporte próximo e contínuo, com atenção total em todas as suas necessidades e bem-estar."
       }
     ];
-    // Preços e multiplicadores
     const roomBase = { q3: 3000, q2: 3500, q1: 4000 };
     const complexityMultipliers = [1.00, 1.15, 1.30];
     const frequencyMultipliers = { semestral: 1.00, trimestral: 1.15, mensal: 1.30 };
     const mesesPorPlano = { semestral: 6, trimestral: 3, mensal: 1 };
+    let currentIndex = 0;
 
     function atualizarDescricaoNivel() {
       const nivel = parseInt(document.getElementById("nivelCuidados").value);
@@ -204,6 +566,7 @@
         </div>
       `;
     }
+
     function atualizarCarousel() {
       const nivel = parseInt(document.getElementById("nivelCuidados").value);
       const carouselTrack = document.getElementById('carouselTrack');
@@ -246,8 +609,9 @@ Por favor, envie orientações sobre os próximos passos.`;
         `;
         carouselTrack.appendChild(card);
       });
-      moveCarousel(currentIndex);
+      setTimeout(()=>moveCarousel(currentIndex), 0);
     }
+
     function setFrequencia(tipo) {
       frequencia = tipo;
       document.querySelectorAll('.toggle-option').forEach(btn => {
@@ -258,34 +622,41 @@ Por favor, envie orientações sobre os próximos passos.`;
       });
       atualizarCarousel();
     }
-    let currentIndex = 0;
+
     function moveCarousel(index) {
       const carouselTrack = document.getElementById('carouselTrack');
-      const total = quartos.length;
-      let visible = 3;
-      if(window.innerWidth < 1000 && window.innerWidth >= 768) visible = 2;
-      if(window.innerWidth < 768) visible = 1;
+      const cards = carouselTrack.querySelectorAll('.plano-card');
+      if (cards.length === 0) return;
+
+      const container = document.getElementById('carouselContainer');
+      const containerWidth = container.offsetWidth;
+      const cardWidth = cards[0].offsetWidth + 16;
+      let visible = Math.floor(containerWidth / cardWidth);
+      visible = Math.max(1, Math.min(visible, cards.length));
+
       if(index < 0) index = 0;
-      if(index > total - visible) index = total - visible;
+      if(index > cards.length - visible) index = cards.length - visible;
       currentIndex = index;
-      const card = carouselTrack.querySelector('.plano-card');
-      if(card) {
-        const cardWidth = card.offsetWidth + 32;
-        carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
-      }
+
+      carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+
       document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
-      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (total - visible)) ? "hidden" : "visible";
+      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (cards.length - visible)) ? "hidden" : "visible";
     }
+
+    window.addEventListener('resize', () => moveCarousel(currentIndex));
+
     document.addEventListener('DOMContentLoaded', () => {
       atualizarDescricaoNivel();
+      atualizarSliderPreenchimento();
       atualizarCarousel();
       document.getElementById("nivelCuidados").addEventListener('input', function() {
         atualizarDescricaoNivel();
+        atualizarSliderPreenchimento();
         atualizarCarousel();
       });
       document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
       document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
-      window.addEventListener('resize', () => moveCarousel(currentIndex));
     });
   </script>
 </body>
