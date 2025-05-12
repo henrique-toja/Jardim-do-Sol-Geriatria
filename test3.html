@@ -575,6 +575,93 @@
         font-size: 1.8rem;
       }
     }
+/* Estilização da Seção de Acomodações */
+#acomodacoes {
+  padding: 4rem 0;
+  background: var(--bg-color);
+}
+
+#acomodacoes .section-header {
+  margin-bottom: 2rem;
+}
+
+#acomodacoes .acomodacoes-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+#acomodacoes .acomodacoes-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+#acomodacoes .acomodacoes-slide {
+  width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: var(--transition-base);
+}
+
+#acomodacoes .acomodacoes-slide:hover {
+  transform: scale(1.02);
+}
+
+#acomodacoes .acomodacoes-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-light);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  z-index: 3;
+}
+
+#acomodacoes .acomodacoes-carousel-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+#acomodacoes .acomodacoes-carousel-btn.prev {
+  left: 8px;
+}
+
+#acomodacoes .acomodacoes-carousel-btn.next {
+  right: 8px;
+}
+
+#acomodacoes .section-text {
+  text-align: left;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+#acomodacoes .section-text h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+}
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
