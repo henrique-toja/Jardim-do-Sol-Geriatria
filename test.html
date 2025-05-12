@@ -12,25 +12,17 @@
       --accent-color: #248eff;
       --accent-dark: #176bc1;
       --text-color: #2D3748;
-      --light-bg: #F7FAFC;
       --white: #FFFFFF;
       --footer-bg: #222831;
       --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
-      --transition: .2s;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; min-height: 100%; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
       background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
+      color: var(--text-color);
       min-height: 100vh;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
     }
     header {
       background: var(--white);
@@ -45,40 +37,39 @@
       padding: 1rem 0;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
     .logo img {
-      width: 80px;
+      width: 52px;
       border-radius: 50%;
     }
     .logo-text h1 {
-      font-size: 1.8rem;
+      font-size: 1.13rem;
       color: #2e7d32;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.12rem;
     }
     .tagline {
       color: #111;
-      font-size: 1rem;
+      font-size: .95rem;
       margin: 0;
     }
     main {
-      padding-top: 120px;
+      padding-top: 90px;
       min-height: 100vh;
       width: 100%;
     }
-    /* Cards arredondados */
     .card {
       background-color: var(--white);
-      border-radius: 24px;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 40px 32px;
+      border-radius: 16px;
+      max-width: 410px;
+      margin: 20px auto;
+      padding: 20px 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       text-align: center;
     }
@@ -86,19 +77,18 @@
       background: linear-gradient(to right, #2ca5ff, #00b3ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 32px;
+      font-size: 1.18rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     .card p {
-      font-size: 18px;
-      line-height: 1.5;
-      margin: 8px 0;
+      font-size: .98rem;
+      margin: 8px 0 12px 0;
     }
     .highlight {
-      font-size: 20px;
+      font-size: 1.02rem;
       font-weight: 700;
-      margin: 12px 0;
+      margin: 10px 0;
     }
     /* Botões dos planos - pill arredondado */
     .toggle-container {
@@ -106,14 +96,14 @@
       justify-content: center;
       background-color: white;
       border-radius: 999px;
-      padding: 6px;
+      padding: 2px;
       width: max-content;
-      margin: 40px auto 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      gap: 12px;
+      margin: 20px auto 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      gap: 4px;
     }
     .toggle-option {
-      padding: 12px 36px;
+      padding: 7px 14px;
       border-radius: 999px;
       cursor: pointer;
       position: relative;
@@ -122,40 +112,40 @@
       color: #1e1e1e;
       background: transparent;
       border: none;
-      font-size: 1.15rem;
+      font-size: .98rem;
       outline: none;
     }
     .toggle-option.active {
       background-color: var(--accent-color);
       color: white;
-      box-shadow: 0 2px 8px #248eff30;
+      box-shadow: 0 2px 8px #248eff20;
     }
     .badge {
       position: absolute;
-      bottom: -18px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
       background-color: #00c78c;
       color: white;
-      font-size: 13px;
-      padding: 2px 10px;
+      font-size: 9px;
+      padding: 2px 6px;
       border-radius: 12px;
       font-weight: 600;
-      box-shadow: 0 2px 8px #00c78c40;
+      box-shadow: 0 2px 6px #00c78c20;
     }
     /* Slider evolutivo */
     .slider-container {
-      margin-top: 20px;
+      margin-top: 12px;
       position: relative;
       width: 100%;
-      max-width: 480px;
+      max-width: 250px;
       margin-left: auto;
       margin-right: auto;
     }
     .slider {
       width: 100%;
       appearance: none;
-      height: 12px;
+      height: 8px;
       border-radius: 6px;
       background: transparent;
       outline: none;
@@ -166,7 +156,7 @@
       position: absolute;
       left: 0;
       top: 50%;
-      height: 12px;
+      height: 8px;
       border-radius: 6px;
       background: linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%);
       z-index: 1;
@@ -177,42 +167,42 @@
     }
     .slider::-webkit-slider-thumb {
       appearance: none;
-      width: 32px;
-      height: 32px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #fff;
-      border: 4px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 8px #d9f8ec80;
+      border: 2px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 6px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
       transition: border 0.2s;
     }
     .slider:focus::-webkit-slider-thumb {
-      border: 4px solid #FFD600;
+      border: 2px solid #FFD600;
     }
     .slider::-moz-range-thumb {
-      width: 32px;
-      height: 32px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #fff;
-      border: 4px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 8px #d9f8ec80;
+      border: 2px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 6px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
       transition: border 0.2s;
     }
     .slider:focus::-moz-range-thumb {
-      border: 4px solid #FFD600;
+      border: 2px solid #FFD600;
     }
     .slider::-ms-thumb {
-      width: 32px;
-      height: 32px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #fff;
-      border: 4px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 8px #d9f8ec80;
+      border: 2px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 6px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
@@ -223,7 +213,7 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      max-width: 980px;
+      max-width: 360px;
       margin: 0 auto;
     }
     .carousel-track {
@@ -231,47 +221,47 @@
       transition: transform 0.5s cubic-bezier(.4,0,.2,1);
       will-change: transform;
       width: 100%;
-      min-height: 360px;
+      min-height: 250px;
     }
     .plano-card {
-      min-width: 320px;
-      max-width: 400px;
-      margin: 0 1.2rem;
+      min-width: 240px;
+      max-width: 320px;
+      margin: 0 0.5rem;
       background: #fff;
-      border-radius: 22px;
-      padding: 2rem 1.1rem 2.2rem 1.1rem;
-      box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.13);
+      border-radius: 16px;
+      padding: 1rem 0.7rem 1.3rem 0.7rem;
+      box-shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       flex-shrink: 0;
-      border: 2.5px solid #8BC34A;
+      border: 1.5px solid #8BC34A;
       position: relative;
       color: #2D3748;
       transition: box-shadow .2s, border .2s;
     }
     .plano-card img {
       width: 100%;
-      height: 160px;
+      height: 85px;
       object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 1.2rem;
+      border-radius: 9px;
+      margin-bottom: 0.7rem;
       box-shadow: 0 2px 10px #c4e3d733;
-      border: 1.5px solid var(--accent-color);
+      border: 1px solid var(--accent-color);
     }
     .plano-card h3 {
       color: var(--accent-color);
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
+      font-size: .98rem;
+      margin-bottom: 0.5rem;
       font-weight: 700;
     }
     .preco-profissional {
-      margin: 1.7rem 0 0.5rem 0;
+      margin: .7rem 0 0.3rem 0;
       text-align: center;
     }
     .preco-mensal {
-      font-size: 2.1rem;
+      font-size: 1.02rem;
       font-weight: 800;
       color: var(--accent-color);
       display:inline-block;
@@ -279,16 +269,16 @@
       letter-spacing: -0.5px;
     }
     .preco-total {
-      font-size: 1.10rem;
+      font-size: .96rem;
       color: #444;
-      margin-top: .33em;
+      margin-top: .2em;
       font-weight: 500;
       display: block;
     }
     .preco-obs {
       display: block;
-      margin-top: 0.34em;
-      font-size: 0.92rem;
+      margin-top: 0.14em;
+      font-size: 0.91rem;
       color: #888;
       font-weight: 400;
       letter-spacing: 0.1px;
@@ -296,17 +286,17 @@
     .btn-primary {
       background: var(--accent-color);
       color: #fff;
-      padding: 0.75rem 2.2rem;
+      padding: 0.45rem 1rem;
       border: none;
-      border-radius: 25px;
-      font-size: 1.1rem;
+      border-radius: 14px;
+      font-size: .96rem;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
       transition: background 0.2s, color 0.2s;
-      margin-top: 1.9rem;
-      box-shadow: 0 2px 8px #248eff30;
+      margin-top: 0.8rem;
+      box-shadow: 0 2px 8px #248eff20;
     }
     .btn-primary:hover {
       background: var(--accent-dark);
@@ -320,9 +310,9 @@
       color: #fff;
       border: none;
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 2rem;
+      width: 28px;
+      height: 28px;
+      font-size: .9rem;
       cursor: pointer;
       z-index: 2;
       opacity: 0.92;
@@ -330,40 +320,28 @@
       align-items: center;
       justify-content: center;
       transition: background 0.2s;
-      box-shadow: 0 2px 8px #248eff30;
+      box-shadow: 0 2px 7px #248eff20;
     }
-    .carousel-arrow.left { left: 1rem; }
-    .carousel-arrow.right { right: 1rem; }
-    /* Responsivo */
-    @media (max-width: 1200px) {
-      .card, .carousel-container { max-width: 98vw;}
-      .plano-card { min-width: 260px; max-width: 340px;}
-    }
-    @media (max-width: 900px) {
-      .card, .carousel-container { max-width: 100vw;}
-      .plano-card { min-width: 94vw; max-width: 97vw; margin: 0 0.5rem;}
-      .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;}
-      .card { padding: 16px;}
-      .toggle-container { margin: 20px auto 0;}
-    }
-    /* Botão flutuante WhatsApp */
+    .carousel-arrow.left { left: 0; }
+    .carousel-arrow.right { right: 0; }
+    /* WhatsApp Button */
     .float-contact {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 16px;
+      right: 16px;
       z-index: 999;
     }
     .float-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
+      width: 38px;
+      height: 38px;
       background: #25d366;
       color: #fff;
       border-radius: 50%;
-      font-size: 2rem;
-      box-shadow: 0 3px 8px rgba(44,82,130,0.16);
+      font-size: 1.13rem;
+      box-shadow: 0 3px 8px rgba(44,82,130,0.14);
       text-decoration: none;
       transition: background .2s, transform .2s;
     }
@@ -375,52 +353,66 @@
     footer {
       background: var(--footer-bg);
       color: #fff;
-      padding: 50px 0 20px;
+      padding: 20px 0 7px;
     }
     .footer-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 30px;
-      max-width: 900px;
+      gap: 12px;
+      max-width: 500px;
       margin: 0 auto;
     }
     .footer-col {
       flex: 1;
-      min-width: 200px;
+      min-width: 120px;
       text-align: center;
     }
     .footer-col h3 {
       color: var(--secondary-color);
-      margin-bottom: 20px;
-      font-size: 20px;
+      margin-bottom: 6px;
+      font-size: .98rem;
     }
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 7px;
     }
     .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 24px;
+      height: 24px;
       background-color: #444;
       color: #fff;
       border-radius: 50%;
       text-decoration: none;
       transition: background .2s, transform .2s;
+      font-size: .9rem;
     }
     .social-links a:hover {
       background-color: var(--primary-color);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
     .copyright {
       text-align: center;
-      padding-top: 20px;
-      margin-top: 30px;
+      padding-top: 7px;
+      margin-top: 7px;
       border-top: 1px solid #444;
+      font-size: .83rem;
+    }
+    @media (min-width: 700px) {
+      .card { max-width: 430px; }
+      .carousel-container { max-width: 410px; }
+      .plano-card { min-width: 300px; max-width: 380px; }
+      .slider-container { max-width: 330px; }
+    }
+    @media (min-width: 1000px) {
+      .card { max-width: 500px; }
+      .carousel-container { max-width: 500px; }
+      .plano-card { min-width: 340px; max-width: 420px; }
+      .slider-container { max-width: 370px; }
     }
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -428,7 +420,7 @@
 <body>
   <!-- HEADER -->
   <header>
-    <div class="container header-container">
+    <div class="header-container">
       <div class="logo">
         <img src="logo.jpg" alt="Jardim do Sol Logo">
         <div class="logo-text">
@@ -439,12 +431,11 @@
     </div>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
   <main>
     <div class="card">
       <h2>Planos de contratos flexíveis e personalizados</h2>
       <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
-      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;">
+      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.02rem;">
         Qual situação de saúde de seu familiar?
       </label>
       <div class="highlight" id="descricaoNivel"></div>
@@ -453,9 +444,7 @@
         <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="slider">
       </div>
     </div>
-
-    <!-- Botões de frequência -->
-    <div class="toggle-container" style="margin-top:30px;">
+    <div class="toggle-container" style="margin-top:20px;">
       <button class="toggle-option active" onclick="setFrequencia('semestral')">
         Semestral <div class="badge">30% off</div>
       </button>
@@ -466,9 +455,7 @@
         Mensal
       </button>
     </div>
-
-    <!-- Carrossel de Planos -->
-    <div class="card" style="margin-top:30px;">
+    <div class="card" style="margin-top:20px;">
       <h2>Acomodações</h2>
       <p>Temos 3 tipos de Acomodações: Quartos Individuais, Duplos e Triplos</p>
       <div class="carousel-container" id="carouselContainer">
@@ -479,14 +466,12 @@
     </div>
   </main>
 
-  <!-- Botão flutuante WhatsApp -->
   <div class="float-contact">
     <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -507,7 +492,6 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     function atualizarSliderPreenchimento() {
       const slider = document.getElementById("nivelCuidados");
@@ -516,7 +500,7 @@
       const max = parseInt(slider.max, 10);
       const val = parseInt(slider.value, 10);
       const percent = ((val - min) / (max - min));
-      fill.style.width = `calc(${percent * 100}% - ${percent * 32}px + 16px)`;
+      fill.style.width = `calc(${percent * 100}% - ${percent * 18}px + 9px)`;
       fill.style.background = "linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%)";
       let thumbBorder;
       if (val === 1) thumbBorder = "#48BB78";
@@ -625,7 +609,7 @@ Por favor, envie orientações sobre os próximos passos.`;
 
       const container = document.getElementById('carouselContainer');
       const containerWidth = container.offsetWidth;
-      const cardWidth = cards[0].offsetWidth + 24;
+      const cardWidth = cards[0].offsetWidth + 16;
       let visible = Math.floor(containerWidth / cardWidth);
       visible = Math.max(1, Math.min(visible, cards.length));
 
