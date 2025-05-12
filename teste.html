@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plano de Assinatura</title>
+  <!-- Estilos do index.html -->
+  <style>
+    /* --- CSS do index.html mantido aqui --- */
+    body {
+      margin: 0;
+      padding: 40px;
+      background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
+      font-family: 'Segoe UI', sans-serif;
+      color: #1e1e1e;
+    }
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      border-radius: 999px;
+      padding: 6px;
+      width: max-content;
+      margin: 40px auto 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .toggle-option {
+      padding: 10px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s, color 0.3s;
+      font-weight: 500;
+      color: #1e1e1e;
+    }
+    .toggle-option.active {
+      background-color: #248eff;
+      color: white;
+    }
+    .badge {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #00c78c;
+      color: white;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .card {
+      background-color: white;
+      border-radius: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    .card h2 {
+      background: linear-gradient(to right, #2ca5ff, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .card p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+    .highlight {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 12px 0;
+    }
+    /* Aqui você pode adicionar estilos adicionais do adaptar.html, se necessário */
+  </style>
+  <!-- Inclua aqui qualquer outro CSS específico do adaptar.html que seja fundamental -->
+</head>
+<body>
+  <!-- HEADER do adaptar.html -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="logo.jpg" alt="Jardim do Sol Logo">
+        <div class="logo-text">
+          <h1>Jardim do Sol Geriatria</h1>
+          <p class="tagline">Cuidado, Conforto e Longevidade</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL do adaptar.html, adaptado para o layout CARD do index.html -->
+  <main>
+    <div class="card">
+      <h2>Planos de contratos flexíveis e personalizados</h2>
+      <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
+      <label style="display:block; font-weight:bold; margin-bottom:1.2rem; font-size:1.13rem;">
+        Qual situação de saúde de seu familiar?
+      </label>
+      <div class="highlight" id="descricaoNivel"></div>
+      <div class="slider-container">
+        <input type="range" id="nivelCuidados" min="1" max="3" value="1" class="slider">
+      </div>
+    </div>
+
+    <!-- Botões de frequência -->
+    <div class="toggle-container" style="margin-top:30px;">
+      <div class="toggle-option active" onclick="setFrequencia('semestral')">
+        Semestral <div class="badge">30% off</div>
+      </div>
+      <div class="toggle-option" onclick="setFrequencia('trimestral')">
+        Trimestral <div class="badge">15% off</div>
+      </div>
+      <div class="toggle-option" onclick="setFrequencia('mensal')">
+        Mensal
+      </div>
+    </div>
+
+    <!-- Carrossel de Planos -->
+    <div class="card" style="margin-top:30px;">
+      <h2>Acomodações</h2>
+      <p>Temos 3 tipos de Acomodações: Quartos Individuais, Duplos e Triplos</p>
+      <div class="carousel-container" id="carouselContainer">
+        <button class="carousel-arrow left" id="carouselPrevBtn">&#8592;</button>
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="carousel-arrow right" id="carouselNextBtn">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Botão flutuante WhatsApp -->
+    <div class="float-contact">
+      <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER do adaptar.html -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Missão</h3>
+        <p>Nossa missão é cuidar de quem sempre cuidou de nós.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/geriatriajardimdosol" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jardimdosolgeriatria" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/555197879151" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; Jardim do Sol Geriatria. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS do adaptar.html, ajustados para IDs/classes do novo layout -->
+  <script>
+    // TODO: Cole aqui todo o script JS do adaptar.html,
+    // ajuste seletores conforme as novas classes/ids, se necessário!
+    // Exemplo: document.getElementById('nivelCuidados') etc...
+
+    // Frequência padrão alterada para 'semestral'
+    let frequencia = 'semestral';
+    const quartos = [
+      { cod: "q3", label: "Quarto Triplo", img: "quarto3.jpg" },
+      { cod: "q2", label: "Quarto Duplo", img: "quarto2.jpg" },
+      { cod: "q1", label: "Quarto Individual", img: "quarto1.jpg" }
+    ];
+    // Textos de perfil
+    const niveisResumo = [
+      {
+        titulo: "Paciente com baixa complexidade",
+        descricao: "Seu familiar é independente para a maioria das tarefas e precisa apenas de supervisão leve e companhia."
+      },
+      {
+        titulo: "Paciente com média complexidade",
+        descricao: "Seu familiar necessita de auxílio parcial e acompanhamento em algumas atividades do dia a dia, como higiene, locomoção ou alimentação."
+      },
+      {
+        titulo: "Paciente com alta complexidade",
+        descricao: "Seu familiar precisa de suporte próximo e contínuo, com atenção total em todas as suas necessidades e bem-estar."
+      }
+    ];
+    // Preços e multiplicadores
+    const roomBase = { q3: 3000, q2: 3500, q1: 4000 };
+    const complexityMultipliers = [1.00, 1.15, 1.30];
+    const frequencyMultipliers = { semestral: 1.00, trimestral: 1.15, mensal: 1.30 };
+    const mesesPorPlano = { semestral: 6, trimestral: 3, mensal: 1 };
+
+    function atualizarDescricaoNivel() {
+      const nivel = parseInt(document.getElementById("nivelCuidados").value);
+      const info = niveisResumo[nivel - 1];
+      document.getElementById("descricaoNivel").innerHTML = `
+        <div style="margin-top:10px;">
+          <strong style="color:#2e7d32;">${info.titulo}</strong>
+          <div style="font-size:0.98rem; color:#444; margin-top:4px;">${info.descricao}</div>
+        </div>
+      `;
+    }
+    function atualizarCarousel() {
+      const nivel = parseInt(document.getElementById("nivelCuidados").value);
+      const carouselTrack = document.getElementById('carouselTrack');
+      carouselTrack.innerHTML = '';
+      quartos.forEach((quarto, i) => {
+        let precoMensal = roomBase[quarto.cod] *
+                          complexityMultipliers[nivel - 1] *
+                          frequencyMultipliers[frequencia];
+        const mesesPlano = mesesPorPlano[frequencia];
+        const precoTotal = Math.round(precoMensal * mesesPlano);
+
+        const perfil = niveisResumo[nivel - 1];
+        const mensagem =
+`Olá! Gostaria de avançar na contratação para meu familiar.
+Quarto: ${quarto.label}
+Perfil: ${perfil.titulo}
+${perfil.descricao}
+Período: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}
+
+Por favor, envie orientações sobre os próximos passos.`;
+        const linkWhats = `https://wa.me/555197879151?text=${encodeURIComponent(mensagem)}`;
+
+        const card = document.createElement('div');
+        card.className = 'plano-card';
+        card.innerHTML = `
+          <img src="${quarto.img}" alt="${quarto.label}">
+          <h3>${quarto.label}</h3>
+          <div class="preco-profissional">
+            <span class="preco-mensal">
+              ${mesesPlano > 1 ? `<strong>${mesesPlano}x</strong> de ` : ''}${precoMensal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
+            </span>
+            <span class="preco-total">
+              Valor total do contrato: <strong>${precoTotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>
+            </span>
+            <span class="preco-obs">
+              * sujeito a alterações
+            </span>
+          </div>
+          <a href="${linkWhats}" class="btn-primary" target="_blank">Conversar no WhatsApp</a>
+        `;
+        carouselTrack.appendChild(card);
+      });
+      moveCarousel(currentIndex);
+    }
+    function setFrequencia(tipo) {
+      frequencia = tipo;
+      document.querySelectorAll('.toggle-option').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(tipo)) {
+          btn.classList.add('active');
+        }
+      });
+      atualizarCarousel();
+    }
+    let currentIndex = 0;
+    function moveCarousel(index) {
+      const carouselTrack = document.getElementById('carouselTrack');
+      const total = quartos.length;
+      let visible = 3;
+      if(window.innerWidth < 1000 && window.innerWidth >= 768) visible = 2;
+      if(window.innerWidth < 768) visible = 1;
+      if(index < 0) index = 0;
+      if(index > total - visible) index = total - visible;
+      currentIndex = index;
+      const card = carouselTrack.querySelector('.plano-card');
+      if(card) {
+        const cardWidth = card.offsetWidth + 32;
+        carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+      }
+      document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
+      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (total - visible)) ? "hidden" : "visible";
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      atualizarDescricaoNivel();
+      atualizarCarousel();
+      document.getElementById("nivelCuidados").addEventListener('input', function() {
+        atualizarDescricaoNivel();
+        atualizarCarousel();
+      });
+      document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
+      document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
+      window.addEventListener('resize', () => moveCarousel(currentIndex));
+    });
+  </script>
+</body>
+</html>
