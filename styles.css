@@ -16,7 +16,7 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-color);
-  background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
+  background: var(--white);
 }
 .container {
   max-width: 1200px;
