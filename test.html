@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Plano de Assinatura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
       --primary-color: #48BB78;
@@ -18,11 +19,13 @@
       --transition: .2s;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       line-height: 1.6;
       color: var(--text-color);
-      background: linear-gradient(to bottom, #eaf4ff, #dfeffc); /* gradiente azulado */
+      background: linear-gradient(to bottom, #eaf4ff, #dfeffc);
+      min-height: 100vh;
     }
     .container {
       max-width: 1200px;
@@ -35,12 +38,15 @@
       position: fixed;
       width: 100%;
       z-index: 1000;
+      left: 0;
+      top: 0;
     }
     .header-container {
       padding: 1rem 0;
       display: flex;
       align-items: center;
       gap: 1.5rem;
+      justify-content: center;
     }
     .logo {
       display: flex;
@@ -61,42 +67,39 @@
       font-size: 1rem;
       margin: 0;
     }
-    body, header, .hero, .hero-content, .contact, footer h2 {
-      text-align: center;
+    main {
+      padding-top: 120px;
+      min-height: 100vh;
+      width: 100%;
     }
-
     /* Cards arredondados */
     .card {
       background-color: var(--white);
       border-radius: 24px;
-      max-width: 600px;
+      max-width: 1100px;
       margin: 40px auto;
-      padding: 30px;
+      padding: 40px 32px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       text-align: center;
     }
-
     .card h2 {
       background: linear-gradient(to right, #2ca5ff, #00b3ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 700;
       margin-bottom: 20px;
     }
-
     .card p {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.5;
       margin: 8px 0;
     }
-
     .highlight {
       font-size: 20px;
       font-weight: 700;
       margin: 12px 0;
     }
-
     /* Botões dos planos - pill arredondado */
     .toggle-container {
       display: flex;
@@ -107,10 +110,10 @@
       width: max-content;
       margin: 40px auto 0;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      gap: 8px;
+      gap: 12px;
     }
     .toggle-option {
-      padding: 10px 24px;
+      padding: 12px 36px;
       border-radius: 999px;
       cursor: pointer;
       position: relative;
@@ -119,11 +122,13 @@
       color: #1e1e1e;
       background: transparent;
       border: none;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
+      outline: none;
     }
     .toggle-option.active {
       background-color: var(--accent-color);
       color: white;
+      box-shadow: 0 2px 8px #248eff30;
     }
     .badge {
       position: absolute;
@@ -132,12 +137,12 @@
       transform: translateX(-50%);
       background-color: #00c78c;
       color: white;
-      font-size: 11px;
-      padding: 2px 8px;
+      font-size: 13px;
+      padding: 2px 10px;
       border-radius: 12px;
       font-weight: 600;
+      box-shadow: 0 2px 8px #00c78c40;
     }
-
     /* Slider evolutivo */
     .slider-container {
       margin-top: 20px;
@@ -150,7 +155,7 @@
     .slider {
       width: 100%;
       appearance: none;
-      height: 10px;
+      height: 12px;
       border-radius: 6px;
       background: transparent;
       outline: none;
@@ -161,7 +166,7 @@
       position: absolute;
       left: 0;
       top: 50%;
-      height: 10px;
+      height: 12px;
       border-radius: 6px;
       background: linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%);
       z-index: 1;
@@ -172,65 +177,66 @@
     }
     .slider::-webkit-slider-thumb {
       appearance: none;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 6px #d9f8ec80;
+      border: 4px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 8px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
       transition: border 0.2s;
     }
     .slider:focus::-webkit-slider-thumb {
-      border: 3px solid #FFD600;
+      border: 4px solid #FFD600;
     }
     .slider::-moz-range-thumb {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 6px #d9f8ec80;
+      border: 4px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 8px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
       transition: border 0.2s;
     }
     .slider:focus::-moz-range-thumb {
-      border: 3px solid #FFD600;
+      border: 4px solid #FFD600;
     }
     .slider::-ms-thumb {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid var(--thumb-border, #48BB78);
-      box-shadow: 0 2px 6px #d9f8ec80;
+      border: 4px solid var(--thumb-border, #48BB78);
+      box-shadow: 0 2px 8px #d9f8ec80;
       cursor: pointer;
       position: relative;
       z-index: 3;
       transition: border 0.2s;
     }
-
     /* Carrossel */
     .carousel-container {
       position: relative;
       width: 100%;
       overflow: hidden;
-      max-width: 600px;
+      max-width: 980px;
       margin: 0 auto;
     }
     .carousel-track {
       display: flex;
       transition: transform 0.5s cubic-bezier(.4,0,.2,1);
       will-change: transform;
+      width: 100%;
+      min-height: 360px;
     }
     .plano-card {
       min-width: 320px;
-      max-width: 350px;
-      margin: 0 1.1rem;
+      max-width: 400px;
+      margin: 0 1.2rem;
       background: #fff;
       border-radius: 22px;
       padding: 2rem 1.1rem 2.2rem 1.1rem;
@@ -243,10 +249,11 @@
       border: 2.5px solid #8BC34A;
       position: relative;
       color: #2D3748;
+      transition: box-shadow .2s, border .2s;
     }
     .plano-card img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
       border-radius: 12px;
       margin-bottom: 1.2rem;
@@ -299,6 +306,7 @@
       display: inline-block;
       transition: background 0.2s, color 0.2s;
       margin-top: 1.9rem;
+      box-shadow: 0 2px 8px #248eff30;
     }
     .btn-primary:hover {
       background: var(--accent-dark);
@@ -322,23 +330,22 @@
       align-items: center;
       justify-content: center;
       transition: background 0.2s;
+      box-shadow: 0 2px 8px #248eff30;
     }
     .carousel-arrow.left { left: 1rem; }
     .carousel-arrow.right { right: 1rem; }
-
     /* Responsivo */
-    @media (max-width: 1000px) {
-      .carousel-container { max-width: 700px;}
-      .plano-card { min-width: 260px; max-width: 320px;}
+    @media (max-width: 1200px) {
+      .card, .carousel-container { max-width: 98vw;}
+      .plano-card { min-width: 260px; max-width: 340px;}
     }
-    @media (max-width: 768px) {
-      .carousel-container { max-width: 95vw;}
-      .plano-card { min-width: 90vw; max-width: 90vw; margin: 0 0.5rem;}
+    @media (max-width: 900px) {
+      .card, .carousel-container { max-width: 100vw;}
+      .plano-card { min-width: 94vw; max-width: 97vw; margin: 0 0.5rem;}
       .carousel-arrow { width: 38px; height: 38px; font-size: 1.3rem;}
       .card { padding: 16px;}
       .toggle-container { margin: 20px auto 0;}
     }
-
     /* Botão flutuante WhatsApp */
     .float-contact {
       position: fixed;
@@ -433,7 +440,7 @@
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main style="padding-top: 110px;">
+  <main>
     <div class="card">
       <h2>Planos de contratos flexíveis e personalizados</h2>
       <p>Nossos contratos se ajustam de acordo com o tempo mínimo de contrato, tipo de acomodação e nível de complexidade de cuidados que seu familiar precisa.</p>
@@ -502,7 +509,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Slider preenchimento degradê e cor predominante do thumb
     function atualizarSliderPreenchimento() {
       const slider = document.getElementById("nivelCuidados");
       const fill = document.getElementById("sliderFill");
@@ -510,7 +516,7 @@
       const max = parseInt(slider.max, 10);
       const val = parseInt(slider.value, 10);
       const percent = ((val - min) / (max - min));
-      fill.style.width = `calc(${percent * 100}% - ${percent * 28}px + 14px)`;
+      fill.style.width = `calc(${percent * 100}% - ${percent * 32}px + 16px)`;
       fill.style.background = "linear-gradient(90deg, #48BB78 0%, #FFD600 50%, #E53935 100%)";
       let thumbBorder;
       if (val === 1) thumbBorder = "#48BB78";
@@ -519,7 +525,6 @@
       slider.style.setProperty('--thumb-border', thumbBorder);
     }
 
-    // Carrossel de quartos
     let frequencia = 'semestral';
     const quartos = [
       { cod: "q3", label: "Quarto Triplo", img: "quarto3.jpg" },
@@ -556,6 +561,7 @@
         </div>
       `;
     }
+
     function atualizarCarousel() {
       const nivel = parseInt(document.getElementById("nivelCuidados").value);
       const carouselTrack = document.getElementById('carouselTrack');
@@ -598,8 +604,9 @@ Por favor, envie orientações sobre os próximos passos.`;
         `;
         carouselTrack.appendChild(card);
       });
-      moveCarousel(currentIndex);
+      setTimeout(()=>moveCarousel(currentIndex), 0);
     }
+
     function setFrequencia(tipo) {
       frequencia = tipo;
       document.querySelectorAll('.toggle-option').forEach(btn => {
@@ -610,23 +617,30 @@ Por favor, envie orientações sobre os próximos passos.`;
       });
       atualizarCarousel();
     }
+
     function moveCarousel(index) {
       const carouselTrack = document.getElementById('carouselTrack');
-      const total = quartos.length;
-      let visible = 1;
-      if(window.innerWidth >= 1000) visible = 3;
-      else if(window.innerWidth >= 768) visible = 2;
+      const cards = carouselTrack.querySelectorAll('.plano-card');
+      if (cards.length === 0) return;
+
+      const container = document.getElementById('carouselContainer');
+      const containerWidth = container.offsetWidth;
+      const cardWidth = cards[0].offsetWidth + 24;
+      let visible = Math.floor(containerWidth / cardWidth);
+      visible = Math.max(1, Math.min(visible, cards.length));
+
       if(index < 0) index = 0;
-      if(index > total - visible) index = total - visible;
+      if(index > cards.length - visible) index = cards.length - visible;
       currentIndex = index;
-      const card = carouselTrack.querySelector('.plano-card');
-      if(card) {
-        const cardWidth = card.offsetWidth + 32;
-        carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
-      }
+
+      carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
+
       document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
-      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (total - visible)) ? "hidden" : "visible";
+      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (cards.length - visible)) ? "hidden" : "visible";
     }
+
+    window.addEventListener('resize', () => moveCarousel(currentIndex));
+
     document.addEventListener('DOMContentLoaded', () => {
       atualizarDescricaoNivel();
       atualizarSliderPreenchimento();
@@ -638,7 +652,6 @@ Por favor, envie orientações sobre os próximos passos.`;
       });
       document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
       document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
-      window.addEventListener('resize', () => moveCarousel(currentIndex));
     });
   </script>
 </body>
