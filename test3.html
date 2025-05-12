@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Import modern Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=OpenSans:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
     :root {
       --primary-color: #2C7A7B;
@@ -19,9 +19,9 @@
       --bg-color: #F7FAFC;
       --white: #FFFFFF;
       --footer-bg: #1A202C;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       --gradient-hero: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
       --transition-base: all 0.35s ease;
     }
@@ -43,7 +43,7 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* HEADER - Modern Style */
+    /* HEADER - Modern Style Correction */
     header {
       background: var(--white);
       box-shadow: var(--shadow-sm);
@@ -93,7 +93,7 @@
       text-align: center;
       color: var(--white);
       padding: 6rem 2rem;
-      margin-top: 80px; /* space below fixed header */
+      margin-top: 80px; /* spacing for fixed header */
     }
     .hero-content {
       max-width: 800px;
@@ -128,7 +128,7 @@
       transform: translateY(-2px);
     }
 
-    /* Section Titles & Container */
+    /* Sections & Container */
     .section-header h2 {
       text-align: center;
       font-size: 2.5rem;
@@ -142,25 +142,6 @@
     }
     .section {
       padding: 4rem 0;
-    }
-
-    /* Card Styles */
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 2rem auto;
-      box-shadow: var(--shadow-md);
-      max-width: 800px;
-    }
-    .card h2 {
-      color: var(--primary-dark);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .card p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
     }
 
     /* Acomodações Carousel Section */
@@ -206,7 +187,7 @@
       right: 8px;
     }
 
-    /* Services Carousel Section */
+    /* Services Section Correction */
     #maneira-de-cuidar .services-carousel-wrapper {
       position: relative;
       overflow: hidden;
@@ -214,24 +195,23 @@
     }
     #maneira-de-cuidar .services-carousel {
       display: flex;
+      gap: 1rem;
       transition: transform 0.5s ease;
+      /* Ensure a smooth horizontal scroll */
     }
     #maneira-de-cuidar .service-card {
-      min-width: 300px;
-      margin: 0 1rem;
       background: var(--white);
       border-radius: 16px;
       box-shadow: var(--shadow-md);
       transition: var(--transition-base);
       overflow: hidden;
-    }
-    #maneira-de-cuidar .service-card.active {
-      border: 2px solid var(--primary-light);
+      flex: 0 0 300px; /* Fix each card at a consistent width */
     }
     #maneira-de-cuidar .service-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
     }
+    /* Updated buttons for services caroussel */
     #maneira-de-cuidar .services-carousel-btn {
       position: absolute;
       top: 50%;
@@ -240,15 +220,15 @@
       color: var(--white);
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: var(--shadow-md);
       transition: var(--transition-base);
-      z-index: 2;
+      z-index: 3;
     }
     #maneira-de-cuidar .services-carousel-btn:hover {
       background: var(--primary-dark);
@@ -409,7 +389,7 @@
       text-align: center;
       margin-top: 2rem;
       font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
       padding-top: 1rem;
     }
 
@@ -448,11 +428,9 @@
         padding: 1rem;
       }
       #maneira-de-cuidar .service-card {
-        min-width: 260px;
+        flex: 0 0 260px;
       }
-      .sobre-unificado .section-content {
-        flex-direction: column;
-      }
+      .sobre-unificado .section-content,
       .contact-grid {
         flex-direction: column;
       }
@@ -531,7 +509,7 @@
       </div>
     </section>
 
-    <!-- Services Section (Carrossel de Serviços) -->
+    <!-- Services Section -->
     <section class="section" id="maneira-de-cuidar">
       <div class="container">
         <div class="section-header">
@@ -542,67 +520,66 @@
             <i class="fas fa-chevron-left"></i>
           </button>
           <div class="services-carousel">
-            <!-- Card 1 -->
+            <!-- Service Card 1 -->
             <div class="service-card active">
               <img src="geriatria.jpg" alt="Lar de Idosos">
-              <div class="service-content">
+              <div class="service-content" style="padding: 1rem;">
                 <h3>Lar de Idosos</h3>
-                <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina cuidadosamente planejada para respeitar a individualidade e os gostos de cada hóspede.</p>
-                <ul>
-                  <li>Jogos e dinâmicas de grupo para integração social</li>
-                  <li>Estímulo à funcionalidade e às atividades de vida diária</li>
+                <p>A proposta vai além da assistência: promovemos autonomia, socialização e bem-estar, com uma rotina planejada para respeitar a individualidade de cada hóspede.</p>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                  <li>Dinâmicas de grupo para integração social</li>
+                  <li>Atividades diárias adaptadas</li>
                   <li>Oficinas de memória e estímulos cognitivos</li>
                   <li>Alimentação balanceada com supervisão nutricional</li>
-                  <li>Cuidados de enfermagem e suporte à saúde física e emocional</li>
-                  <li>Também disponibilizamos Centro-Dia, Atendimento durante o dia com retorno à noite</li>
+                  <li>Suporte de enfermagem e acompanhamento emocional</li>
+                  <li>Centro-Dia para atendimento durante o dia</li>
                 </ul>
               </div>
             </div>
-            <!-- Card 2 -->
+            <!-- Service Card 2 -->
             <div class="service-card">
               <img src="medico.jpg" alt="Equipe Médica">
-              <div class="service-content">
+              <div class="service-content" style="padding: 1rem;">
                 <h3>Equipe de Saúde</h3>
-                <p>Contamos com profissionais especializados para oferecer um cuidado completo, humano e personalizado:</p>
-                <ul>
-                  <li><strong>Médico Geriatra e Pneumologista:</strong> acompanhamento clínico especializado e suporte respiratório.</li>
-                  <li><strong>Enfermagem 24 horas:</strong> monitoramento constante, administração de medicamentos e suporte imediato.</li>
-                  <li><strong>Nutricionista:</strong> elaboração de dietas personalizadas, priorizando saúde e restrições alimentares.</li>
-                  <li><strong>Terapeuta Ocupacional:</strong> estímulo à autonomia e funcionalidade nas atividades diárias.</li>
-                  <li><strong>Terapeuta Floral:</strong> equilíbrio emocional através da terapia com essências florais.</li>
-                  <li><strong>Fisioterapeuta (grupo):</strong> sessões para fortalecer a mobilidade, prevenir quedas e estimular o trato respiratório.</li>
-                  <li><strong>Psicomotricista (grupo):</strong> atividades que integram movimento e cognição para estímulo global.</li>
-                  <li><strong>Gerontólogo:</strong> apoio especializado no processo de envelhecimento com foco na qualidade de vida.</li>
+                <p>Profissionais especializados oferecendo um cuidado completo, humano e personalizado.</p>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                  <li><strong>Médico Geriatra e Pneumologista</strong> para suporte clínico e respiratório</li>
+                  <li><strong>Enfermagem 24 horas</strong> e administração de medicação</li>
+                  <li><strong>Nutricionista</strong> para dietas personalizadas</li>
+                  <li><strong>Terapeuta Ocupacional</strong> para atividades diárias</li>
+                  <li><strong>Terapeuta Floral e Psicomotricista</strong> para equilíbrio emocional</li>
+                  <li><strong>Fisioterapeuta (grupo)</strong> para mobilidade e prevenção</li>
+                  <li><strong>Gerontólogo</strong> para apoio no envelhecimento</li>
                 </ul>
               </div>
             </div>
-            <!-- Card 3 -->
+            <!-- Service Card 3 -->
             <div class="service-card">
-              <img src="food1.jpg" alt="Alimentação Saudável">
-              <div class="service-content">
+              <img src="food1.jpg" alt="Alimentação & Nutrição">
+              <div class="service-content" style="padding: 1rem;">
                 <h3>Alimentação & Nutrição</h3>
-                <p>Oferecemos 6 refeições diárias elaboradas por um nutricionista especializado, considerando restrições e preferências individuais.</p>
-                <ul>
-                  <li>Refeições balanceadas para promover bem-estar e imunidade;</li>
-                  <li>Ingredientes frescos, sazonais e de alta qualidade;</li>
-                  <li>Ambientes climatizados que estimulam o apetite e o convívio social;</li>
-                  <li>Orientações nutricionais personalizadas, quando necessário;</li>
-                  <li>Adaptação para texturas específicas, conforme necessidade clínica.</li>
+                <p>Seis refeições diárias elaboradas por um nutricionista, considerando preferências e restrições.</p>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                  <li>Refeições balanceadas</li>
+                  <li>Ingredientes frescos e sazonais</li>
+                  <li>Ambientes climatizados que estimulam o convívio</li>
+                  <li>Orientações nutricionais personalizadas</li>
+                  <li>Adaptação para diferentes texturas</li>
                 </ul>
               </div>
             </div>
-            <!-- Card 4 -->
+            <!-- Service Card 4 -->
             <div class="service-card">
               <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos">
-              <div class="service-content">
+              <div class="service-content" style="padding: 1rem;">
                 <h3>Cuidados Pós-Cirúrgicos</h3>
-                <p>Suporte especializado para a recuperação segura e confortável após procedimentos cirúrgicos:</p>
-                <ul>
-                  <li>Monitoramento de sinais vitais e curativos;</li>
-                  <li>Assistência nas atividades diárias do pós-operatório;</li>
-                  <li>Acompanhamento com fisioterapia e enfermagem;</li>
-                  <li>Controle de medicações conforme prescrição médica;</li>
-                  <li>Ambiente tranquilo e acolhedor para recuperação.</li>
+                <p>Recuperação segura e confortável com acompanhamento especializado.</p>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                  <li>Monitoramento de sinais vitais</li>
+                  <li>Assistência nas atividades pós-operatórias</li>
+                  <li>Suporte com fisioterapia e enfermagem</li>
+                  <li>Controle de medicações</li>
+                  <li>Ambiente tranquilo para recuperação</li>
                 </ul>
               </div>
             </div>
@@ -636,16 +613,10 @@
               Nosso modelo de atendimento é baseado em uma abordagem holística, que considera o ser humano em sua totalidade — corpo, mente e emoções. Cada residente é tratado com respeito, carinho e atenção personalizada.
             </p>
             <p>
-              Por muito tempo, o termo "asilo" foi associado a abandono, solidão e desamparo. Essa visão ultrapassada ainda gera resistência e culpa em quem busca apoio especializado para o cuidado de um familiar idoso.
+              Por muito tempo, o termo "asilo" foi associado a abandono e solidão. Hoje, redefinimos o cuidado para oferecer acolhimento, atenção integral e carinho diário, com um ambiente que promove a qualidade de vida.
             </p>
             <p>
-              Mas é preciso entender: geriatria não é um asilo. Uma geriatria moderna é um espaço de acolhimento, atenção integral e carinho diário. É um lugar onde o idoso é respeitado em sua individualidade e cuidado com responsabilidade e presença.
-            </p>
-            <p>
-              No Residencial Geriátrico Jardim do Sol, oferecemos um ambiente que promove bem-estar, dignidade e qualidade de vida. Aqui, cuidar é amar, é estar junto, é garantir que cada fase da vida seja vivida com plenitude e respeito.
-            </p>
-            <p>
-              Portanto, você não está abandonando seu familiar ao escolher uma geriatria. Pelo contrário: está tomando uma decisão consciente e afetuosa, que assegura a ele cuidados profissionais, companhia, segurança e qualidade de vida que muitas vezes não seriam possíveis em casa.
+              Escolher o Residencial Geriátrico Jardim do Sol é tomar uma decisão consciente e afetuosa, que garante cuidados profissionais, companhia e segurança para quem você ama.
             </p>
           </div>
           <div class="section-media">
@@ -769,8 +740,6 @@
       currentService = Math.min(currentService + 1, serviceCards.length - 1);
       updateServiceCarousel();
     }
-
-    // Other functionalities (slider, etc.) would be inserted here if necessary.
   </script>
 </body>
 </html>
