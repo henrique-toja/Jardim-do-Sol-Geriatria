@@ -22,8 +22,8 @@
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
       --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --gradient-hero: linear-gradient(rgba(44,122,123,0.9), rgba(40,94,97,0.9));
-      --transition-base: all 0.3s ease;
+      --gradient-hero: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+      --transition-base: all 0.35s ease;
     }
 
     * {
@@ -115,12 +115,12 @@
       opacity: 0.9;
     }
 
-    /* Button Styles */
+    /* Button Styles (Contact and Others) */
     .btn,
     .btn-primary {
       display: inline-block;
       padding: 1rem 2rem;
-      background: var(--primary-light);
+      background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
       color: var(--white);
       border-radius: 8px;
       font-weight: 600;
@@ -132,7 +132,7 @@
 
     .btn:hover,
     .btn-primary:hover {
-      background: var(--primary-dark);
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
       transform: translateY(-2px);
     }
 
@@ -251,7 +251,7 @@
       color: var(--white);
     }
 
-    /* Accommodation Cards */
+    /* Carousel Navigation and Accommodations */
     .carousel-container {
       position: relative;
       overflow: hidden;
@@ -263,6 +263,39 @@
       display: flex;
       transition: transform 0.5s cubic-bezier(.4,0,.2,1);
       will-change: transform;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary-light);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-base);
+      z-index: 5;
+    }
+
+    .carousel-arrow:hover {
+      background: var(--primary-dark);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-arrow.left {
+      left: 8px;
+    }
+
+    .carousel-arrow.right {
+      right: 8px;
     }
 
     .plano-card {
@@ -316,16 +349,17 @@
       justify-content: center;
       width: 48px;
       height: 48px;
-      background: var(--primary-light);
+      background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
       color: var(--white);
       border-radius: 50%;
       font-size: 1.3rem;
       box-shadow: var(--shadow-md);
       transition: var(--transition-base);
+      text-decoration: none;
     }
 
     .float-btn:hover {
-      background: var(--primary-dark);
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
       transform: scale(1.1);
     }
 
@@ -364,6 +398,8 @@
       align-items: center;
       justify-content: center;
       transition: var(--transition-base);
+      text-decoration: none;
+      color: var(--white);
     }
 
     .social-links a:hover {
