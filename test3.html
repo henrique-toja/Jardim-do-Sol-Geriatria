@@ -5,7 +5,6 @@
   <title>Jardim do Sol Geriatria - Moderno, Acessível e Profissional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
     :root {
@@ -26,7 +25,6 @@
       --transition-base: all 0.35s ease;
     }
 
-    /* Reset and base styling */
     * {
       margin: 0;
       padding: 0;
@@ -46,7 +44,6 @@
       color: inherit;
     }
 
-    /* HEADER */
     header {
       background: var(--white);
       box-shadow: var(--shadow-sm);
@@ -87,7 +84,6 @@
       margin: 0;
     }
 
-    /* HERO Section */
     .hero {
       background: var(--gradient-hero), url('background.jpg') center/cover no-repeat;
       min-height: 80vh;
@@ -97,7 +93,7 @@
       text-align: center;
       color: var(--white);
       padding: 6rem 2rem;
-      margin-top: 80px; /* space for fixed header */
+      margin-top: 80px;
     }
     .hero-content {
       max-width: 800px;
@@ -132,7 +128,6 @@
       transform: translateY(-2px);
     }
 
-    /* SECTION Headers */
     .section-header {
       text-align: center;
       margin-bottom: 2rem;
@@ -150,7 +145,6 @@
       padding: 4rem 0;
     }
 
-    /* CARDS */
     .card {
       background: var(--white);
       border-radius: 20px;
@@ -169,7 +163,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* SLIDER (Contracts Section) */
     .slider-container {
       position: relative;
       margin: 2rem auto;
@@ -199,17 +192,6 @@
       transition: width 0.3s ease, background 0.3s ease;
       z-index: 2;
     }
-    .slider-point {
-      position: absolute;
-      top: 50%;
-      width: 16px;
-      height: 16px;
-      background: var(--white);
-      border: 2px solid var(--primary-color);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 3;
-    }
     .slider {
       width: 100%;
       height: 36px;
@@ -232,7 +214,6 @@
       transform: scale(1.1);
     }
 
-    /* Toggle Options */
     .toggle-container {
       display: flex;
       justify-content: center;
@@ -262,7 +243,6 @@
       margin-left: 0.5rem;
     }
 
-    /* CAROUSEL (Accommodations) */
     .carousel-container {
       position: relative;
       overflow: hidden;
@@ -336,7 +316,6 @@
       color: var(--text-light);
     }
 
-    /* SERVICES Section - Modern Carousel */
     #maneira-de-cuidar .services-carousel-wrapper {
       position: relative;
       overflow: hidden;
@@ -388,7 +367,6 @@
       right: 8px;
     }
 
-    /* SOBRE NÓS Section */
     .sobre-unificado .section-content {
       display: flex;
       flex-wrap: wrap;
@@ -405,7 +383,6 @@
       border-radius: 8px;
     }
 
-    /* CONTACT Section */
     .contact {
       padding: 6rem 0 4rem;
       background: var(--bg-color);
@@ -494,7 +471,6 @@
       border: 0;
     }
 
-    /* FOOTER */
     footer {
       background: var(--footer-bg);
       color: var(--white);
@@ -540,7 +516,6 @@
       padding-top: 1rem;
     }
 
-    /* FLOATING WHATSAPP BUTTON */
     .float-contact {
       position: fixed;
       bottom: 16px;
@@ -566,7 +541,6 @@
       transform: scale(1.1);
     }
 
-    /* RESPONSIVE DESIGN */
     @media (max-width: 768px) {
       .hero-content h2 {
         font-size: 2.5rem;
@@ -605,11 +579,10 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="header-container">
       <div class="logo">
-        <img src="logo.jpg" alt="Jardim do Sol Logo">
+        <img src="logo.jpg" alt="Jardim do Sol Logo" loading="lazy">
         <div class="logo-text">
           <h1>Jardim do Sol</h1>
           <p class="tagline">Cuidado, Conforto e Longevidade</p>
@@ -618,29 +591,56 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <!-- HERO -->
     <section class="hero">
-      <div font-weight:bold; margin-bottom:1.2rem; font-size:1.02rem;">
-        Qual a situação de saúde do seu familiar?
-      </label>
-      <div class="highlight" id="descricaoNivel"></div>
-      <div class="slider-container">
-        <div class="slider-track-bg"></div>
-        <div class="slider -->
-    <div class="toggle-container">
-      <button class="toggle-option active" onclick="setFrequencia('semestral')">
-        Semestral <div class="badge">30% off</div>
-      </button>
-      <button class="toggle-option-top:20px;">
-      <h2>Acomodações</h2>
-      <p>Temos 3 tipos de acomodações: Quartos Individuais, Duplos e Triplos.</p>
-      <div class="carousel-container" id="carouselContainer">
-        <button class="carousel-arrow left" id="carouselPrevBtn">&#8592;</button>
-        <div class="carousel-track" id="carouselTrack"></div>
-        <button class="carousel-arrow right" id="carouselNextBtn">&#8593>Lar de Idosos</h3>
-                <p>Promovemos autonomia e bem-estar, respeitando a individualidade de cada residente.</p>
+      <div class="hero-content">
+        <h2>Cuidados Personalizados para a Terceira Idade</h2>
+        <p>Oferecemos um ambiente acolhedor e seguro, com atendimento humanizado e especializado.</p>
+        <a href="#contratos" class="btn">Saiba Mais</a>
+      </div>
+    </section>
+
+    <section class="section" id="contratos">
+      <div class="container">
+        <div class="card">
+          <h2>Contratos</h2>
+          <p>Escolha o nível de cuidados e o tipo de acomodação que melhor atendem às suas necessidades.</p>
+          <label for="nivelCuidados" style="font-weight: bold; margin-bottom: 1.2rem; font-size: 1.02rem;">
+            Qual a situação de saúde do seu familiar?
+          </label>
+          <div class="highlight" id="descricaoNivel"></div>
+          <div class="slider-container">
+            <div class="slider-track-bg"></div>
+            <div class="slider-track-fill" id="sliderFill"></div>
+            <input type="range" min="1" max="3" value="1" id="nivelCuidados" class="slider" aria-label="Nível de Cuidados">
+          </div>
+          <div class="toggle-container">
+            <button class="toggle-option active" onclick="setFrequencia('semestral')" aria-pressed="true">Semestral <div class="badge">30% off</div></button>
+            <button class="toggle-option" onclick="setFrequencia('trimestral')" aria-pressed="false">Trimestral <div class="badge">15% off</div></button>
+            <button class="toggle-option" onclick="setFrequencia('mensal')" aria-pressed="false">Mensal</button>
+          </div>
+          <div class="carousel-container" id="carouselContainer">
+            <button class="carousel-arrow left" id="carouselPrevBtn" aria-label="Anterior">←</button>
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button class="carousel-arrow right" id="carouselNextBtn" aria-label="Próximo">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="maneira-de-cuidar">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossa Maneira de Cuidar</h2>
+        </div>
+        <div class="services-carousel-wrapper">
+          <button class="services-carousel-btn prev" onclick="servicePrev()" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+          <div class="services-carousel">
+            <div class="service-card">
+              <img src="lar.jpg" alt="Lar de Idosos" style="width:100%; height:180px; object-fit:cover;" loading="lazy">
+              <div class="service-content" style="padding:1rem;">
+                <h3>Lar de Idosos</h3>
+                <p>Promovemos autonomia e bem-estar, respeitando a individualidade.</p>
                 <ul style="list-style: disc; margin-left:1.5rem;">
                   <li>Dinâmicas de grupo</li>
                   <li>Atividades adaptadas</li>
@@ -650,12 +650,11 @@
                 </ul>
               </div>
             </div>
-            <!-- Service Card 2 -->
             <div class="service-card">
-              <img src="medico.jpg" alt="Equipe Médica" style="width:100%; height:180px; object-fit:cover;">
+              <img src="medico.jpg" alt="Equipe Médica" style="width:100%; height:180px; object-fit:cover;" loading="lazy">
               <div class="service-content" style="padding:1rem;">
                 <h3>Equipe de Saúde</h3>
-                <p>Atendimento 24h com profissionais especializados garantindo cuidado integral.</p>
+                <p>Atendimento 24h com profissionais especializados.</p>
                 <ul style="list-style: disc; margin-left:1.5rem;">
                   <li>Médico Geriatra & Pneumologista</li>
                   <li>Enfermagem 24h</li>
@@ -666,12 +665,11 @@
                 </ul>
               </div>
             </div>
-            <!-- Service Card 3 -->
             <div class="service-card">
-              <img src="food1.jpg" alt="Alimentação & Nutrição" style="width:100%; height:180px; object-fit:cover;">
+              <img src="food1.jpg" alt="Alimentação & Nutrição" style="width:100%; height:180px; object-fit:cover;" loading="lazy">
               <div class="service-content" style="padding:1rem;">
                 <h3>Alimentação & Nutrição</h3>
-                <p>Seis refeições diárias com menu personalizado e ingredientes frescos.</p>
+                <p>Seis refeições diárias com menu personalizado.</p>
                 <ul style="list-style: disc; margin-left:1.5rem;">
                   <li>Refeições balanceadas</li>
                   <li>Ingredientes sazonais</li>
@@ -680,12 +678,11 @@
                 </ul>
               </div>
             </div>
-            <!-- Service Card 4 -->
             <div class="service-card">
-              <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos" style="width:100%; height:180px; object-fit:cover;">
+              <img src="poscirurgico.jpg" alt="Cuidados Pós-Cirúrgicos" style="width:100%; height:180px; object-fit:cover;" loading="lazy">
               <div class="service-content" style="padding:1rem;">
                 <h3>Cuidados Pós-Cirúrgicos</h3>
-                <p>Acompanhamento especializado para uma recuperação segura e confortável.</p>
+                <p>Acompanhamento para uma recuperação segura.</p>
                 <ul style="list-style: disc; margin-left:1.5rem;">
                   <li>Monitoramento</li>
                   <li>Fisioterapia</li>
@@ -695,14 +692,11 @@
               </div>
             </div>
           </div>
-          <button class="services-carousel-btn next" onclick="serviceNext()" aria-label="Próximo">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+          <button class="services-carousel-btn next" onclick="serviceNext()" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE NÓS -->
     <section class="section sobre-unificado" id="sobre">
       <div class="container">
         <div class="section-header">
@@ -717,54 +711,32 @@
           </div>
           <div class="section-text">
             <h3>Nossa História, Filosofia e Valores</h3>
-            <p>
-              Com mais de 25 anos de experiência, o Residencial Jardim do Sol tornou-se referência em cuidado geriátrico, oferecendo um ambiente acolhedor, seguro e integrado ao bem-estar.
-            </p>
-            <p>
-              Nosso modelo de atendimento valoriza corpo, mente e emoções, com respeito e personalização para cada residente. Aqui, cada cuidado é pensado para promover dignidade e qualidade de vida.
-            </p>
+            <p>Com mais de 25 anos de experiência, o Residencial Jardim do Sol é referência em cuidado geriátrico.</p>
+            <p>Valorizamos corpo, mente e emoções, promovendo dignidade e qualidade de vida.</p>
           </div>
           <div class="section-media">
-            <img src="banner.png" alt="Residencial Jardim do Sol">
+            <img src="banner.png" alt="Residencial Jardim do Sol" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="container">
         <div class="contact-grid">
           <div class="contact-info">
             <h3>Informações de Contato</h3>
             <ul class="contact-list">
-              <li>
-                <a href="tel:+555133076000" class="contact-btn">
-                  <i class="fas fa-phone-alt"></i>
-                  <span>Ligar para (51) 3307-6000</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/555197879151" class="contact-btn" target="_blank" rel="noopener">
-                  <i class="fab fa-whatsapp"></i>
-                  <span>Conversar via WhatsApp</span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:contato@jardimdosolgeriatria.com" class="contact-btn">
-                  <i class="fas fa-envelope"></i>
-                  <span>Enviar Email</span>
-                </a>
-              </li>
+              <li><a href="tel:+555133076000" class="contact-btn"><i class="fas fa-phone-alt"></i><span>Ligar para (51) 3307-6000</span></a></li>
+              <li><a href="https://wa.me/555197879151" class="contact-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Conversar via WhatsApp</span></a></li>
+              <li><a href="mailto:contato@jardimdosolgeriatria.com" class="contact-btn"><i class="fas fa-envelope"></i><span>Enviar Email</span></a></li>
               <li>
                 <div class="address-block">
                   <i class="fas fa-map-marker-alt"></i>
                   <div>
                     <strong>Endereço:</strong>
                     <p>Rua Dom Jaime de Barros Câmara, 165<br>Sarandi, Porto Alegre - RS</p>
-                    <a href="https://maps.app.goo.gl/CLHg7zyiVavCG1eV9" target="_blank" rel="noopener" class="map-link">
-                      <i class="fas fa-location-arrow"></i> Abrir no Google Maps
-                    </a>
+                    <a href="https://maps.app.goo.gl/CLHg7zyiVavCG1eV9" target="_blank" rel="noopener" class="map-link"><i class="fas fa-location-arrow"></i> Abrir no Google Maps</a>
                   </div>
                 </div>
               </li>
@@ -772,9 +744,7 @@
           </div>
           <div class="contact-map">
             <div class="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.335185808758!2d-51.13798142453875!3d-30.00672777494098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951978f88106b2c5%3A0x7e8c9d5b3d0f1a99!2sResidencial%20Geri%C3%A1trico%20Jardim%20do%20Sol!5e0!3m2!1spt-BR!2sbr!4v1687877109065!5m2!1spt-BR!2sbr"
-                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.335185808758!2d-51.13798142453875!3d-30.00672777494098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951978f88106b2c5%3A0x7e8c9d5b3d0f1a99!2sResidencial%20Geri%C3%A1trico%20Jardim%20do%20Sol!5e0!3m2!1spt-BR!2sbr!4v1687877109065!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -782,14 +752,10 @@
     </section>
   </main>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
   <div class="float-contact">
-    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/555197879151" class="float-btn" target="_blank" rel="noopener" aria-label="Conversar via WhatsApp"><i class="fab fa-whatsapp"></i></a>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -799,41 +765,29 @@
       <div class="footer-col">
         <h3>Redes Sociais</h3>
         <div class="social-links">
-          <a href="https://www.facebook.com/geriatriajardimdosol" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/jardimdosolgeriatria" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://wa.me/555197879151" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+          <a href="https://www.facebook.com/geriatriajardimdosol" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jardimdosolgeriatria" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/555197879151" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </div>
     <div class="copyright">
-      <p>&copy; Jardim do Sol Geriatria. Todos os direitos reservados.</p>
+      <p>© Jardim do Sol Geriatria. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script>
-    /* Slider Functions for Contracts Section */
     function atualizarSliderPreenchimento() {
       const slider = document.getElementById("nivelCuidados");
       const fill = document.getElementById("sliderFill");
       const min = parseInt(slider.min, 10);
       const max = parseInt(slider.max, 10);
       const val = parseInt(slider.value, 10);
-      const percent = ((val - min) / (max - min));
-      fill.style.width = `${percent * 100}%`;
-      // Update fill color based on level
-      if (val === 1) {
-        fill.style.background = "linear-gradient(90deg, #36a165 0%, #36a165 100%)";
-      } else if (val === 2) {
-        fill.style.background = "linear-gradient(90deg, #36a165 0%, #FFC300 100%)";
-      } else {
-        fill.style.background = "linear-gradient(90deg, #C62828 0%, #C62828 100%)";
-      }
+      const percent = ((val - min) / (max - min)) * 100;
+      fill.style.width = `${percent}%`;
+      fill.style.background = val === 1 ? "linear-gradient(90deg, #36a165 0%, #36a165 100%)" :
+                             val === 2 ? "linear-gradient(90deg, #36a165 0%, #FFC300 100%)" :
+                             "linear-gradient(90deg, #C62828 0%, #C62828 100%)";
     }
 
     let frequencia = 'semestral';
@@ -843,18 +797,9 @@
       { cod: "q1", label: "Quarto Individual", img: "quarto1.jpg" }
     ];
     const niveisResumo = [
-      {
-        titulo: "Paciente com baixa complexidade",
-        descricao: "Seu familiar é independente na maioria das atividades, necessitando apenas de supervisão leve."
-      },
-      {
-        titulo: "Paciente com média complexidade",
-        descricao: "Seu familiar requer auxílio parcial em tarefas diárias, como higiene e mobilidade."
-      },
-      {
-        titulo: "Paciente com alta complexidade",
-        descricao: "Seu familiar necessita de suporte contínuo e cuidados intensivos."
-      }
+      { titulo: "Paciente com baixa complexidade", descricao: "Independente na maioria das atividades, com supervisão leve." },
+      { titulo: "Paciente com média complexidade", descricao: "Requer auxílio parcial em tarefas diárias." },
+      { titulo: "Paciente com alta complexidade", descricao: "Necessita de suporte contínuo e cuidados intensivos." }
     ];
     const roomBase = { q3: 3000, q2: 3500, q1: 4000 };
     const complexityMultipliers = [1.00, 1.15, 1.30];
@@ -878,50 +823,38 @@
       const carouselTrack = document.getElementById('carouselTrack');
       carouselTrack.innerHTML = '';
       quartos.forEach((quarto) => {
-        let precoMensal = roomBase[quarto.cod] *
-                          complexityMultipliers[nivel - 1] *
-                          frequencyMultipliers[frequencia];
+        let precoMensal = roomBase[quarto.cod] * complexityMultipliers[nivel - 1] * frequencyMultipliers[frequencia];
         const mesesPlano = mesesPorPlano[frequencia];
         const precoTotal = Math.round(precoMensal * mesesPlano);
         const perfil = niveisResumo[nivel - 1];
-        const mensagem = `Olá! Gostaria de avançar na contratação para meu familiar.
-Quarto: ${quarto.label}
-Perfil: ${perfil.titulo}
-${perfil.descricao}
-Período: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}
-
-Por favor, envie orientações sobre os próximos passos.`;
+        const mensagem = `Olá! Gostaria de avançar na contratação para meu familiar.\nQuarto: ${quarto.label}\nPerfil: ${perfil.titulo}\n${perfil.descricao}\nPeríodo: ${frequencia.charAt(0).toUpperCase() + frequencia.slice(1)}\n\nPor favor, envie orientações sobre os próximos passos.`;
         const linkWhats = `https://wa.me/555197879151?text=${encodeURIComponent(mensagem)}`;
 
         const card = document.createElement('div');
         card.className = 'plano-card';
         card.innerHTML = `
-          <img src="${quarto.img}" alt="${quarto.label}">
+          <img src="${quarto.img}" alt="${quarto.label}" loading="lazy">
           <h3>${quarto.label}</h3>
           <div class="preco-profissional">
-            <span class="preco-mensal">
-              ${mesesPlano > 1 ? `<strong>${mesesPlano}x</strong> de ` : ''}${precoMensal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}
-            </span>
-            <span class="preco-total">
-              Valor total do contrato: <strong>${precoTotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong>
-            </span>
-            <span class="preco-obs">
-              * sujeito a alterações
-            </span>
+            <span class="preco-mensal">${mesesPlano > 1 ? `<strong>${mesesPlano}x</strong> de ` : ''}${precoMensal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
+            <span class="preco-total">Valor total: <strong>${precoTotal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</strong></span>
+            <span class="preco-obs">* sujeito a alterações</span>
           </div>
-          <a href="${linkWhats}" class="btn-primary" target="_blank">Conversar no WhatsApp</a>
+          <a href="${linkWhats}" class="btn-primary" target="_blank" rel="noopener">Conversar no WhatsApp</a>
         `;
         carouselTrack.appendChild(card);
       });
-      setTimeout(() => moveCarousel(currentIndex), 0);
+      moveCarousel(currentIndex);
     }
 
     function setFrequencia(tipo) {
       frequencia = tipo;
       document.querySelectorAll('.toggle-option').forEach(btn => {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
         if (btn.textContent.toLowerCase().includes(tipo)) {
           btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
         }
       });
       atualizarCarousel();
@@ -943,28 +876,10 @@ Por favor, envie orientações sobre os próximos passos.`;
       currentIndex = index;
       carouselTrack.style.transform = `translateX(-${index * cardWidth}px)`;
 
-      document.getElementById('carouselPrevBtn').style.visibility = (currentIndex === 0) ? "hidden" : "visible";
-      document.getElementById('carouselNextBtn').style.visibility = (currentIndex >= (cards.length - visible)) ? "hidden" : "visible";
+      document.getElementById('carouselPrevBtn').style.visibility = currentIndex === 0 ? "hidden" : "visible";
+      document.getElementById('carouselNextBtn').style.visibility = currentIndex >= (cards.length - visible) ? "hidden" : "visible";
     }
 
-    /* Accommodations Carousel Functions */
-    let currentAcomodacao = 0;
-    const acomodacoesSlides = document.querySelectorAll('.acomodacoes-slide');
-    function showAcomodacao(index) {
-      acomodacoesSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
-    function acomodacoesPrev() {
-      currentAcomodacao = (currentAcomodacao - 1 + acomodacoesSlides.length) % acomodacoesSlides.length;
-      showAcomodacao(currentAcomodacao);
-    }
-    function acomodacoesNext() {
-      currentAcomodacao = (currentAcomodacao + 1) % acomodacoesSlides.length;
-      showAcomodacao(currentAcomodacao);
-    }
-
-    /* Services Carousel Functions */
     let currentService = 0;
     const serviceCards = document.querySelectorAll('#maneira-de-cuidar .service-card');
     const serviceCarousel = document.querySelector('#maneira-de-cuidar .services-carousel');
@@ -987,13 +902,13 @@ Por favor, envie orientações sobre os próximos passos.`;
       atualizarDescricaoNivel();
       atualizarSliderPreenchimento();
       atualizarCarousel();
-      document.getElementById("nivelCuidados").addEventListener('input', function() {
+      document.getElementById("nivelCuidados").addEventListener('input', () => {
         atualizarDescricaoNivel();
         atualizarSliderPreenchimento();
         atualizarCarousel();
       });
-      document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
-      document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
+      document.getElementById('carouselPrevBtn').addEventListener('click', () => moveCarousel(currentIndex - 1));
+      document.getElementById('carouselNextBtn').addEventListener('click', () => moveCarousel(currentIndex + 1));
     });
   </script>
 </body>
