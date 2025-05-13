@@ -1,64 +1,14 @@
-
-
-// Variáveis do carrossel de acomodações
-let acomIndex = 0;
-const slides = document.querySelectorAll('.acomodacoes-slide');
-let acomTimer = null;
-let acomUserPaused = false;
-let acomPauseTimeout = null;
-
-// Mostra o slide atual no carrossel de acomodações
-function showAcomSlide(n) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === n);
-  });
-}
-
-// Avança para o próximo slide
-function acomodacoesNext() {
-  acomIndex = (acomIndex + 1) % slides.length;
-  showAcomSlide(acomIndex);
-}
-
-// Volta ao slide anterior
-function acomodacoesPrev() {
-  acomIndex = (acomIndex - 1 + slides.length) % slides.length;
-  showAcomSlide(acomIndex);
-}
-
-// Inicia o autoplay do carrossel (6 segundos por slide)
-function startAcomTimer() {
-  if (acomTimer) clearInterval(acomTimer);
-  acomTimer = setInterval(() => {
-    if (!acomUserPaused) {
-      acomodacoesNext();
-    }
-  }, 6000);
-}
-
-// Pausa o autoplay por 12 segundos após interação do usuário
-function pauseAcomAutoplayOnUserAction() {
-  acomUserPaused = true;
-  if (acomPauseTimeout) clearTimeout(acomPauseTimeout);
-  acomPauseTimeout = setTimeout(() => {
-    acomUserPaused = false;
-  }, 12000);
-}
-
-// Adiciona eventos aos botões de navegação do carrossel de acomodações
-document.querySelector('.acomodacoes-carousel-btn.next').addEventListener('click', () => {
-  acomodacoesNext();
-  pauseAcomAutoplayOnUserAction();
-});
-document.querySelector('.acomodacoes-carousel-btn.prev').addEventListener('click', () => {
-  acomodacoesPrev();
-  pauseAcomAutoplayOnUserAction();
-});
-
-// Inicializa o carrossel de acomodações
-showAcomSlide(acomIndex);
-startAcomTimer();
-
+// Facebook Pixel (Meta Pixel) -----------------------------
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1729771167889310');
+fbq('track', 'PageView');
 
 // ========================================================
 // CARROSSEL DOS SERVIÇOS
@@ -97,18 +47,6 @@ function handleResizeServices() {
 }
 handleResizeServices();
 window.addEventListener('resize', handleResizeServices);
-
-// Facebook Pixel (Meta Pixel) -----------------------------
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1729771167889310');
-fbq('track', 'PageView');
 
 // ========================================================
 // CARROSSEL DE ACOMODAÇÕES - AUTO-PLAY + PAUSA EM CLIQUE
@@ -258,6 +196,68 @@ Por favor, envie orientações sobre os próximos passos.`;
       document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
       document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
     });
+
+
+// Variáveis do carrossel de acomodações
+let acomIndex = 0;
+const slides = document.querySelectorAll('.acomodacoes-slide');
+let acomTimer = null;
+let acomUserPaused = false;
+let acomPauseTimeout = null;
+
+// Mostra o slide atual no carrossel de acomodações
+function showAcomSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === n);
+  });
+}
+
+// Avança para o próximo slide
+function acomodacoesNext() {
+  acomIndex = (acomIndex + 1) % slides.length;
+  showAcomSlide(acomIndex);
+}
+
+// Volta ao slide anterior
+function acomodacoesPrev() {
+  acomIndex = (acomIndex - 1 + slides.length) % slides.length;
+  showAcomSlide(acomIndex);
+}
+
+// Inicia o autoplay do carrossel (6 segundos por slide)
+function startAcomTimer() {
+  if (acomTimer) clearInterval(acomTimer);
+  acomTimer = setInterval(() => {
+    if (!acomUserPaused) {
+      acomodacoesNext();
+    }
+  }, 6000);
+}
+
+// Pausa o autoplay por 12 segundos após interação do usuário
+function pauseAcomAutoplayOnUserAction() {
+  acomUserPaused = true;
+  if (acomPauseTimeout) clearTimeout(acomPauseTimeout);
+  acomPauseTimeout = setTimeout(() => {
+    acomUserPaused = false;
+  }, 12000);
+}
+
+// Adiciona eventos aos botões de navegação do carrossel de acomodações
+document.querySelector('.acomodacoes-carousel-btn.next').addEventListener('click', () => {
+  acomodacoesNext();
+  pauseAcomAutoplayOnUserAction();
+});
+document.querySelector('.acomodacoes-carousel-btn.prev').addEventListener('click', () => {
+  acomodacoesPrev();
+  pauseAcomAutoplayOnUserAction();
+});
+
+// Inicializa o carrossel de acomodações
+showAcomSlide(acomIndex);
+startAcomTimer();
+
+
 
 // ========================================================
 // SCRIPT DE INTEGRAÇÃO LEADSTER (WHATSAPP POPUP)
