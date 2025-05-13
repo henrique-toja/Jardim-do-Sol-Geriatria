@@ -1,4 +1,4 @@
-// Facebook Pixel (Meta Pixel) -----------------------------
+// Facebook Pixel (Meta Pixel)
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let acomIndex = slides.findIndex(slide => slide.classList.contains('active'));
   if (acomIndex === -1) acomIndex = 0;
 
+  let acomAutoPlayTimer = null;
+
   function showAcomSlide(n) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === n);
@@ -26,17 +28,31 @@ document.addEventListener('DOMContentLoaded', function () {
   function acomodacoesNext() {
     acomIndex = (acomIndex + 1) % slides.length;
     showAcomSlide(acomIndex);
+    restartAcomAutoPlay();
   }
 
   function acomodacoesPrev() {
     acomIndex = (acomIndex - 1 + slides.length) % slides.length;
     showAcomSlide(acomIndex);
+    restartAcomAutoPlay();
+  }
+
+  function acomAutoPlay() {
+    acomIndex = (acomIndex + 1) % slides.length;
+    showAcomSlide(acomIndex);
+    acomAutoPlayTimer = setTimeout(acomAutoPlay, 6000);
+  }
+
+  function restartAcomAutoPlay() {
+    clearTimeout(acomAutoPlayTimer);
+    acomAutoPlayTimer = setTimeout(acomAutoPlay, 6000);
   }
 
   document.querySelector('.acomodacoes-carousel-btn.next').addEventListener('click', acomodacoesNext);
   document.querySelector('.acomodacoes-carousel-btn.prev').addEventListener('click', acomodacoesPrev);
 
   showAcomSlide(acomIndex);
+  acomAutoPlayTimer = setTimeout(acomAutoPlay, 6000);
 
   // --------- Carrossel dos Serviços ---------
   const serviceCards = Array.from(document.querySelectorAll('.services-carousel .service-card'));
@@ -73,4 +89,15 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', handleResizeServices);
 });
 
-(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","n1KtVCoHGEyvTCCNhhJf9P6p3")
+// Leadster Neurolead
+(function(a,b,c,d){
+  try{
+    var e=b.head||b.getElementsByTagName("head")[0];
+    var f=b.createElement("script");
+    f.setAttribute("src",c);
+    f.setAttribute("charset","UTF-8");
+    f.defer=true;
+    a.neuroleadId=d;
+    e.appendChild(f)
+  }catch(g){}
+})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","n1KtVCoHGEyvTCCNhhJf9P6p3")
