@@ -608,32 +608,32 @@
       padding-top: 1rem;
     }
     
+./* Botão flutuante WhatsApp */
+.float-contact {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+
 .float-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: #25D366 !important;       /* Cor oficial do WhatsApp */
-  color: var(--white);
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  color: #fff;
   border-radius: 50%;
-  font-size: 1.3rem;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-base);
+  font-size: 2rem;
+  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
   text-decoration: none;
+  transition: background .2s, transform .2s;
 }
-
 
 .float-btn:hover {
-  background: #1ebe5b !important;         /* Tom mais escuro para hover */
-  transform: scale(1.1);
-}
-
-.float-contact {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;   /* <-- Isto faz o botão ficar no canto inferior direito */
-  z-index: 1000;
+  background: #128C7E;
+  transform: scale(1.08);
 }
 
     @media (max-width: 768px) {
