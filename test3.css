@@ -782,3 +782,53 @@ footer {
       right: 16px;
       z-index: 999;
     }
+
+/* Estilo para a seção Sobre Nós */
+.sobre-unificado .section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sobre-unificado .section-media {
+  width: 100%;
+}
+
+.sobre-unificado .section-media video,
+.sobre-unificado .section-media img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.sobre-unificado .section-text {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.sobre-unificado .section-text h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.sobre-unificado .section-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Media Query para responsividade */
+@media (max-width: 768px) {
+  .sobre-unificado .section-text {
+    padding: 1.5rem;
+  }
+  
+  .sobre-unificado .section-text h3 {
+    font-size: 1.3rem;
+  }
+}
