@@ -607,8 +607,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       padding-top: 1rem;
     }
-
-    
     
 .float-btn {
   display: flex;
@@ -616,7 +614,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: #25D366;          /* Cor oficial do WhatsApp */
+  background: #25D366 !important;       /* Cor oficial do WhatsApp */
   color: var(--white);
   border-radius: 50%;
   font-size: 1.3rem;
@@ -627,7 +625,7 @@
 
 
 .float-btn:hover {
-  background: #1ebe5b;          /* Tom mais escuro para hover */
+  background: #1ebe5b !important;         /* Tom mais escuro para hover */
   transform: scale(1.1);
 }
 
