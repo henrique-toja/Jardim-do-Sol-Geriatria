@@ -979,3 +979,13 @@
     max-width: 300px;
   }
 }
+
+
+@media (max-width: 1023px) {
+  #maneira-de-cuidar .services-carousel .service-card {
+    display: none;
+  }
+  #maneira-de-cuidar .services-carousel .service-card.active {
+    display: block;
+  }
+}
