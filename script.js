@@ -9,6 +9,66 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1729771167889310');
 fbq('track', 'PageView');
 
+// Carrossel de Acomodações com auto-play e pausa em interação
+
+let acomIndex = 0;
+const slides = document.querySelectorAll('.acomodacoes-slide');
+let acomTimer = null;
+let acomUserPaused = false;
+let acomPauseTimeout = null;
+
+// Função para mostrar o slide atual
+function showAcomSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === n);
+  });
+}
+
+// Próximo slide
+function acomodacoesNext() {
+  acomIndex = (acomIndex + 1) % slides.length;
+  showAcomSlide(acomIndex);
+}
+
+// Slide anterior
+function acomodacoesPrev() {
+  acomIndex = (acomIndex - 1 + slides.length) % slides.length;
+  showAcomSlide(acomIndex);
+}
+
+// Inicia o autoplay
+function startAcomTimer() {
+  if (acomTimer) clearInterval(acomTimer);
+  acomTimer = setInterval(() => {
+    if (!acomUserPaused) {
+      acomodacoesNext();
+    }
+  }, 6000); // 6 segundos
+}
+
+// Para o autoplay temporariamente após interação do usuário
+function pauseAcomAutoplayOnUserAction() {
+  acomUserPaused = true;
+  if (acomPauseTimeout) clearTimeout(acomPauseTimeout);
+  acomPauseTimeout = setTimeout(() => {
+    acomUserPaused = false;
+  }, 12000); // 12 segundos de pausa após interação
+}
+
+// Eventos das setas
+document.querySelector('.acomodacoes-carousel-btn.next').addEventListener('click', () => {
+  acomodacoesNext();
+  pauseAcomAutoplayOnUserAction();
+});
+document.querySelector('.acomodacoes-carousel-btn.prev').addEventListener('click', () => {
+  acomodacoesPrev();
+  pauseAcomAutoplayOnUserAction();
+});
+
+// Inicialização
+showAcomSlide(acomIndex);
+startAcomTimer();
+
   // Frequência padrão alterada para 'semestral'
   let frequencia = 'semestral';
   const quartos = [
