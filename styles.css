@@ -17,6 +17,13 @@
       --gradient-hero: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
       --transition-base: all 0.35s ease;
     }
+     --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+      --slider-bg: linear-gradient(90deg, #48bb78 0%, #FFD600 50%, #E53935 100%);
+      --slider-fill-green: linear-gradient(90deg, #36a165 0%, #36a165 100%);
+      --slider-fill-yellow: linear-gradient(90deg, #36a165 0%, #FFC300 100%);
+      --slider-fill-red: linear-gradient(90deg, #C62828 0%, #C62828 100%);
+      --slider-thumb: #fff;
+      --slider-thumb-border: #111;
 
     * {
       margin: 0;
