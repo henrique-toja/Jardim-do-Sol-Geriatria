@@ -50,34 +50,33 @@ acomodacoesSlides.forEach(slide => {
 startAcomodacoesAuto();
 
 
-// Carrossel de Serviços
 const serviceCards = document.querySelectorAll('.service-card');
 const servicesPrev = document.querySelector('.services-carousel-btn.prev');
 const servicesNext = document.querySelector('.services-carousel-btn.next');
 const servicesCarousel = document.querySelector('.services-carousel');
 let serviceCurrent = 0;
 
-function showServiceCard(idx) {
-  // Mostra só 1 card por vez, mas pode ser adaptado para mostrar mais
-  serviceCards.forEach((card, i) => {
-    card.style.display = (i === idx) ? 'block' : 'none';
+function updateServiceCarousel() {
+  // Move o carrossel para mostrar o card atual + metade do próximo
+  const cardWidth = 320 + 20; // card + margin
+  servicesCarousel.scrollTo({
+    left: serviceCurrent * cardWidth,
+    behavior: 'smooth'
   });
-  serviceCurrent = idx;
 }
 
-function nextServiceCard() {
-  let idx = (serviceCurrent + 1) % serviceCards.length;
-  showServiceCard(idx);
-}
-
-function prevServiceCard() {
-  let idx = (serviceCurrent - 1 + serviceCards.length) % serviceCards.length;
-  showServiceCard(idx);
-}
-
-servicesNext.addEventListener('click', nextServiceCard);
-servicesPrev.addEventListener('click', prevServiceCard);
+servicesNext.addEventListener('click', () => {
+  if (serviceCurrent < serviceCards.length - 1) {
+    serviceCurrent++;
+    updateServiceCarousel();
+  }
+});
+servicesPrev.addEventListener('click', () => {
+  if (serviceCurrent > 0) {
+    serviceCurrent--;
+    updateServiceCarousel();
+  }
+});
 
 // Inicialização
-showAcomodacoesSlide(0);
-showServiceCard(0);
+updateServiceCarousel();
