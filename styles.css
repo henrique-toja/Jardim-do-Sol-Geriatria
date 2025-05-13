@@ -629,6 +629,13 @@
   transform: scale(1.1);
 }
 
+.float-contact {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;   /* <-- Isto faz o botão ficar no canto inferior direito */
+  z-index: 1000;
+}
+
     @media (max-width: 768px) {
       .hero-content h2 {
         font-size: 2.5rem;
