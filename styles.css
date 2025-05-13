@@ -410,143 +410,93 @@
   }
 }
 
-.contact {
-  padding: 6rem 0 4rem;
-  background: var(--bg-color);
-  margin-top: 80px;
-}
-
-.contact-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-  justify-content: center;      /* Centraliza horizontalmente */
-  max-width: 1200px;            /* Limita a largura máxima */
-  margin: 0 auto;               /* Centraliza a grid na página */
-}
-
-.contact-info {
-  flex: 1 1 320px;
-  max-width: 400px;
-}
-
-.contact-info h3 {
-  font-size: 2rem;
-  color: var(--primary-dark);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.contact-list {
-  list-style: none;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.contact-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
-  color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  margin: 0 auto 1rem auto;
-  transition: var(--transition-base);
-  width: 100%;
-}
-
-.contact-btn:hover {
-  background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
-  transform: translateY(-2px);
-}
-
-.contact-btn i {
-  font-size: 1.3rem;
-}
-
-.address-block {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  background: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.address-block i {
-  font-size: 1.5rem;
-  color: var(--primary-dark);
-}
-
-.address-block strong {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.address-block p {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
-.map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-color);
-  font-weight: 600;
-  transition: var(--transition-base);
-}
-
-.map-link:hover {
-  color: var(--primary-dark);
-  transform: translateY(-2px);
-}
-
-.contact-map {
-  flex: 3 1 600px;            /* Mais espaço para o mapa */
-  max-width: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-container {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  margin: 0 auto;
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 400px;
-  border: 0;
-  display: block;
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-  .contact-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact-info, .contact-map {
-    max-width: 100%;
-  }
-  .map-container iframe {
-    height: 300px;
-  }
-}
+    .contact {
+      padding: 6rem 0 4rem;
+      background: var(--bg-color);
+      margin-top: 80px;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .contact-info, .contact-map {
+      flex: 1 1 300px;
+    }
+    .contact-info h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .contact-list {
+      list-style: none;
+    }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
+      color: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: var(--transition-base);
+    }
+    .contact-btn:hover {
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
+      transform: translateY(-2px);
+    }
+    .contact-btn i {
+      font-size: 1.3rem;
+    }
+    .address-block {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+    .address-block i {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+    }
+    .address-block strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .address-block p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-base);
+    }
+    .map-link:hover {
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    .map-container {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
 
     footer {
       background: var(--footer-bg);
@@ -569,37 +519,22 @@
       display: flex;
       gap: 1rem;
     }
-
-.social-links a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-base);
-  text-decoration: none;
-  color: #fff;
-}
-
-/* Facebook */
-.social-links a[aria-label="Facebook"] {
-  background: #1877f3;
-}
-/* Instagram (degradê tradicional) */
-.social-links a[aria-label="Instagram"] {
-  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-/* WhatsApp */
-.social-links a[aria-label="WhatsApp"] {
-  background: #25D366;
-}
-
-.social-links a:hover {
-  filter: brightness(0.9);
-  transform: translateY(-3px);
-}
-
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+      text-decoration: none;
+      color: var(--white);
+    }
+    .social-links a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
     .copyright {
       text-align: center;
       margin-top: 2rem;
@@ -607,39 +542,36 @@
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       padding-top: 1rem;
     }
-    
-/* Botão flutuante WhatsApp */
-.float-contact {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-}
 
-.float-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 2rem;
-  box-shadow: 0 3px 8px rgba(44,82,130,0.16);
-  text-decoration: none;
-  transition: background .2s, transform .2s;
-}
+    .float-contact {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 1000;
+    }
+    .float-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-base);
+      text-decoration: none;
+    }
+    .float-btn:hover {
+      background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
+      transform: scale(1.1);
+    }
 
-.float-btn:hover {
-  background: #128C7E;
-  transform: scale(1.08);
-}
     @media (max-width: 768px) {
       .hero-content h2 {
         font-size: 2.5rem;
       }
-
       .card {
         margin: 1rem;
         padding: 1.5rem;
