@@ -608,30 +608,28 @@
       padding-top: 1rem;
     }
 
-    .float-contact {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 1000;
-    }
-    .float-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(45deg, var(--primary-light), var(--accent-color));
-      color: var(--white);
-      border-radius: 50%;
-      font-size: 1.3rem;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition-base);
-      text-decoration: none;
-    }
-    .float-btn:hover {
-      background: linear-gradient(45deg, var(--primary-dark), var(--accent-color));
-      transform: scale(1.1);
-    }
+    
+    
+.float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #25D366;          /* Cor oficial do WhatsApp */
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+
+.float-btn:hover {
+  background: #1ebe5b;          /* Tom mais escuro para hover */
+  transform: scale(1.1);
+}
 
     @media (max-width: 768px) {
       .hero-content h2 {
