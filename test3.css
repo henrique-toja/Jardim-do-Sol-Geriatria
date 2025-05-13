@@ -1,22 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
-:root {
-  --primary-color: #2C7A7B;
-  --primary-light: #4FD1C5;
-  --primary-dark: #285E61;
-  --secondary-color: #9F7AEA;
-  --accent-color: #38B2AC;
-  --text-color: #2D3748;
-  --text-light: #718096;
-  --bg-color: #F7FAFC;
-  --white: #FFFFFF;
-  --footer-bg: #1A202C;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --gradient-hero: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
-  --transition-base: all 0.35s ease;
-}
+    :root {
+      --primary-color: #2C7A7B;
+      --primary-light: #4FD1C5;
+      --primary-dark: #285E61;
+      --secondary-color: #9F7AEA;
+      --accent-color: #38B2AC;
+      --text-color: #2D3748;
+      --text-light: #718096;
+      --bg-color: #F7FAFC;
+      --white: #FFFFFF;
+      --footer-bg: #1A202C;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --gradient-hero: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
+      --transition-base: all 0.35s ease;
+    }
+     --shadow: 0 2px 8px rgba(44, 82, 130, 0.07);
+      --slider-bg: linear-gradient(90deg, #48bb78 0%, #FFD600 50%, #E53935 100%);
+      --slider-fill-green: linear-gradient(90deg, #36a165 0%, #36a165 100%);
+      --slider-fill-yellow: linear-gradient(90deg, #36a165 0%, #FFC300 100%);
+      --slider-fill-red: linear-gradient(90deg, #C62828 0%, #C62828 100%);
+      --slider-thumb: #fff;
+      --slider-thumb-border: #111;
+
 
 * {
   margin: 0;
