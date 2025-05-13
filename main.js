@@ -17,7 +17,6 @@ function nextAcomodacoesSlide() {
   let idx = (acomodacoesCurrent + 1) % acomodacoesSlides.length;
   showAcomodacoesSlide(idx);
 }
-
 function prevAcomodacoesSlide() {
   let idx = (acomodacoesCurrent - 1 + acomodacoesSlides.length) % acomodacoesSlides.length;
   showAcomodacoesSlide(idx);
@@ -35,7 +34,6 @@ function stopAcomodacoesAuto() {
   clearInterval(acomodacoesTimer);
 }
 
-// Eventos
 acomodacoesNext.addEventListener('click', () => {
   nextAcomodacoesSlide();
   stopAcomodacoesAuto();
@@ -47,6 +45,7 @@ acomodacoesPrev.addEventListener('click', () => {
 acomodacoesSlides.forEach(slide => {
   slide.addEventListener('click', stopAcomodacoesAuto);
 });
+showAcomodacoesSlide(0);
 startAcomodacoesAuto();
 
 
