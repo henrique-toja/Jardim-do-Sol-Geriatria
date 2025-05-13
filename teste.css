@@ -433,3 +433,184 @@
         max-width: 300px;
       }
     }
+
+/* Section Styles */
+.section {
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Acomodações Section */
+#acomodacoes {
+  background: var(--bg-color);
+}
+
+.acomodacoes-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.acomodacoes-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.acomodacoes-slide {
+  width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: var(--transition-base);
+}
+
+.acomodacoes-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-light);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  z-index: 3;
+}
+
+.acomodacoes-carousel-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.acomodacoes-carousel-btn.prev {
+  left: 8px;
+}
+
+.acomodacoes-carousel-btn.next {
+  right: 8px;
+}
+
+/* Services Section */
+.services-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.services-carousel {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  flex: 0 0 300px;
+  transition: var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-content {
+  padding: 1rem;
+}
+
+.services-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-light);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+  z-index: 3;
+}
+
+
+/* Estilo para a seção Sobre Nós */
+.sobre-unificado .section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sobre-unificado .section-media {
+  width: 100%;
+}
+
+.sobre-unificado .section-media video,
+.sobre-unificado .section-media img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.sobre-unificado .section-text {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.sobre-unificado .section-text h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.sobre-unificado .section-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Media Query para responsividade */
+@media (max-width: 768px) {
+  .sobre-unificado .section-text {
+    padding: 1.5rem;
+  }
+
+  .sobre-unificado .section-text h3 {
+    font-size: 1.3rem;
+  }
+}
