@@ -569,22 +569,37 @@
       display: flex;
       gap: 1rem;
     }
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition-base);
-      text-decoration: none;
-      color: var(--white);
-    }
-    .social-links a:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-    }
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Facebook */
+.social-links a[aria-label="Facebook"] {
+  background: #1877f3;
+}
+/* Instagram (degradê tradicional) */
+.social-links a[aria-label="Instagram"] {
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+/* WhatsApp */
+.social-links a[aria-label="WhatsApp"] {
+  background: #25D366;
+}
+
+.social-links a:hover {
+  filter: brightness(0.9);
+  transform: translateY(-3px);
+}
+
     .copyright {
       text-align: center;
       margin-top: 2rem;
