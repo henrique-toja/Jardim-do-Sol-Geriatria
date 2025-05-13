@@ -54,8 +54,8 @@
       padding: 1.2rem 0;
     }
     .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: none;
       padding: 0 2rem;
       display: flex;
       align-items: center;
@@ -96,7 +96,7 @@
       margin-top: 80px;
     }
     .hero-content {
-      max-width: 800px;
+      max-width: 100%;
     }
     .hero-content h2 {
       font-size: 3.5rem;
