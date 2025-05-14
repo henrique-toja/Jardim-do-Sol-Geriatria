@@ -104,9 +104,10 @@
     }
 
     @media (max-width: 768px) {
-      .hero-content h2 {
-        font-size: 2.5rem;
-      }
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+}
 
 
 
@@ -570,7 +571,7 @@ padding-top: 1rem;
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .float-btn {
