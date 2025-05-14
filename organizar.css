@@ -169,14 +169,6 @@
 }
 
 
-   
-  
-
-
-
-  
-
-
 /* Acomodações */
 .acomodacoes-carousel-wrapper {
   display: flex;
@@ -571,7 +563,6 @@ padding-top: 1rem;
     }
 
 
-
 /* Botão flutuante WhatsApp */
 .float-contact {
   position: fixed;
@@ -599,7 +590,3 @@ padding-top: 1rem;
   background: #128C7E;
   transform: scale(1.08);
 }
-    
-      .carousel-container {
-        max-width: 100%;
-      }
