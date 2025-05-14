@@ -171,6 +171,54 @@
 
 
 /* Acomodações */
+
+acomodacoes {
+  padding: 4rem 0;
+  background: var(--bg-color);
+}
+
+acomodacoes .section-header {
+  margin-bottom: 2rem;
+}
+
+acomodacoes .section-text {
+  text-align: left;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+acomodacoes .section-text h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+}
+
+acomodacoes .acomodacoes-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+acomodacoes .acomodacoes-slide:hover {
+  transform: scale(1.02);
+}
+
+acomodacoes .acomodacoes-carousel-btn.prev {
+  left: 8px;
+}
+
+acomodacoes .acomodacoes-carousel-btn.next {
+  right: 8px;
+}
+
+
+
 .acomodacoes-carousel-wrapper {
   display: flex;
   align-items: center;
