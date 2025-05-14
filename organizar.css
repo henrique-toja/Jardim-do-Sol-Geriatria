@@ -169,33 +169,9 @@
 }
 
 
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 2rem auto;
-      box-shadow: var(--shadow-md);
-      max-width: 800px;
-    }
-    .card h2 {
-      color: var(--primary-dark);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .card p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
+   
   
 
-
-     .card {
-        margin: 1rem;
-        padding: 1.5rem;
-      }
-      .carousel-container {
-        max-width: 100%;
-      }
 
 
   
@@ -546,6 +522,15 @@ footer {
     }
 
 
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;   /* Centraliza os ícones no eixo horizontal */
+  flex-wrap: wrap;           /* Permite quebra de linha em telas pequenas */
+  margin-top: 1rem;          /* Espaçamento superior para separar visualmente */
+}
+
+
 .social-links a {
   width: 40px;
   height: 40px;
@@ -556,6 +541,12 @@ footer {
   transition: var(--transition-base);
   text-decoration: none;
   color: #fff;
+}
+
+
+.social-links a:hover {
+  filter: brightness(0.9);
+  transform: translateY(-3px);
 }
 
 /* Facebook */
@@ -571,22 +562,12 @@ footer {
   background: #25D366;
 }
 
-.social-links a:hover {
-  filter: brightness(0.9);
-  transform: translateY(-3px);
-}
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-      .copyright {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      padding-top: 1rem;
+.copyright {
+text-align: center;
+margin-top: 2rem;
+font-size: 0.85rem;
+border-top: 1px solid rgba(255, 255, 255, 0.3);
+padding-top: 1rem;
     }
 
 
@@ -619,3 +600,6 @@ footer {
   transform: scale(1.08);
 }
     
+      .carousel-container {
+        max-width: 100%;
+      }
