@@ -1,15 +1,3 @@
-// Facebook Pixel (Meta Pixel) -----------------------------
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1729771167889310');
-fbq('track', 'PageView');
-
 // Carrossel de Acomodações
 const acomodacoesSlides = document.querySelectorAll('.acomodacoes-slide');
 const acomodacoesPrev = document.querySelector('.acomodacoes-carousel-btn.prev');
@@ -235,5 +223,3 @@ Por favor, envie orientações sobre os próximos passos.`;
       document.getElementById('carouselPrevBtn').onclick = () => moveCarousel(currentIndex - 1);
       document.getElementById('carouselNextBtn').onclick = () => moveCarousel(currentIndex + 1);
     });
-
-(function(a,b,c,d){try{var e=b.head||b.getElementsByTagName("head")[0];var f=b.createElement("script");f.setAttribute("src",c);f.setAttribute("charset","UTF-8");f.defer=true;a.neuroleadId=d;e.appendChild(f)}catch(g){}})(window,document,"https://cdn.leadster.com.br/neurolead/neurolead.min.js","n1KtVCoHGEyvTCCNhhJf9P6p3")
