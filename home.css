@@ -78,7 +78,7 @@
     }
 
     .hero {
-      background: var(--gradient-hero), url('background.jpg') center/cover no-repeat;
+      background: var(--gradient-hero), url('assets/images/background.jpg') center/cover no-repeat;
       min-height: 80vh;
       display: flex;
       align-items: center;
